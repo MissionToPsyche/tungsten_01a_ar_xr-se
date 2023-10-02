@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import "./HomeView.css";
 
 const HomeViewContainer = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="background-image pt-5">
       <h2 className="me-5 ms-5 pt-5">Lorem Ipsum</h2>
@@ -10,8 +14,8 @@ const HomeViewContainer = () => {
         since the
       </p>
       <div className="d-flex flex-column">
-        <button type="button" className="btn btn-primary btn-lg ms-5 me-5 mt-5 mb-5">Start Play</button>
-        <button type="button" className="btn btn-info btn-lg ms-5 me-5">How To Play</button>
+        <button onClick={() => navigate('/ar')} type="button" className="btn btn-primary btn-lg ms-5 me-5 mt-5 mb-5">Start Play</button>
+        <button onClick={() => navigate('/how')} type="button" className="btn btn-info btn-lg ms-5 me-5">How To Play</button>
       </div>
     </div>
   );
