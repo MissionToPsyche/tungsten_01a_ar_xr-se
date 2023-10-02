@@ -1,4 +1,4 @@
-// import "./HomeView.css";
+import "./HomeView.css";
 
 const HomeViewContainer = () => {
   return (
