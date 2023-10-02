@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import CubeContainer from "./components/cube/CubeContainer";
-import XrCubeContainer from "./components/cube/XrCubeContainer";
+import CubeContainer from "./Models/Components/Cube/CubeContainer";
+import XrCubeContainer from "./Models/Components/Cube/XrCubeContainer";
+import HomeViewContainer from "./Views/Home/HomeViewContainer";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<CubeContainer />} />
+      <Route path="/" element={<HomeViewContainer />} />
       <Route path="/cube" element={<CubeContainer />} />
       <Route path="/xr-cube" element={<XrCubeContainer />} />
     </Routes>
