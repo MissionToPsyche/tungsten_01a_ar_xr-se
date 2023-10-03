@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
-const Cube = () => {
+const Cube = ({ position }) => {
   const cubeRef = useRef();
 
   useFrame((state) => {
@@ -13,8 +13,8 @@ const Cube = () => {
     <>
       <OrbitControls />
       <ambientLight />
-      <mesh ref={cubeRef}>
-        <boxGeometry args={[2, 2, 2]} />
+      <mesh ref={cubeRef} position={position}>
+        <boxGeometry args={[0.5, 0.5, 0.5]} />
         <meshStandardMaterial color={"mediumpurple"} />
       </mesh>
     </>
