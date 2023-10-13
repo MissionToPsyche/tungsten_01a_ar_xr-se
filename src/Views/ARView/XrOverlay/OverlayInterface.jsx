@@ -1,4 +1,5 @@
 import React, { forwardRef, useRef, useState } from "react";
+import { BsArrowLeftCircleFill as BackButton, BsInfoCircleFill as InfoButton } from "react-icons/Bs";
 
 const OverlayInterface = forwardRef((props, ref) => {
 
@@ -41,13 +42,14 @@ const OverlayInterface = forwardRef((props, ref) => {
     <div ref={ref}>
       {/* TOP NAVIGATION WITH BUTTONS */}
       <div className="nav-container">
-
+        {/* <button className="left-button"></button> */}
+        <BackButton className="nav-button"/>
+        <InfoButton className="nav-button"/>
       </div>
 
       {/* MIDDLE SECTION CONTAINING THE AR SCREEN */}
       <div className="ar-container">
         <div className="border-inset">
-
         </div>
       </div>
 
