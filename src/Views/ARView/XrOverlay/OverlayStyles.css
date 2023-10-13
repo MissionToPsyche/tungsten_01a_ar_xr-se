@@ -1,3 +1,34 @@
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh; /* TODO: Change this value to better adobt for different screen sizes */
+  background-color: red; /* TODO: Change the background to something more suitable */
+  display: flex;
+  overflow-x: auto;
+}
+
+.ar-container {
+  position: fixed;
+  top: 10vh; /* TODO: Change this value to better adobt for different screen sizes */
+  width: 100%;
+  height: 70vh; /* TODO: Change this value to better adobt for different screen sizes */
+  display: flex;
+  box-shadow: inset 0 0 0 15px #2980b9; /* TODO: Change the background to something more suitable */
+  box-sizing: border-box;
+}
+
+.border-inset {
+  position: fixed;
+  top: 10vh; /* TODO: Change this value to better adobt for different screen sizes */
+  width: 100%;
+  height: 70vh; 
+  display: flex;
+  box-shadow: inset 0 0 0 15px #2980b9; 
+  border-radius: 30px; 
+  box-sizing: border-box;
+}
+
 .bottom-fixed-section {
   position: fixed;
   bottom: 0;

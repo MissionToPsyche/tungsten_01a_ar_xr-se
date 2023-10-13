@@ -38,14 +38,26 @@ const OverlayInterface = forwardRef((props, ref) => {
   // };
 
   return (
-    <div
-      className="bottom-fixed-section"
-      ref={ref}
-    >
-      <div className="button-container">
-        {buttonArray.map((button, index) => (
-          <button className='select-button' key={index}>{button}</button>
-        ))}
+    <div ref={ref}>
+      {/* TOP NAVIGATION WITH BUTTONS */}
+      <div className="nav-container">
+
+      </div>
+
+      {/* MIDDLE SECTION CONTAINING THE AR SCREEN */}
+      <div className="ar-container">
+        <div className="border-inset">
+
+        </div>
+      </div>
+
+      {/* BOTTOM SECTION CONTAINING THE SELECTABLE OBJECTS */}
+      <div className="bottom-fixed-section">
+        <div className="button-container">
+          {buttonArray.map((button, index) => (
+            <button className='select-button' key={index}>{button}</button>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { ARButton, XR } from "@react-three/xr";
 import { useCallback, useState } from "react";
 import { OverlayProvider } from "./XrOverlay/Overlay";
 
-import Interface from "./XrOverlay/Interface";
+import Interface from "./XrOverlay/OverlayInterface";
 import ARView from "./ARView";
 
 import './XrOverlay/OverlayStyles.css'
