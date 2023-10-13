@@ -5,8 +5,29 @@
   height: 10vh; /* TODO: Change this value to better adobt for different screen sizes */
   background-color: red; /* TODO: Change the background to something more suitable */
   display: flex;
-  overflow-x: auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
+
+.nav-button {
+  color: green;
+  font-size: 30px; /* TODO: Adjust this value based on design */
+}
+
+.left-button, .right-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.left-button:hover, .right-button:hover {
+  background-color: #2980b9;
+}
+
+
 
 .ar-container {
   position: fixed;
