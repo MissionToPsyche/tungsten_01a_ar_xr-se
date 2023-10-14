@@ -16,35 +16,14 @@ const OverlayInterface = forwardRef((props, ref) => {
     'Button 10'
   ];
 
-  // const scrollContainerRef = useRef(null);
-  // const [isScrolling, setScrolling] = useState(false);
-  // const [scrollX, setScrollX] = useState(0);
-  // const [startX, setStartX] = useState(0);
-
-  // const handleMouseDown = (e) => {
-  //   setScrolling(true);
-  //   setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-  //   setScrollX(scrollContainerRef.current.scrollLeft);
-  // };
-
-  // const handleMouseUp = () => {
-  //   setScrolling(false);
-  // };
-
-  // const handleMouseMove = (e) => {
-  //   if (!isScrolling) return;
-  //   const x = e.pageX - scrollContainerRef.current.offsetLeft;
-  //   const walk = (x - startX) * 2;
-  //   scrollContainerRef.current.scrollLeft = scrollX - walk;
-  // };
-
   return (
-    <div ref={ref}>
+    <div className="overlay-container" ref={ref}>
+
       {/* TOP NAVIGATION WITH BUTTONS */}
       <div className="nav-container">
         {/* <button className="left-button"></button> */}
-        <BackButton className="nav-button"/>
-        <InfoButton className="nav-button"/>
+        <BackButton className="nav-button" />
+        <InfoButton className="nav-button" />
       </div>
 
       {/* MIDDLE SECTION CONTAINING THE AR SCREEN */}
@@ -61,6 +40,7 @@ const OverlayInterface = forwardRef((props, ref) => {
           ))}
         </div>
       </div>
+
     </div>
   );
 });

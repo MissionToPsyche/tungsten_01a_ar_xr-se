@@ -1,9 +1,13 @@
+.overlay-container {
+  position: fixed;
+}
+
 .nav-container {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 10vh; /* TODO: Change this value to better adobt for different screen sizes */
-  background-color: red; /* TODO: Change the background to something more suitable */
+  height: 10%;
+  background-color: red;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,10 +16,11 @@
 
 .nav-button {
   color: green;
-  font-size: 30px; /* TODO: Adjust this value based on design */
+  font-size: 30px;
 }
 
-.left-button, .right-button {
+.left-button,
+.right-button {
   background-color: #3498db;
   color: white;
   border: none;
@@ -23,41 +28,43 @@
   cursor: pointer;
 }
 
-.left-button:hover, .right-button:hover {
+.left-button:hover,
+.right-button:hover {
   background-color: #2980b9;
 }
 
-
-
 .ar-container {
   position: fixed;
-  top: 10vh; /* TODO: Change this value to better adobt for different screen sizes */
+  top: 10%;
   width: 100%;
-  height: 70vh; /* TODO: Change this value to better adobt for different screen sizes */
+  height: 70%;
   display: flex;
-  box-shadow: inset 0 0 0 15px #2980b9; /* TODO: Change the background to something more suitable */
+  box-shadow: inset 0 0 0 15px #2980b9;
   box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .border-inset {
   position: fixed;
-  top: 10vh; /* TODO: Change this value to better adobt for different screen sizes */
+  top: 10%;
   width: 100%;
-  height: 70vh; 
+  height: 70%;
   display: flex;
-  box-shadow: inset 0 0 0 15px #2980b9; 
-  border-radius: 30px; 
+  box-shadow: inset 0 0 0 15px #2980b9;
+  border-radius: 30px;
   box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .bottom-fixed-section {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 20vh;
+  height: 20%;
   background-color: #f0f0f0;
   display: flex;
-  overflow-x: auto;
 }
 
 .button-container {
@@ -71,8 +78,8 @@
   padding-left: 20px;
   background-color: #007bff;
   color: #ffffff;
-  border-radius: 5px; /* Set border radius for rounded corners */
-  border: 1px solid black; /* Corrected typo here */
+  border-radius: 5px;
+  border: 1px solid black;
   cursor: pointer;
   font-size: 16px;
 }
