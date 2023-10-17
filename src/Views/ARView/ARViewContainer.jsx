@@ -1,25 +1,22 @@
-import React from 'react'
-import { OrbitControls } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import { ARButton, XR } from '@react-three/xr'
-import Cube from './Cube'
-
+import { Canvas } from "@react-three/fiber";
+import { ARButton, XR } from "@react-three/xr";
+import ARView from "./ARView";
 
 const ARViewContainer = () => {
+  return (
+    <>
+      <ARButton
+        sessionInit={{
+          requiredFeatures: ["hit-test"],
+        }}
+      />
+      <Canvas>
+        <XR>
+          <ARView />
+        </XR>
+      </Canvas>
+    </>
+  );
+};
 
-
-    return (
-        <>
-            <ARButton />
-            <Canvas>
-                <XR>
-                    <OrbitControls />
-                    <ambientLight />
-                    <Cube />
-                </XR>
-            </Canvas>
-        </>
-    )
-}
-
-export default ARViewContainer
+export default ARViewContainer;
