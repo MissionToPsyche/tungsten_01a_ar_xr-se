@@ -1,13 +1,16 @@
-import { OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { Interactive, useHitTest, useXR } from "@react-three/xr";
 import { useRef, useState } from "react";
 import Cube from "./Cube";
+import './ARView.css';
+
+import { FaArrowAltCircleLeft, FaInfoCircle } from 'react-icons/fa';
 
 const ARView = () => {
+
   const reticleRef = useRef();
   const [cubes, setCubes] = useState([]);
-
   const { isPresenting } = useXR();
 
   useThree(({ camera }) => {
@@ -47,6 +50,15 @@ const ARView = () => {
             <meshStandardMaterial color={"white"} />
           </mesh>
         </Interactive>
+      )}
+      {isPresenting && (
+        <Html>
+          <div className="nav-container">
+          
+            <button className="nav-button"><FaArrowAltCircleLeft /></button>
+            <button className="nav-button"><FaInfoCircle /></button>
+          </div>
+        </Html>
       )}
 
       {!isPresenting && <Cube />}
