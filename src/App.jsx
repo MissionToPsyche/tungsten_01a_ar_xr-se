@@ -4,6 +4,9 @@ import HomeViewContainer from "./Views/HomeView/HomeViewContainer";
 import ARViewContainer from "./Views/ARView/ARViewContainer";
 import HowToPlayContainer from "./Views/HowToPlayView/HowToPlayContainer";
 
+import SpacecraftContainer from "../Models/Spacecraft/SpacecraftContainer";
+
+
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 
@@ -13,6 +16,8 @@ function App() {
       <Route path="/" element={<HomeViewContainer />} />
       <Route path="/ar" element={<ARViewContainer />} />
       <Route path="/how" element={<HowToPlayContainer />} />
+
+      <Route path="/spacecraft" element={<SpacecraftContainer />} />
     </Routes>
   );
 }
