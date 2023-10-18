@@ -15,7 +15,7 @@ const HomeViewContainer = () => {
       </p>
       <div className="d-flex flex-column">
         <button onClick={() => navigate('/ar')} type="button" className="btn btn-primary btn-lg ms-5 me-5 mt-5 mb-5">Start Play</button>
-        <button onClick={() => navigate('/how')} type="button" className="btn btn-info btn-lg ms-5 me-5">How To Play</button>
+        <button onClick={() => navigate('/help')} type="button" className="btn btn-info btn-lg ms-5 me-5">How To Play</button>
       </div>
     </div>
   );
