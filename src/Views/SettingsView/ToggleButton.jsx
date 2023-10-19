@@ -1,13 +1,12 @@
 import React from 'react';
 import './ToggleButton.css';
 
-const ToggleButton = ({ isChecked, onChange, label }) => {
+const ToggleButton = ({ label, isChecked, onChange }) => {
   return (
     <div className="toggle-button">
-      <label>{label}</label>
-      <div className="toggle-switch">
-        <input type="checkbox" checked={isChecked} onChange={onChange} />
-        <span className="slider"></span>
+      <label>{label}:</label>
+      <div className={`slider ${isChecked ? 'on' : 'off'}`} onClick={onChange}>
+        <div className="thumb"></div>
       </div>
     </div>
   );
