@@ -1,9 +1,11 @@
 import React, { forwardRef } from "react";
+import { useNavigate } from "react-router-dom";
 // import { useCharacterAnimations } from "../../contexts/CharacterAnimations";
 
 const Interface = forwardRef((props, ref) => {
     //   const { animations, animationIndex, setAnimationIndex } =
     //     useCharacterAnimations();
+    const navigate = useNavigate();
 
     const buttonArray = [
         'Button 1',
@@ -22,7 +24,7 @@ const Interface = forwardRef((props, ref) => {
         <div id="overlay-content" ref={ref}>
             <div className="dom-container">
                 <div className="nav-container">
-                    <button onClick={() => console.log("DEBUG: Nav Button Clicked")}>BACK</button>
+                    <button onClick={() => navigate('/')}>BACK</button>
                     <button onClick={() => console.log("DEBUG: Nav Button Clicked")}>INFO</button>
                 </div>
                 <div className="button-container">

@@ -51,16 +51,6 @@ const ARView = () => {
           </mesh>
         </Interactive>
       )}
-      {isPresenting && (
-        <Html>
-          <div className="nav-container">
-          
-            <button className="nav-button"><FaArrowAltCircleLeft /></button>
-            <button className="nav-button"><FaInfoCircle /></button>
-          </div>
-        </Html>
-      )}
-
       {!isPresenting && <Cube />}
     </>
   );

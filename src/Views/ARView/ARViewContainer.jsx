@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import { ARButton, XR } from "@react-three/xr";
-import { Leva } from "leva";
 import { useCallback, useState } from "react";
 
 import ARView from "./ARView";
@@ -9,13 +8,13 @@ import Interface from "./Interface";
 
 const ARViewContainer = () => {
 
-    // const [overlayContent, setOverlayContent] = useState(null);
+    const [overlayContent, setOverlayContent] = useState(null);
 
-    // let interfaceRef = useCallback((node) => {
-    //     if (node !== null) {
-    //         setOverlayContent(node);
-    //     }
-    // });
+    let interfaceRef = useCallback((node) => {
+        if (node !== null) {
+            setOverlayContent(node);
+        }
+    });
 
     return (
         <>
@@ -24,7 +23,7 @@ const ARViewContainer = () => {
                 sessionInit={{
                     requiredFeatures: ["hit-test"],
                     optionalFeatures: ["dom-overlay"],
-                    // domOverlay: { root: overlayContent },
+                    domOverlay: { root: overlayContent },
                 }}
             />
             <Canvas>
@@ -32,7 +31,7 @@ const ARViewContainer = () => {
                     <ARView />
                 </XR>
             </Canvas>
-            <Interface />
+            <Interface ref={interfaceRef} />
         </>
     );
 };
