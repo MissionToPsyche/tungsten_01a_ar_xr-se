@@ -1,22 +1,39 @@
 import { Canvas } from "@react-three/fiber";
 import { ARButton, XR } from "@react-three/xr";
+import { useCallback, useState } from "react";
+
 import ARView from "./ARView";
+import Interface from "./Interface";
+
 
 const ARViewContainer = () => {
-  return (
-    <>
-      <ARButton
-        sessionInit={{
-          requiredFeatures: ["hit-test"],
-        }}
-      />
-      <Canvas>
-        <XR>
-          <ARView />
-        </XR>
-      </Canvas>
-    </>
-  );
+
+    const [overlayContent, setOverlayContent] = useState(null);
+
+    let interfaceRef = useCallback((node) => {
+        if (node !== null) {
+            setOverlayContent(node);
+        }
+    });
+
+    return (
+        <>
+            <ARButton
+                className="ar-button"
+                sessionInit={{
+                    requiredFeatures: ["hit-test"],
+                    optionalFeatures: ["dom-overlay"],
+                    domOverlay: { root: overlayContent },
+                }}
+            />
+            <Canvas>
+                <XR>
+                    <ARView />
+                </XR>
+            </Canvas>
+            <Interface ref={interfaceRef} />
+        </>
+    );
 };
 
 export default ARViewContainer;
