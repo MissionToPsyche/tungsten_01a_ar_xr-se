@@ -4,11 +4,12 @@ import { useCallback, useState } from "react";
 
 import ARView from "./ARView";
 import Interface from "./Interface";
-
+import IntroPopup from "./IntroPopup";
 
 const ARViewContainer = () => {
 
     const [overlayContent, setOverlayContent] = useState(null);
+    const [showIntro, setShowIntro] = useState(true);
 
     let interfaceRef = useCallback((node) => {
         if (node !== null) {
@@ -16,24 +17,30 @@ const ARViewContainer = () => {
         }
     });
 
-    return (
+    const handleCloseIntro = () => {
+        setShowIntro(false);
+      }
+
+      return (
         <>
-            <ARButton
-                className="ar-button"
-                sessionInit={{
-                    requiredFeatures: ["hit-test"],
-                    optionalFeatures: ["dom-overlay"],
-                    domOverlay: { root: overlayContent },
-                }}
-            />
-            <Canvas>
-                <XR>
-                    <ARView />
-                </XR>
-            </Canvas>
-            <Interface ref={interfaceRef} />
+          {showIntro && <IntroPopup onClose={handleCloseIntro} />}
+          <ARButton
+            className="ar-button"
+            sessionInit={{
+              requiredFeatures: ["hit-test"],
+              optionalFeatures: ["dom-overlay"],
+              domOverlay: { root: overlayContent },
+            }}
+          />
+          <Canvas>
+            <XR>
+              <ARView />
+            </XR>
+          </Canvas>
+          <Interface ref={interfaceRef} />
         </>
-    );
-};
+      );
+    };
+    
 
 export default ARViewContainer;
