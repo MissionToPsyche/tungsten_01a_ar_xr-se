@@ -5,6 +5,7 @@ import { useCallback, useState } from "react";
 import ARView from "./ARView";
 import Interface from "./Interface";
 import IntroPopup from "./IntroPopup";
+import { ARContextProvider } from "./ARContext";
 
 const ARViewContainer = () => {
 
@@ -23,21 +24,23 @@ const ARViewContainer = () => {
 
       return (
         <>
-          {showIntro && <IntroPopup onClose={handleCloseIntro} />}
-          <ARButton
-            className="ar-button"
-            sessionInit={{
-              requiredFeatures: ["hit-test"],
-              optionalFeatures: ["dom-overlay"],
-              domOverlay: { root: overlayContent },
-            }}
-          />
-          <Canvas>
-            <XR>
-              <ARView />
-            </XR>
-          </Canvas>
-          <Interface ref={interfaceRef} />
+            <ARContextProvider>
+                {showIntro && <IntroPopup onClose={handleCloseIntro} />}
+                <ARButton
+                    className="ar-button"
+                    sessionInit={{
+                        requiredFeatures: ["hit-test"],
+                        optionalFeatures: ["dom-overlay"],
+                        domOverlay: { root: overlayContent },
+                    }}
+                />
+                <Canvas>
+                    <XR>
+                        <ARView />
+                    </XR>
+                </Canvas>
+                <Interface ref={interfaceRef} />
+            </ARContextProvider>
         </>
       );
     };

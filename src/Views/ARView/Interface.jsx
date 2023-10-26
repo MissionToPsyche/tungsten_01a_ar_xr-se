@@ -1,11 +1,14 @@
 import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useARContext } from './ARContext';
 // import { useCharacterAnimations } from "../../contexts/CharacterAnimations";
 
 const Interface = forwardRef((props, ref) => {
     //   const { animations, animationIndex, setAnimationIndex } =
     //     useCharacterAnimations();
     const navigate = useNavigate();
+
+    const arViewRef = useARContext();
 
     const buttonArray = [
         'Button 1',
@@ -20,11 +23,19 @@ const Interface = forwardRef((props, ref) => {
         'Button 10'
     ];
 
+    const handleButtonClick = () => {
+        // Call the function in ARView from Interface
+        if (arViewRef.current) {
+            arViewRef.current.invokeFunctionInARView();
+        }
+    };
+
     return (
         <div id="overlay-content" ref={ref}>
             <div className="dom-container">
                 <div className="nav-container">
-                    <button onClick={() => navigate('/')}>BACK</button>
+                    {/* <button onClick={() => navigate('/')}>BACK</button> */}
+                    <button onClick={handleButtonClick}>BACK</button>
                     <button onClick={() => console.log("DEBUG: Nav Button Clicked")}>INFO</button>
                 </div>
                 <div className="button-container">
