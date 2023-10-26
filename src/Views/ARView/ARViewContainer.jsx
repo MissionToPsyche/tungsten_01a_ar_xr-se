@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 
 import ARView from "./ARView";
 import Interface from "./Interface";
+import { ARContextProvider } from "./ARContext";
 
 
 const ARViewContainer = () => {
@@ -18,20 +19,22 @@ const ARViewContainer = () => {
 
     return (
         <>
-            <ARButton
-                className="ar-button"
-                sessionInit={{
-                    requiredFeatures: ["hit-test"],
-                    optionalFeatures: ["dom-overlay"],
-                    domOverlay: { root: overlayContent },
-                }}
-            />
-            <Canvas>
-                <XR>
-                    <ARView />
-                </XR>
-            </Canvas>
-            <Interface ref={interfaceRef} />
+            <ARContextProvider>
+                <ARButton
+                    className="ar-button"
+                    sessionInit={{
+                        requiredFeatures: ["hit-test"],
+                        optionalFeatures: ["dom-overlay"],
+                        domOverlay: { root: overlayContent },
+                    }}
+                />
+                <Canvas>
+                    <XR>
+                        <ARView />
+                    </XR>
+                </Canvas>
+                <Interface ref={interfaceRef} />
+            </ARContextProvider>
         </>
     );
 };
