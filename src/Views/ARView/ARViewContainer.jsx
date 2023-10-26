@@ -4,12 +4,13 @@ import { useCallback, useState } from "react";
 
 import ARView from "./ARView";
 import Interface from "./Interface";
+import IntroPopup from "./IntroPopup";
 import { ARContextProvider } from "./ARContext";
-
 
 const ARViewContainer = () => {
 
     const [overlayContent, setOverlayContent] = useState(null);
+    const [showIntro, setShowIntro] = useState(true);
 
     let interfaceRef = useCallback((node) => {
         if (node !== null) {
@@ -17,9 +18,14 @@ const ARViewContainer = () => {
         }
     });
 
-    return (
+    const handleCloseIntro = () => {
+        setShowIntro(false);
+      }
+
+      return (
         <>
             <ARContextProvider>
+                {showIntro && <IntroPopup onClose={handleCloseIntro} />}
                 <ARButton
                     className="ar-button"
                     sessionInit={{
@@ -36,7 +42,8 @@ const ARViewContainer = () => {
                 <Interface ref={interfaceRef} />
             </ARContextProvider>
         </>
-    );
-};
+      );
+    };
+    
 
 export default ARViewContainer;
