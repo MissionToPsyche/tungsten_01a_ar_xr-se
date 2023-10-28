@@ -4,7 +4,7 @@ import { Interactive, useHitTest, useXR } from "@react-three/xr";
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useARContext } from './ARContext';
+import { useARContext } from './Contexts/ARContext';
 import Cube from "./Cube";
 import './ARView.css';
 

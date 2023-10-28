@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import ARView from "./ARView";
 import Interface from "./Interface";
 import IntroPopup from "./IntroPopup/IntroPopup";
-import { ARContextProvider } from "./ARContext";
+import { ARContextProvider } from "./Contexts/ARContext";
 
 const ARViewContainer = () => {
 
