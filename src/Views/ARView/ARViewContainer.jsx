@@ -20,9 +20,9 @@ const ARViewContainer = () => {
 
     const handleCloseIntro = () => {
         setShowIntro(false);
-      }
+    }
 
-      return (
+    return (
         <>
             <ARContextProvider>
                 {showIntro && <IntroPopup onClose={handleCloseIntro} />}
@@ -42,8 +42,8 @@ const ARViewContainer = () => {
                 <Interface ref={interfaceRef} />
             </ARContextProvider>
         </>
-      );
-    };
-    
+    );
+};
+
 
 export default ARViewContainer;
