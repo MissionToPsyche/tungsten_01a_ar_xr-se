@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useARContext } from './Contexts/ARContext';
+import { useARContext } from '../Contexts/ARContext';
 // import { useCharacterAnimations } from "../../contexts/CharacterAnimations";
 
 const Interface = forwardRef((props, ref) => {

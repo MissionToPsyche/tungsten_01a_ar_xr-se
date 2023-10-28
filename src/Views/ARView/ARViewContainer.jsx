@@ -3,7 +3,7 @@ import { ARButton, XR } from "@react-three/xr";
 import { useCallback, useState } from "react";
 
 import ARView from "./ARView";
-import Interface from "./Interface";
+import Interface from "./OverlayInterface/Interface";
 import IntroPopup from "./IntroPopup/IntroPopup";
 import { ARContextProvider } from "./Contexts/ARContext";
 
