@@ -3,9 +3,9 @@ import { ARButton, XR } from "@react-three/xr";
 import { useCallback, useState } from "react";
 
 import ARView from "./ARView";
-import Interface from "./Interface";
-import IntroPopup from "./IntroPopup";
-import { ARContextProvider } from "./ARContext";
+import Interface from "./OverlayInterface/Interface";
+import IntroPopup from "./IntroPopup/IntroPopup";
+import { ARContextProvider } from "./Contexts/ARContext";
 
 const ARViewContainer = () => {
 
@@ -20,9 +20,9 @@ const ARViewContainer = () => {
 
     const handleCloseIntro = () => {
         setShowIntro(false);
-      }
+    }
 
-      return (
+    return (
         <>
             <ARContextProvider>
                 {showIntro && <IntroPopup onClose={handleCloseIntro} />}
@@ -42,8 +42,8 @@ const ARViewContainer = () => {
                 <Interface ref={interfaceRef} />
             </ARContextProvider>
         </>
-      );
-    };
-    
+    );
+};
+
 
 export default ARViewContainer;
