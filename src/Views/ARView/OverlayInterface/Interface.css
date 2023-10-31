@@ -53,6 +53,10 @@
     max-width: 100%;
 }
 
+.select-button {
+    font-size: 50px;
+}
+
 .scroll-button-container {
     padding: 1rem;
 }

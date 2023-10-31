@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useARContext } from '../Contexts/ARContext';
 import InfoPopup from "../InfoPopup/InfoPopup";
 import './Interface.css';
-// import { useCharacterAnimations } from "../../contexts/CharacterAnimations";
+import Cube from "../Cube";
+
+import { FaHome, FaInfoCircle, FaBackward } from 'react-icons/fa';
 
 const Interface = forwardRef((props, ref) => {
     //   const { animations, animationIndex, setAnimationIndex } =
@@ -13,19 +15,6 @@ const Interface = forwardRef((props, ref) => {
     const [showInfo, setShowInfo] = useState(false);
 
     const arViewRef = useARContext();
-
-    const buttonArray = [
-        'Button 1',
-        'Button 2',
-        'Button 3',
-        'Button 4',
-        'Button 5',
-        'Button 6',
-        'Button 7',
-        'Button 8',
-        'Button 9',
-        'Button 10'
-    ];
 
     const handleBackButtonClick = () => {
         // Call the function in ARView from Interface
@@ -52,9 +41,15 @@ const Interface = forwardRef((props, ref) => {
                     <button onClick={showInfoPopup}>INFO</button>
                 </div>
                 <div className="button-container">
-                    {buttonArray.map((button, index) => (
-                        <button onClick={() => console.log("DEBUG: Button Clicked")} className='select-button' key={index}>{button}</button>
-                    ))}
+                    <button className='select-button'><FaHome /></button>
+                    <button className='select-button'><FaInfoCircle /></button>
+                    <button className='select-button'><FaBackward /></button>
+                    <button className='select-button'><FaHome /></button>
+                    <button className='select-button'><FaInfoCircle /></button>
+                    <button className='select-button'><FaBackward /></button>
+                    <button className='select-button'><FaHome /></button>
+                    <button className='select-button'><FaInfoCircle /></button>
+                    <button className='select-button'><FaBackward /></button>
                 </div>
             </div>
             {showInfo && <InfoPopup onClose={closeInfoPopup} />}
