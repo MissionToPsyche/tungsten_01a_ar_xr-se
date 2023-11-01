@@ -11,13 +11,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 
 function App() {
-  return (
+   return (
     <Routes>
       <Route path="/" element={<HomeViewContainer />} />
       <Route path="/ar" element={<ARViewContainer />} />
-      <Route path="/how" element={<HowToPlayContainer />} />
-
-      <Route path="/spacecraft" element={<SpacecraftContainer />} />
+      <Route path="/help" element={<HelpViewContainer />} />
+      <Route path="/settings" element={<SettingsViewContainer />} />
     </Routes>
   );
 }
