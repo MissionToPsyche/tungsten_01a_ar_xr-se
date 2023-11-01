@@ -1,15 +1,21 @@
-import { OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { Interactive, useHitTest, useXR } from "@react-three/xr";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useARContext } from './Contexts/ARContext';
 import Cube from "./Cube";
 
+import { FaArrowAltCircleLeft, FaInfoCircle } from 'react-icons/fa';
 
-const XrHitCube = () => {
+const ARView = () => {
 
+    const navigate = useNavigate();
+    const arViewRef = useARContext();
     const reticleRef = useRef();
     const [cubes, setCubes] = useState([]);
-    const { isPresenting } = useXR();
+    const { xr, isPresenting } = useXR();
 
     useThree(({ camera }) => {
         if (!isPresenting) {
@@ -29,9 +35,24 @@ const XrHitCube = () => {
 
     const placeCube = (e) => {
         let position = e.intersection.object.position.clone();
-        let id = Date.now(); // unique id for each cube
+        let id = Date.now();
         setCubes([...cubes, { position, id }]);
-    }
+    };
+
+    const invokeFunctionInARView = () => {
+        if (isPresenting) {
+            window.alert('Please Exit AR before going back');
+        } else {
+            navigate('/');
+        }
+    };
+
+    // Attach the function to the ref for external access
+    useEffect(() => {
+        arViewRef.current = {
+            invokeFunctionInARView,
+        };
+    }, [arViewRef, isPresenting]);
 
     return (
         <>
@@ -49,10 +70,9 @@ const XrHitCube = () => {
                     </mesh>
                 </Interactive>
             )}
-
             {!isPresenting && <Cube />}
         </>
     );
 };
 
-export default XrHitCube;
+export default ARView;
