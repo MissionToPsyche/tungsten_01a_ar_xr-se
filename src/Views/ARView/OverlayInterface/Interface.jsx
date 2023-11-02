@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useARContext } from '../Contexts/ARContext';
-import InfoPopup from "../InfoPopup/InfoPopup";
+import GameInfoPopup from "../GameInfoPopup/GameInfoPopup";
 import './Interface.css';
 import Cube from "../Cube";
 
@@ -52,7 +52,7 @@ const Interface = forwardRef((props, ref) => {
                     <button className='select-button'><FaBackward /></button>
                 </div>
             </div>
-            {showInfo && <InfoPopup onClose={closeInfoPopup} />}
+            {showInfo && <GameInfoPopup onClose={closeInfoPopup} />}
         </div>
     );
 });

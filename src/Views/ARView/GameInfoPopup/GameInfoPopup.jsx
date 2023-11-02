@@ -1,7 +1,7 @@
 import React from 'react'
-import './InfoPopup.css'
+import './GameInfoPopup.css'
 
-const InfoPopup = ({ onClose }) => {
+const GameInfoPopup = ({ onClose }) => {
     return (
         <div className="info-popup-overlay">
             <div className="info-popup-container">
@@ -15,4 +15,4 @@ const InfoPopup = ({ onClose }) => {
     );
 };
 
-export default InfoPopup
+export default GameInfoPopup
