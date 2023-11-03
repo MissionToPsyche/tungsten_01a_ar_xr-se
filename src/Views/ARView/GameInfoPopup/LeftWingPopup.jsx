@@ -1,5 +1,5 @@
 import React from 'react';
-import './LeftWingPopup.css';
+import './SatellitePiecesPopup.css';
 
 const LeftWingPopup = ({ onClose }) => {
     return (
