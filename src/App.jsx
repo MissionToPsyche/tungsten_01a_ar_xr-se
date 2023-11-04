@@ -6,9 +6,6 @@ import HelpViewContainer from "./Views/HelpView/HelpViewContainer";
 import SettingsViewContainer from "./Views/SettingsView/SettingsViewContainer";
 
 import SpacecraftContainer from "../Models/Spacecraft/SpacecraftContainer";
-
-
-import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 
 function App() {
