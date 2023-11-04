@@ -6,7 +6,8 @@ import LeftWingPopup from '../GameInfoPopup/LeftWingPopup';
 import RightWingPopup from '../GameInfoPopup/RightWingPopup';
 import GammaRayPopup from '../GameInfoPopup/GammaRayPopup';
 import NeutronSpectrometerPopup from '../GameInfoPopup/NeutronSpectrometerPopup';
-//import GameInfoPopup from '../GameInfoPopup/GameInfoPopup';
+import AntennaPopup from '../GameInfoPopup/AntennaPopup';
+import BusPopup from '../GameInfoPopup/BusPopup';
 import { FaHome, FaInfoCircle, FaBackward } from 'react-icons/fa';
 
 const Interface = forwardRef((props, ref) => {
@@ -18,6 +19,9 @@ const Interface = forwardRef((props, ref) => {
     const [showRightWingPopup, setShowRightWingPopup] = useState(false);
     const [showGammaRayPopup, setShowGammaRayPopup] = useState(false);
     const [showNeutronSpectrometerPopup, setShowNeutronSpectrometerPopup] = useState(false);
+    const [showAntennaPopup, setShowAntennaPopup] = useState(false);
+    const [showBusPopup, setShowBusPopup] = useState(false);
+    
     const [showInfo, setShowInfo] = useState(false);
 
     // Popup toggle functions
@@ -51,12 +55,16 @@ const Interface = forwardRef((props, ref) => {
                     <button className='select-button' onClick={togglePopup(setShowRightWingPopup)}><FaInfoCircle /></button>
                     <button className='select-button' onClick={togglePopup(setShowGammaRayPopup)}><FaBackward /></button>
                     <button className='select-button' onClick={togglePopup(setShowNeutronSpectrometerPopup)}><FaHome /></button>
+                    <button className='select-button' onClick={togglePopup(setShowAntennaPopup)}><FaHome /></button>
+                    <button className='select-button' onClick={togglePopup(setShowBusPopup)}><FaInfoCircle /></button>
                 </div>
             </div>
             {showLeftWingPopup && <LeftWingPopup onClose={togglePopup(setShowLeftWingPopup)} />}
             {showRightWingPopup && <RightWingPopup onClose={togglePopup(setShowRightWingPopup)} />}
             {showGammaRayPopup && <GammaRayPopup onClose={togglePopup(setShowGammaRayPopup)} />}
             {showNeutronSpectrometerPopup && <NeutronSpectrometerPopup onClose={togglePopup(setShowNeutronSpectrometerPopup)} />}
+            {showAntennaPopup && <AntennaPopup onClose={togglePopup(setShowAntennaPopup)} />}
+            {showBusPopup && <BusPopup onClose={togglePopup(setShowBusPopup)} />}
             {showInfo && <GameInfoPopup onClose={closeInfoPopup} />}
         </div>
     );
