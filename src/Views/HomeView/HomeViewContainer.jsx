@@ -36,7 +36,7 @@ const HomeViewContainer = () => {
                 <button onClick={() => navigate('/settings')} type="button">SETTINGS</button>
             </div>
 
-            <div className="social-icons-section">
+            <div className="links-section">
                 <div className="social-icon" onClick={redirectToFacebook}>
                     <FacebookIcon className="icon" />
                 </div>
