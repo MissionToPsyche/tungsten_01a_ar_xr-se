@@ -12,9 +12,14 @@
   }
   
   .popup-container {
-    background-color: #1928a8; /* Popup background color */
+    background-color: #000000; /* Popup background color */
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow to the popup */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+  }
+
+  .popup-container img {
+    max-width: 100%; 
+    margin-bottom: 10px; 
   }
