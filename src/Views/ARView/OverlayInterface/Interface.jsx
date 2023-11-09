@@ -9,6 +9,8 @@ import NeutronSpectrometerPopup from '../GameInfoPopup/NeutronSpectrometerPopup'
 import AntennaPopup from '../GameInfoPopup/AntennaPopup';
 import BusPopup from '../GameInfoPopup/BusPopup';
 import { FaHome, FaInfoCircle, FaBackward } from 'react-icons/fa';
+import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
+import { AiFillInfoCircle as InfoCircle } from "react-icons/ai";
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
@@ -47,8 +49,8 @@ const Interface = forwardRef((props, ref) => {
         <div id='overlay-content' ref={ref}>
             <div className='dom-container'>
                 <div className='nav-container'>
-                    <button onClick={handleBackButtonClick}>BACK</button>
-                    <button onClick={showInfoPopup}>INFO</button>
+                    <button className='return-home-button' onClick={handleBackButtonClick}><BackArrow /></button>
+                    <button className= 'info-button' onClick={showInfoPopup}><InfoCircle /></button>
                 </div>
                 <div className='button-container'>
                     <button className='select-button' onClick={togglePopup(setShowLeftWingPopup)}><FaHome /></button>
