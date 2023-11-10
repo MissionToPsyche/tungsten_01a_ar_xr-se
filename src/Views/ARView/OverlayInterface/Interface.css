@@ -63,6 +63,11 @@
     cursor: pointer;
 }
 
+.select-button.button-clicked {
+    background-color: #5A2752;
+    color: white;
+}
+
 .scroll-button-container {
     padding: 1rem;
 }
