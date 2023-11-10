@@ -53,12 +53,6 @@
     max-width: 100%;
 }
 
-.select-button.button-clicked {
-    background-color: #5A2752;
-    color: white;
-}
-
-
 .select-button {
     font-size: 50px;
     padding: 0.5rem 1rem;
