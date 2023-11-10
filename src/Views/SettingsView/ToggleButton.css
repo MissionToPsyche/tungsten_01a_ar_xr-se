@@ -8,7 +8,7 @@
     position: relative;
     width: 60px;
     height: 30px;
-    background-color: #ccc;
+    background-color:white;
     border-radius: 15px;
     cursor: pointer;
     margin-left: 10px;
@@ -16,7 +16,7 @@
   }
   
   .slider.on {
-    background-color: #4CAF50;
+    background-color: white;
   }
   
   .thumb {
@@ -25,7 +25,7 @@
     left: 3px;
     width: 24px;
     height: 24px;
-    background-color: white;
+    background-color: #433538;
     border-radius: 50%;
     transition: left 0.3s;
   }

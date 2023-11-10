@@ -4,3 +4,23 @@
   background-color: #1e1e1e;
   color: white;
 }
+
+@font-face {
+    font-family: 'Trade Gothic Bold';
+    src: url(/fonts/Trade-Gothic-LT-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Trade Gothic Bold Extended';
+    src: url(/fonts/Trade-Gothic-LT-Bold-Extended.ttf);
+}
+
+@font-face {
+    font-family: 'Trade Gothic Light';
+    src: url(/fonts/Trade-Gothic-LT-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Trade Gothic';
+    src: url(/fonts/Trade-Gothic-LT.ttf);
+}
