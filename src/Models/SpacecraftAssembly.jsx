@@ -10,8 +10,7 @@ const SpacecraftAssembly = ({ position }) => {
     const neutronGLTF = useLoader(GLTFLoader, "/models/gltf-files/neutron_spectrometer.gltf");
 
     return (
-        <Suspense fallback={null}>
-
+        <mesh position={position}>
             {/* RIGHT WING */}
             <primitive position={[1.37, -0.03, 0]} object={wingRGLTF.scene} scale={[1, 1, 1]} />
             {/* LEFT WING */}
@@ -22,12 +21,39 @@ const SpacecraftAssembly = ({ position }) => {
             <primitive position={[0, 0.34, 0.043]} object={antentnaGLTF.scene} scale={[1, 1, 1]} />
             {/* Neutron Spectrometer */}
             <primitive position={[0.065, 0, 0.21]} rotation-z={Math.PI / 2} object={neutronGLTF.scene} scale={[0.06, 0.06, 0.06]} />
-        </Suspense>
+        </mesh>
     );
 };
 
 export default SpacecraftAssembly;
 
+
+/*
+import { OrbitControls } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
+const Cube = ({ position }) => {
+  const cubeRef = useRef();
+
+  useFrame((state) => {
+    cubeRef.current.rotation.y += 0.01;
+  });
+
+  return (
+    <>
+      <OrbitControls />
+      <ambientLight />
+      <mesh ref={cubeRef} position={position}>
+        <boxGeometry args={[0.5, 0.5, 0.5]} />
+        <meshStandardMaterial color={"mediumpurple"} />
+      </mesh>
+    </>
+  );
+};
+
+export default Cube;
+*/
 
 /*
 

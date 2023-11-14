@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useARContext } from './Contexts/ARContext';
+import SpacecraftAssembly from "../../Models/SpacecraftAssembly";
 import Cube from "./Cube";
 
 import { FaArrowAltCircleLeft, FaInfoCircle } from 'react-icons/fa';
@@ -14,7 +15,7 @@ const ARView = () => {
     const navigate = useNavigate();
     const arViewRef = useARContext();
     const reticleRef = useRef();
-    const [cubes, setCubes] = useState([]);
+    const [models, setModels] = useState([]);
     const { xr, isPresenting } = useXR();
 
     useThree(({ camera }) => {
@@ -33,10 +34,10 @@ const ARView = () => {
         reticleRef.current.rotation.set(-Math.PI / 2, 0, 0);
     });
 
-    const placeCube = (e) => {
+    const placeModel = (e) => {
         let position = e.intersection.object.position.clone();
         let id = Date.now();
-        setCubes([...cubes, { position, id }]);
+        setModels([...models, { position, id }]);
     };
 
     const invokeFunctionInARView = () => {
@@ -59,18 +60,18 @@ const ARView = () => {
             <OrbitControls />
             <ambientLight />
             {isPresenting &&
-                cubes.map(({ position, id }) => {
-                    return <Cube key={id} position={position} />;
+                models.map(({ position, id }) => {
+                    return <SpacecraftAssembly key={id} position={position} />;
                 })}
             {isPresenting && (
-                <Interactive onSelect={placeCube}>
+                <Interactive onSelect={placeModel}>
                     <mesh ref={reticleRef} rotation-x={-Math.PI / 2}>
                         <ringGeometry args={[0.1, 0.25, 32]} />
                         <meshStandardMaterial color={"white"} />
                     </mesh>
                 </Interactive>
             )}
-            {!isPresenting && <Cube />}
+            {!isPresenting && <SpacecraftAssembly />}
         </>
     );
 };
