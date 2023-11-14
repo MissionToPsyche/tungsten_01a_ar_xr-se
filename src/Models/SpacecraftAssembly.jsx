@@ -1,13 +1,13 @@
 import { useLoader } from "@react-three/fiber";
-import { Suspense } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { SpacecraftComponents } from "../Context/CommonConstants";
 
 const SpacecraftAssembly = ({ position }) => {
-    const busGLTF = useLoader(GLTFLoader, "/models/gltf-files/bus.gltf");
-    const wingRGLTF = useLoader(GLTFLoader, "/models/gltf-files/RightWing.gltf");
-    const wingLGLTF = useLoader(GLTFLoader, "/models/gltf-files/LeftWing.gltf");
-    const antentnaGLTF = useLoader(GLTFLoader, "/models/gltf-files/Antenna.gltf");
-    const neutronGLTF = useLoader(GLTFLoader, "/models/gltf-files/neutron_spectrometer.gltf");
+    const busGLTF = useLoader(GLTFLoader, SpacecraftComponents.BUS);
+    const wingRGLTF = useLoader(GLTFLoader, SpacecraftComponents.RIGHT_WING);
+    const wingLGLTF = useLoader(GLTFLoader, SpacecraftComponents.LEFT_WING);
+    const antentnaGLTF = useLoader(GLTFLoader, SpacecraftComponents.ANTENNA);
+    const neutronGLTF = useLoader(GLTFLoader, SpacecraftComponents.NEUTRON_SPECTROMETER);
 
     return (
         <mesh position={position}>
