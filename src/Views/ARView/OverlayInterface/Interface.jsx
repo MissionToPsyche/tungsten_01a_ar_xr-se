@@ -11,6 +11,7 @@ import BusPopup from '../GameInfoPopup/BusPopup';
 import { FaHome, FaInfoCircle, FaBackward } from 'react-icons/fa';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import { AiFillInfoCircle as InfoCircle } from "react-icons/ai";
+import { SpacecraftIcons } from '../../../Context/CommonConstants';
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Interface = forwardRef((props, ref) => {
     const [showNeutronSpectrometerPopup, setShowNeutronSpectrometerPopup] = useState(false);
     const [showAntennaPopup, setShowAntennaPopup] = useState(false);
     const [showBusPopup, setShowBusPopup] = useState(false);
-    
+
     const [showInfo, setShowInfo] = useState(false);
 
     // State variables to track button click status
@@ -61,50 +62,56 @@ const Interface = forwardRef((props, ref) => {
             <div className='dom-container'>
                 <div className='nav-container'>
                     <button className='return-home-button' onClick={handleBackButtonClick}><BackArrow /></button>
-                    <button className= 'info-button' onClick={showInfoPopup}><InfoCircle /></button>
+                    <button className='info-button' onClick={showInfoPopup}><InfoCircle /></button>
                 </div>
+
                 <div className='button-container'>
                     <button
                         className={`select-button ${leftWingClicked ? 'button-clicked' : ''}`}
                         onClick={togglePopup(setShowLeftWingPopup, setLeftWingClicked)}
                         disabled={leftWingClicked}
                     >
-                        <FaHome />
+                        <img src={SpacecraftIcons.BUS} />
                     </button>
+
                     <button
                         className={`select-button ${rightWingClicked ? 'button-clicked' : ''}`}
                         onClick={togglePopup(setShowRightWingPopup, setRightWingClicked)}
                         disabled={rightWingClicked}
                     >
-                        <FaInfoCircle />
+                        <img src={SpacecraftIcons.ANTENNA} />
                     </button>
+
                     <button
                         className={`select-button ${gammaRayClicked ? 'button-clicked' : ''}`}
                         onClick={togglePopup(setShowGammaRayPopup, setGammaRayClicked)}
                         disabled={gammaRayClicked}
                     >
-                        <FaBackward />
+                        <img src={SpacecraftIcons.LEFT_WING} />
                     </button>
+
                     <button
                         className={`select-button ${neutronSpectrometerClicked ? 'button-clicked' : ''}`}
                         onClick={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)}
                         disabled={neutronSpectrometerClicked}
                     >
-                        <FaHome />
+                        <img src={SpacecraftIcons.RIGHT_WING} />
                     </button>
+
                     <button
                         className={`select-button ${antennaClicked ? 'button-clicked' : ''}`}
                         onClick={togglePopup(setShowAntennaPopup, setAntennaClicked)}
                         disabled={antennaClicked}
                     >
-                        <FaHome />
+                        <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
                     </button>
+
                     <button
                         className={`select-button ${busClicked ? 'button-clicked' : ''}`}
                         onClick={togglePopup(setShowBusPopup, setBusClicked)}
                         disabled={busClicked}
                     >
-                        <FaInfoCircle />
+                        <img src={SpacecraftIcons.GAMMA_RAY} />
                     </button>
                 </div>
             </div>

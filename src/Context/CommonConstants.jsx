@@ -1,10 +1,10 @@
 const SpacecraftIcons = {
-    ANTENNA: '/icons/antenna.png',
-    BUS: '/icons/bus_with_structure.png',
-    GAMMA_RAY: '/icons/gamma_ray.png',
-    LEFT_WING: '/icons/left_wing.png',
-    NEUTRON_SPECTROMETER: '/icons/neutron_spectrometer.png',
-    RIGHT_WING: '/icons/right_wing.png',
+    ANTENNA: 'public/icons/antenna.png',
+    BUS: 'public/icons/bus_with_structure.png',
+    GAMMA_RAY: 'public/icons/gamma_ray.png',
+    LEFT_WING: 'public/icons/left_wing.png',
+    NEUTRON_SPECTROMETER: 'public/icons/neutron_spectrometer.png',
+    RIGHT_WING: 'public/icons/right_wing.png',
   };
   
   const SpacecraftComponents = {
