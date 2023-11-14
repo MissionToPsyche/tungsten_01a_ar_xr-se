@@ -9,6 +9,8 @@ import NeutronSpectrometerPopup from '../GameInfoPopup/NeutronSpectrometerPopup'
 import AntennaPopup from '../GameInfoPopup/AntennaPopup';
 import BusPopup from '../GameInfoPopup/BusPopup';
 import { FaHome, FaInfoCircle, FaBackward } from 'react-icons/fa';
+import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
+import { AiFillInfoCircle as InfoCircle } from "react-icons/ai";
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
@@ -24,8 +26,19 @@ const Interface = forwardRef((props, ref) => {
     
     const [showInfo, setShowInfo] = useState(false);
 
+    // State variables to track button click status
+    const [leftWingClicked, setLeftWingClicked] = useState(false);
+    const [rightWingClicked, setRightWingClicked] = useState(false);
+    const [gammaRayClicked, setGammaRayClicked] = useState(false);
+    const [neutronSpectrometerClicked, setNeutronSpectrometerClicked] = useState(false);
+    const [antennaClicked, setAntennaClicked] = useState(false);
+    const [busClicked, setBusClicked] = useState(false);
+
     // Popup toggle functions
-    const togglePopup = (setPopupState) => () => setPopupState(prev => !prev);
+    const togglePopup = (setPopupState, setButtonClicked) => () => {
+        setPopupState(prev => !prev);
+        setButtonClicked(true);
+    };
 
     // Handle back button click
     const handleBackButtonClick = () => {
@@ -47,24 +60,60 @@ const Interface = forwardRef((props, ref) => {
         <div id='overlay-content' ref={ref}>
             <div className='dom-container'>
                 <div className='nav-container'>
-                    <button onClick={handleBackButtonClick}>BACK</button>
-                    <button onClick={showInfoPopup}>INFO</button>
+                    <button className='return-home-button' onClick={handleBackButtonClick}><BackArrow /></button>
+                    <button className= 'info-button' onClick={showInfoPopup}><InfoCircle /></button>
                 </div>
                 <div className='button-container'>
-                    <button className='select-button' onClick={togglePopup(setShowLeftWingPopup)}><FaHome /></button>
-                    <button className='select-button' onClick={togglePopup(setShowRightWingPopup)}><FaInfoCircle /></button>
-                    <button className='select-button' onClick={togglePopup(setShowGammaRayPopup)}><FaBackward /></button>
-                    <button className='select-button' onClick={togglePopup(setShowNeutronSpectrometerPopup)}><FaHome /></button>
-                    <button className='select-button' onClick={togglePopup(setShowAntennaPopup)}><FaHome /></button>
-                    <button className='select-button' onClick={togglePopup(setShowBusPopup)}><FaInfoCircle /></button>
+                    <button
+                        className={`select-button ${leftWingClicked ? 'button-clicked' : ''}`}
+                        onClick={togglePopup(setShowLeftWingPopup, setLeftWingClicked)}
+                        disabled={leftWingClicked}
+                    >
+                        <FaHome />
+                    </button>
+                    <button
+                        className={`select-button ${rightWingClicked ? 'button-clicked' : ''}`}
+                        onClick={togglePopup(setShowRightWingPopup, setRightWingClicked)}
+                        disabled={rightWingClicked}
+                    >
+                        <FaInfoCircle />
+                    </button>
+                    <button
+                        className={`select-button ${gammaRayClicked ? 'button-clicked' : ''}`}
+                        onClick={togglePopup(setShowGammaRayPopup, setGammaRayClicked)}
+                        disabled={gammaRayClicked}
+                    >
+                        <FaBackward />
+                    </button>
+                    <button
+                        className={`select-button ${neutronSpectrometerClicked ? 'button-clicked' : ''}`}
+                        onClick={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)}
+                        disabled={neutronSpectrometerClicked}
+                    >
+                        <FaHome />
+                    </button>
+                    <button
+                        className={`select-button ${antennaClicked ? 'button-clicked' : ''}`}
+                        onClick={togglePopup(setShowAntennaPopup, setAntennaClicked)}
+                        disabled={antennaClicked}
+                    >
+                        <FaHome />
+                    </button>
+                    <button
+                        className={`select-button ${busClicked ? 'button-clicked' : ''}`}
+                        onClick={togglePopup(setShowBusPopup, setBusClicked)}
+                        disabled={busClicked}
+                    >
+                        <FaInfoCircle />
+                    </button>
                 </div>
             </div>
-            {showLeftWingPopup && <LeftWingPopup onClose={togglePopup(setShowLeftWingPopup)} />}
-            {showRightWingPopup && <RightWingPopup onClose={togglePopup(setShowRightWingPopup)} />}
-            {showGammaRayPopup && <GammaRayPopup onClose={togglePopup(setShowGammaRayPopup)} />}
-            {showNeutronSpectrometerPopup && <NeutronSpectrometerPopup onClose={togglePopup(setShowNeutronSpectrometerPopup)} />}
-            {showAntennaPopup && <AntennaPopup onClose={togglePopup(setShowAntennaPopup)} />}
-            {showBusPopup && <BusPopup onClose={togglePopup(setShowBusPopup)} />}
+            {showLeftWingPopup && <LeftWingPopup onClose={togglePopup(setShowLeftWingPopup, setLeftWingClicked)} />}
+            {showRightWingPopup && <RightWingPopup onClose={togglePopup(setShowRightWingPopup, setRightWingClicked)} />}
+            {showGammaRayPopup && <GammaRayPopup onClose={togglePopup(setShowGammaRayPopup, setGammaRayClicked)} />}
+            {showNeutronSpectrometerPopup && <NeutronSpectrometerPopup onClose={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)} />}
+            {showAntennaPopup && <AntennaPopup onClose={togglePopup(setShowAntennaPopup, setAntennaClicked)} />}
+            {showBusPopup && <BusPopup onClose={togglePopup(setShowBusPopup, setBusClicked)} />}
             {showInfo && <GameInfoPopup onClose={closeInfoPopup} />}
         </div>
     );

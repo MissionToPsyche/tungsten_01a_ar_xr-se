@@ -1,37 +1,79 @@
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(232, 26, 26); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999; /* Ensure the popup appears above everything else */
-    pointer-events: none; /* This will make sure that any of the clicks "pass through" the container */
+.intro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+  text-align: center;
+  z-index: 999;
+  pointer-events: none;
+}
 
-  }
+.intro-background {
+  padding:20vh;
+  text-align: center;
+  background-color: rgb(0, 0, 0,0.8);
+  pointer-events: auto;
+}
+
+.intro-image {
+  background-color: #000000;
+  object-fit: contain;
+  text-align: center;
+  margin: 20px;
+  height: 400px;
+  width: 100%;
+  display: block;
+}
+
+.intro-content{
+  background-color: rgb(0, 0, 0);
+}
+
+.intro-content>h2 {
+  background-color: #000000;
+  font-family: 'Trade Gothic Bold', sans-serif;
+  font-size: 36px;
+  margin: auto;
+  left: 0;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.intro-content>p {
+  background-color: rgb(0, 0, 0);
+  font-family: 'Trade Gothic Bold', sans-serif;
+  font-size: 16px;
+  margin: auto;
+  left: 0;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+
+.intro-button {
   
-  .popup-container {
-    background-image: url('/assets/space-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow to the popup */
-    pointer-events: auto; /* This will enable clicks on the content and not the background */
-  }
-
-  .popup-button {
-    width: 100%;
-    padding: 10px 0;
-    background-color: #ffffff; 
-    color: #ef5965;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 40px;
+  font-family: 'Trade Gothic Bold Extended', sans-serif;
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #ef5965;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 40px;
+  border-radius: 10px;
 }
