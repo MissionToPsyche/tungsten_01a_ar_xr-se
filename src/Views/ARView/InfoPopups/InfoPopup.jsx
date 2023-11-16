@@ -3,7 +3,7 @@ import './InfoPopupStyles.css'
 import { AiFillCodeSandboxSquare as BusIcon } from 'react-icons/ai';
 
 
-const BusInfoPopup = ({ onClose }) => {
+const InfoPopup = ({ onClose }) => {
     return (
         <div className="popup-overlay">
             <div className="popup-container">
@@ -20,4 +20,4 @@ const BusInfoPopup = ({ onClose }) => {
     );
 }
 
-export default BusInfoPopup;
+export default InfoPopup;
