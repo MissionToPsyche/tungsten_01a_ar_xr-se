@@ -6,7 +6,7 @@ const LeftWingPopup = ({ onClose }) => {
         <div className="popup-container">
             <div className="popup-content">
                 <div className="popup-title">
-                    Left Wing 
+                    Left Solar Array 
                 </div>
                 <div className="popup-image">
                     {/* TODO: ADD LEFT WING IMAGE*/}
