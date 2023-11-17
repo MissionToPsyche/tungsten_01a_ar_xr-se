@@ -62,4 +62,16 @@
     border-radius: 0.2rem;
 
   }
+
+  .info-popup-content {
+    background-color: #413539;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 80vw; 
+    padding: 10vh; 
+    pointer-events: auto;
+    border-radius: 0.2rem;
+
+  }
   

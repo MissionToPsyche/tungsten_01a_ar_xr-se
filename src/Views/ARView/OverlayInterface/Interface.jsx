@@ -12,6 +12,7 @@ import { FaHome, FaInfoCircle, FaBackward } from 'react-icons/fa';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import { AiFillInfoCircle as InfoCircle } from "react-icons/ai";
 import { SpacecraftIcons } from '../../../Context/CommonConstants';
+import InfoPopup from '../InfoPopups/InfoPopup';
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
@@ -46,16 +47,17 @@ const Interface = forwardRef((props, ref) => {
         arViewRef.current?.invokeFunctionInARView();
     };
 
-    // Info popup handlers
-    const showInfoPopup = () => {
-        console.log('Info Popup Opened');
-        setShowInfo(true);
-    };
+   // Info popup handlers
+  const showInfoPopup = () => {
+    console.log('Info Popup Opened');
+    setShowInfo(true);
+  };
 
-    const closeInfoPopup = () => {
-        console.log('Info Popup Closed');
-        setShowInfo(prev => !prev);
-    };
+  const closeInfoPopup = () => {
+    console.log('Info Popup Closed');
+    setShowInfo(false);
+  };
+
 
     return (
         <div id='overlay-content' ref={ref}>
@@ -121,7 +123,7 @@ const Interface = forwardRef((props, ref) => {
             {showNeutronSpectrometerPopup && <NeutronSpectrometerPopup onClose={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)} />}
             {showAntennaPopup && <AntennaPopup onClose={togglePopup(setShowAntennaPopup, setAntennaClicked)} />}
             {showBusPopup && <BusPopup onClose={togglePopup(setShowBusPopup, setBusClicked)} />}
-            {showInfo && <GameInfoPopup onClose={closeInfoPopup} />}
+            {showInfo && <InfoPopup onClose={closeInfoPopup} />}
         </div>
     );
 });
