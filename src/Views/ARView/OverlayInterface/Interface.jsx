@@ -73,7 +73,7 @@ const Interface = forwardRef((props, ref) => {
                         onClick={togglePopup(setShowLeftWingPopup, setLeftWingClicked)}
                         disabled={leftWingClicked}
                     >
-                        <img src={SpacecraftIcons.BUS} />
+                        <img src={SpacecraftIcons.LEFT_WING} />                        
                     </button>
 
                     <button
@@ -81,7 +81,7 @@ const Interface = forwardRef((props, ref) => {
                         onClick={togglePopup(setShowRightWingPopup, setRightWingClicked)}
                         disabled={rightWingClicked}
                     >
-                        <img src={SpacecraftIcons.ANTENNA} />
+                        <img src={SpacecraftIcons.RIGHT_WING} />
                     </button>
 
                     <button
@@ -89,7 +89,7 @@ const Interface = forwardRef((props, ref) => {
                         onClick={togglePopup(setShowGammaRayPopup, setGammaRayClicked)}
                         disabled={gammaRayClicked}
                     >
-                        <img src={SpacecraftIcons.LEFT_WING} />
+                        <img src={SpacecraftIcons.GAMMA_RAY} />
                     </button>
 
                     <button
@@ -97,7 +97,7 @@ const Interface = forwardRef((props, ref) => {
                         onClick={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)}
                         disabled={neutronSpectrometerClicked}
                     >
-                        <img src={SpacecraftIcons.RIGHT_WING} />
+                        <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} /> 
                     </button>
 
                     <button
@@ -105,7 +105,7 @@ const Interface = forwardRef((props, ref) => {
                         onClick={togglePopup(setShowAntennaPopup, setAntennaClicked)}
                         disabled={antennaClicked}
                     >
-                        <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
+                        <img src={SpacecraftIcons.ANTENNA} />
                     </button>
 
                     <button
@@ -113,7 +113,7 @@ const Interface = forwardRef((props, ref) => {
                         onClick={togglePopup(setShowBusPopup, setBusClicked)}
                         disabled={busClicked}
                     >
-                        <img src={SpacecraftIcons.GAMMA_RAY} />
+                        <img src={SpacecraftIcons.BUS} />
                     </button>
                 </div>
             </div>
