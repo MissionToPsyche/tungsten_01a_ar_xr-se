@@ -1,5 +1,7 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import AntennaImage from '/Icons/antenna.png';
+
 
 const AntennaPopup = ({ onClose }) => {
     return (
@@ -8,9 +10,7 @@ const AntennaPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Antenna
                 </div>
-                <div className="popup-image">
-                    {/* TODO: ADD IMAGE*/}
-                </div>
+                <img src={AntennaImage} alt="Antenna" className='popup-image' />
                 <div className="popup-text">
                     TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
                 </div>

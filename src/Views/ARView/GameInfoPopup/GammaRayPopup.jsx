@@ -1,5 +1,7 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import GammaImage from '/Icons/gamma_ray.png';
+
 
 const GammaRayPopup = ({ onClose }) => {
     return (
@@ -8,9 +10,7 @@ const GammaRayPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Gamma-Ray
                 </div>
-                <div className="popup-image">
-                    {/* TODO: ADD IMAGE*/}
-                </div>
+                <img src={GammaImage} alt="Gamma" className='popup-image' />
                 <div className="popup-text">
                     TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
                 </div>
