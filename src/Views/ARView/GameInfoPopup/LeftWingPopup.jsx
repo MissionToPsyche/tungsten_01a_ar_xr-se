@@ -6,13 +6,13 @@ const LeftWingPopup = ({ onClose }) => {
         <div className="popup-container">
             <div className="popup-content">
                 <div className="popup-title">
-                    Left Wing 
+                    Left Wing
                 </div>
                 <div className="popup-image">
                     {/* TODO: ADD LEFT WING IMAGE*/}
                 </div>
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    The spacecraft is equipped with large solar panel arrays that extend from the body of the bus. These solar arrays harness solar energy to power the spacecraft's systems.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE

@@ -12,7 +12,7 @@ const GammaRayPopup = ({ onClose }) => {
                     {/* TODO: ADD IMAGE*/}
                 </div>
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    The Gamma-Ray Spectrometer detects, measures, and maps the elemental composition of Psyche, providing crucial insights into the asteroid's makeup with advanced technology.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE

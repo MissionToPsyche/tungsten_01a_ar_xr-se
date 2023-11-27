@@ -12,7 +12,7 @@ const NeutronSpectrometerPopup = ({ onClose }) => {
                     {/* TODO: ADD IMAGE*/}
                 </div>
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    Neutron Spectrometer detects and measures neutrons from Psyche, mounted on a 6-foot (2-meter) boom for accurate readings, providing vital data on Psyche's elemental composition.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE
