@@ -12,7 +12,7 @@ const BusPopup = ({ onClose }) => {
                     {/* TODO: ADD IMAGE*/}
                 </div>
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    The spacecraft's main control center, known as the bus, acts as the "brain" of the mission. It coordinates and manages all functions of the spacecraft.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE
