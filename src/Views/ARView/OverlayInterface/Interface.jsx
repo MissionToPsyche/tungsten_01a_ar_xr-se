@@ -61,6 +61,7 @@ const Interface = forwardRef((props, ref) => {
 
     return (
         <div id='overlay-content' ref={ref}>
+
             <div className='dom-container'>
                 <div className='nav-container'>
                     <button className='return-home-button' onClick={handleBackButtonClick}><BackArrow /></button>
@@ -68,6 +69,14 @@ const Interface = forwardRef((props, ref) => {
                 </div>
 
                 <div className='button-container'>
+                    <button
+                        className={`select-button ${busClicked ? 'button-clicked' : ''}`}
+                        onClick={togglePopup(setShowBusPopup, setBusClicked)}
+                        disabled={busClicked}
+                    >
+                        <img src={SpacecraftIcons.BUS} />
+                    </button>
+
                     <button
                         className={`select-button ${leftWingClicked ? 'button-clicked' : ''}`}
                         onClick={togglePopup(setShowLeftWingPopup, setLeftWingClicked)}
@@ -97,7 +106,7 @@ const Interface = forwardRef((props, ref) => {
                         onClick={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)}
                         disabled={neutronSpectrometerClicked}
                     >
-                        <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} /> 
+                        <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
                     </button>
 
                     <button
@@ -117,6 +126,7 @@ const Interface = forwardRef((props, ref) => {
                     </button>
                 </div>
             </div>
+
             {showLeftWingPopup && <LeftWingPopup onClose={togglePopup(setShowLeftWingPopup, setLeftWingClicked)} />}
             {showRightWingPopup && <RightWingPopup onClose={togglePopup(setShowRightWingPopup, setRightWingClicked)} />}
             {showGammaRayPopup && <GammaRayPopup onClose={togglePopup(setShowGammaRayPopup, setGammaRayClicked)} />}

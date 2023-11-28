@@ -1,7 +1,6 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
-import RightWingImage from '/Icons/right_wing.png';
-
+import { SpacecraftIcons } from '../../../Context/CommonConstants';
 
 const RightWingPopup = ({ onClose }) => {
     return (
@@ -10,9 +9,13 @@ const RightWingPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Right Solar Array
                 </div>
-                <img src={RightWingImage} alt="RightWing" className='popup-image' />
+      
+                <div className="popup-image">
+                    <img src={SpacecraftIcons.RIGHT_WING} />
+                </div>
+
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    The spacecraft is equipped with large solar panel arrays that extend from the body of the bus. These solar arrays harness solar energy to power the spacecraft's systems.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE

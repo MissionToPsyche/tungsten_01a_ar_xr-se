@@ -1,7 +1,6 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
-import GammaImage from '/Icons/gamma_ray.png';
-
+import { SpacecraftIcons } from '../../../Context/CommonConstants';
 
 const GammaRayPopup = ({ onClose }) => {
     return (
@@ -10,9 +9,13 @@ const GammaRayPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Gamma-Ray
                 </div>
-                <img src={GammaImage} alt="Gamma" className='popup-image' />
+      
+                <div className="popup-image">
+                    <img src={SpacecraftIcons.GAMMA_RAY} />
+                </div>
+
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    The Gamma-Ray Spectrometer detects, measures, and maps the elemental composition of Psyche, providing crucial insights into the asteroid's makeup with advanced technology.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE
