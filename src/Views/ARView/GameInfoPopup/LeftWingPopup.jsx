@@ -7,11 +7,13 @@ const LeftWingPopup = ({ onClose }) => {
         <div className="popup-container">
             <div className="popup-content">
                 <div className="popup-title">
-                    Left Wing
+                    Left Solar Array
                 </div>
+      
                 <div className="popup-image">
                     <img src={SpacecraftIcons.LEFT_WING} />
                 </div>
+
                 <div className="popup-text">
                     The spacecraft is equipped with large solar panel arrays that extend from the body of the bus. These solar arrays harness solar energy to power the spacecraft's systems.
                 </div>

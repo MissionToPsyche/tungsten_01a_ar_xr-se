@@ -9,9 +9,11 @@ const AntennaPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Antenna
                 </div>
+      
                 <div className="popup-image">
                     <img src={SpacecraftIcons.ANTENNA} />
                 </div>
+
                 <div className="popup-text">
                     The Psyche mission, led by teams from MIT and JPL, uses advanced X-band radio tech to precisely measure Psyche's gravity and analyze its interior structure using onboard imagery.
                 </div>

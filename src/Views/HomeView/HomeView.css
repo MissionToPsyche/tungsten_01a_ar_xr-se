@@ -1,79 +1,78 @@
-
-
 .container {
     display: flex;
     background: url(assets/meteor1.png) top right no-repeat;
     background-size: 95vw;
     background-color: #433538;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh; 
     justify-content: space-between;
-}
-
-.header-section>h2 {
+  }
+  
+  .header-section > h2 {
     margin-top: 2vh;
     display: flex;
     justify-content: center;
-    font-size: 15vw;
+    font-size: 20vw; 
     font-weight: 900;
     font-family: 'Trade Gothic Bold Extended', sans-serif;
     line-height: 80%;
-    color: #ee5868;
+    color: #ef5965;
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
-}
-
-.header-section>h3 {
+  }
+  
+  .header-section > h3 {
     display: flex;
     justify-content: center;
-    font-size: 8vw;
+    font-size: 10vw; 
     font-family: 'Trade Gothic Bold', sans-serif;
-    color: #ee5868;
+    color: #ef5965;
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
-}
-
-.header-section {
+  }
+  
+  .header-section {
     text-align: center;
-    padding: 20px;
-}
-
-.button-section {
+    padding: 2vh; 
+  }
+  
+  .button-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-}
-
-.button-section>button {
-    background-color: #ee5868;
+    padding: 2vh; 
+  }
+  
+  .button-section > button {
+    background-color: #ef5965;
     color: white;
-    width: 50vw;
-    height: 15vw;
-    font-size: 10vw;
+    width: 50%; 
+    height: 15vw; 
+    font-size: 10vw; 
     font-weight: 800;
     font-family: 'Trade Gothic Bold', sans-serif;
     border: 2px solid #A5405C;
     border-radius: 5px;
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
-    margin: 10px 0;
-}
-
-.links-section {
+    margin: 2vh 0; 
+  }
+  
+  .links-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-}
-
-.social-icon {
+    padding: 2vh; 
+  }
+  
+  .social-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 10vw; 
+    height: 10vw; 
     border-radius: 50%;
-    background-color: #ee5868;
-    margin: 10px;
-    font-size: 25px;
+    background-color: #ef5965;
+    margin: 2vh;
+    font-size: 8vw; 
     color: #433538;
-}
+  }
+  

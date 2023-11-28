@@ -9,9 +9,11 @@ const NeutronSpectrometerPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Neutron Spectrometer
                 </div>
+      
                 <div className="popup-image">
                     <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
                 </div>
+
                 <div className="popup-text">
                     Neutron Spectrometer detects and measures neutrons from Psyche, mounted on a 6-foot (2-meter) boom for accurate readings, providing vital data on Psyche's elemental composition.
                 </div>
