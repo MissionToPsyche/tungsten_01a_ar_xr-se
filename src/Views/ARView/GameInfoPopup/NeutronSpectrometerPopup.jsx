@@ -1,5 +1,6 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import { SpacecraftIcons } from '../../../Context/CommonConstants';
 
 const NeutronSpectrometerPopup = ({ onClose }) => {
     return (
@@ -9,7 +10,7 @@ const NeutronSpectrometerPopup = ({ onClose }) => {
                     Neutron Spectrometer
                 </div>
                 <div className="popup-image">
-                    {/* TODO: ADD IMAGE*/}
+                    <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
                 </div>
                 <div className="popup-text">
                     Neutron Spectrometer detects and measures neutrons from Psyche, mounted on a 6-foot (2-meter) boom for accurate readings, providing vital data on Psyche's elemental composition.
