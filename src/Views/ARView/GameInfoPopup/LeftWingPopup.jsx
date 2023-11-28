@@ -1,5 +1,6 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import LeftWingImage from '/Icons/left_wing.png';
 
 const LeftWingPopup = ({ onClose }) => {
     return (
@@ -8,9 +9,7 @@ const LeftWingPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Left Solar Array 
                 </div>
-                <div className="popup-image">
-                    {/* TODO: ADD LEFT WING IMAGE*/}
-                </div>
+                <img src={LeftWingImage} alt="LeftWing" className='popup-image' />
                 <div className="popup-text">
                     TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
                 </div>

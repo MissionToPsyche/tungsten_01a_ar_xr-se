@@ -1,5 +1,7 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import NeutronImage from '/Icons/neutron_spectrometer.png';
+
 
 const NeutronSpectrometerPopup = ({ onClose }) => {
     return (
@@ -8,9 +10,7 @@ const NeutronSpectrometerPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Neutron Spectrometer
                 </div>
-                <div className="popup-image">
-                    {/* TODO: ADD IMAGE*/}
-                </div>
+                <img src={NeutronImage} alt="NeutronSpectrometer" className='popup-image' />
                 <div className="popup-text">
                     TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
                 </div>

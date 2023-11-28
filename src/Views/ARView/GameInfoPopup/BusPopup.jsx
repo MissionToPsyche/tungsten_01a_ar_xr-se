@@ -1,5 +1,7 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import BusImage from '/Icons/bus_with_structure.png';
+
 
 const BusPopup = ({ onClose }) => {
     return (
@@ -8,9 +10,7 @@ const BusPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Bus
                 </div>
-                <div className="popup-image">
-                    {/* TODO: ADD IMAGE*/}
-                </div>
+                <img src={BusImage} alt="Bus" className='popup-image' />
                 <div className="popup-text">
                     TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
                 </div>
