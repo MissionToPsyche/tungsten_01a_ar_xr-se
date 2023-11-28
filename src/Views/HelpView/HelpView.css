@@ -12,13 +12,16 @@
   .title {
     color: #ef5868;
     font-weight: bold;
-    font-size: 5vw; 
-    font-family: 'Gothic A1', sans-serif;
+    font-size: 20vw; 
+    font-weight: 900;
+    font-family: 'Trade Gothic Bold', sans-serif;
+    padding: 2vh; 
   }
   
   .description {
     font-family: "Roboto Mono", monospace;
-    font-size: 3vw; 
+    font-size: 5vw; 
+    font-family: 'Trade Gothic', sans-serif;
   }
   
   .back-button {
@@ -30,4 +33,3 @@
     border: none;
     cursor: pointer;
   }
-  
