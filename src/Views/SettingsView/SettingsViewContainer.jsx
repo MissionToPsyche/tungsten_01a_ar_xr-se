@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import { AudioProvider } from "./Context/AudioContext";
+import { AudioContext } from '../../Context/AudioContext.jsx';
 import ToggleButton from './ToggleButton';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import "./SettingsStyles.css";
@@ -30,9 +30,8 @@ const SettingsViewContainer = () => {
      // Function to toggle the music on or off
      const toggleMusic = () => {
         setIsMusicPlaying(!isMusicPlaying);
+    
     };
-
-
 
 
     return (
