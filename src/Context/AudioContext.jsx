@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const AudioContext = createContext();
 
-export const AudioProvider = ({  }) => {
+export const AudioProvider = ({ children }) => {
     const [isMusicPlaying, setIsMusicPlaying] = useState(false);
     const [audio] = useState(new Audio('/audio/space_music.mp3'));
 
@@ -13,7 +13,7 @@ export const AudioProvider = ({  }) => {
 
     return (
         <AudioContext.Provider value={{ isMusicPlaying, setIsMusicPlaying }}>
-            
+            {children}
         </AudioContext.Provider>
     );
 };
