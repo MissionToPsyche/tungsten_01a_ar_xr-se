@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import { AudioContext } from '../../Context/AudioContext.jsx';
 import ToggleButton from './ToggleButton';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import "./SettingsStyles.css";
@@ -13,6 +14,8 @@ const SettingsViewContainer = () => {
     const [soundEffectsEnabled, setSoundEffectsEnabled] = useState(true);
     const [showCredits, setShowCredits] = useState(false);
     const navigate = useNavigate();
+    const { isMusicPlaying, setIsMusicPlaying } = useContext(AudioContext);
+
 
    // Popup toggle functions
    const togglePopup = (setPopupState) => () => setPopupState(prev => !prev);
@@ -23,6 +26,13 @@ const SettingsViewContainer = () => {
             arViewRef.current.invokeFunctionInARView();
         }
     };
+
+     // Function to toggle the music on or off
+     const toggleMusic = () => {
+        setIsMusicPlaying(!isMusicPlaying);
+    
+    };
+
 
     return (
         <div className='settings-container'>
@@ -35,8 +45,8 @@ const SettingsViewContainer = () => {
             <div className='toggle-button-section'>
                 <ToggleButton
                     label="Music"
-                    isChecked={musicEnabled}
-                    onChange={() => setMusicEnabled(prev => !prev)}
+                    isChecked={isMusicPlaying}
+                    onChange={toggleMusic}
                     className='toggle-button'
                 />
                 <ToggleButton
