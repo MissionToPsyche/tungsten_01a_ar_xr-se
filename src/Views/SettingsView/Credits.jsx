@@ -1,7 +1,23 @@
-import React from 'react';
 import "./Credits.css";
+import React, { useState, useContext } from 'react';
+import { AudioContext } from '../../Context/AudioContext'; 
+import { BUTTON_PRESS } from '../../Context/CommonConstants';
 
 const Credits = ({ onClose }) => {
+
+    const { soundEffectsEnabled } = useContext(AudioContext);
+
+    const playSound = () => {
+        if (soundEffectsEnabled) {
+            new Audio(BUTTON_PRESS).play();
+        }
+    };
+
+    const handleClose = () => {
+        playSound();
+        onClose();
+    };
+
     return (
         <div className='credits-modal'>
 
@@ -17,6 +33,10 @@ const Credits = ({ onClose }) => {
             Music: <a href="https://pixabay.com/music/upbeat-space-chillout-14194/" target="_blank" rel="noopener noreferrer">Space Chillout</a><br />
             Producer: penguinmusic<br />
             Source: Pixabay Music<br />
+            <br />
+            Sound Effects: <a href="https://www.zapsplat.com/music/ui-button-click-1/ " target="_blank" rel="noopener noreferrer">UI Button Click 1</a><br />
+            Producer: ZapSplat<br />
+            Attribute : Sound effects obtained from https://www.zapsplat.com<br />
             </p>
 
             <h2 className='credits-header'>Credits</h2>
@@ -28,7 +48,7 @@ const Credits = ({ onClose }) => {
             </p>
         
 
-            <button className='credits-close-button' onClick={onClose}>CLOSE</button>
+            <button className='credits-close-button' onClick={handleClose}>CLOSE</button>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useARContext } from '../Contexts/ARContext';
 import './Interface.css';
@@ -13,10 +13,20 @@ import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import { AiFillInfoCircle as InfoCircle } from "react-icons/ai";
 import { SpacecraftIcons } from '../../../Context/CommonConstants';
 import InfoPopup from '../InfoPopups/InfoPopup';
+import { AudioContext } from '../../../Context/AudioContext'; 
+import { BUTTON_PRESS } from '../../../Context/CommonConstants';
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
     const arViewRef = useARContext();
+
+    // Sound effects
+    const { soundEffectsEnabled } = useContext(AudioContext);
+    const playSound = () => {
+        if (soundEffectsEnabled) {
+            new Audio(BUTTON_PRESS).play();
+        }
+    };
 
     // Popup visibility states
     const [showLeftWingPopup, setShowLeftWingPopup] = useState(false);
@@ -38,22 +48,26 @@ const Interface = forwardRef((props, ref) => {
 
     // Popup toggle functions
     const togglePopup = (setPopupState, setButtonClicked) => () => {
+        playSound();
         setPopupState(prev => !prev);
         setButtonClicked(true);
     };
 
     // Handle back button click
     const handleBackButtonClick = () => {
+        playSound();
         arViewRef.current?.invokeFunctionInARView();
     };
 
    // Info popup handlers
   const showInfoPopup = () => {
+    playSound();
     console.log('Info Popup Opened');
     setShowInfo(true);
   };
 
   const closeInfoPopup = () => {
+    playSound();
     console.log('Info Popup Closed');
     setShowInfo(false);
   };
