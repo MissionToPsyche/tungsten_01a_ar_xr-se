@@ -1,5 +1,6 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import { SpacecraftIcons } from '../../../Context/CommonConstants';
 
 const BusPopup = ({ onClose }) => {
     return (
@@ -8,11 +9,13 @@ const BusPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Bus
                 </div>
+      
                 <div className="popup-image">
-                    {/* TODO: ADD IMAGE*/}
+                    <img src={SpacecraftIcons.BUS} />
                 </div>
+
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    The spacecraft's main control center, known as the bus, acts as the "brain" of the mission. It coordinates and manages all functions of the spacecraft.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE

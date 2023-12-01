@@ -1,5 +1,6 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
+import { SpacecraftIcons } from '../../../Context/CommonConstants';
 
 const AntennaPopup = ({ onClose }) => {
     return (
@@ -8,11 +9,13 @@ const AntennaPopup = ({ onClose }) => {
                 <div className="popup-title">
                     Antenna
                 </div>
+      
                 <div className="popup-image">
-                    {/* TODO: ADD IMAGE*/}
+                    <img src={SpacecraftIcons.ANTENNA} />
                 </div>
+
                 <div className="popup-text">
-                    TODO : Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    The Psyche mission, led by teams from MIT and JPL, uses advanced X-band radio tech to precisely measure Psyche's gravity and analyze its interior structure using onboard imagery.
                 </div>
                 <button className="popup-button" onClick={onClose}>
                     CONTINUE

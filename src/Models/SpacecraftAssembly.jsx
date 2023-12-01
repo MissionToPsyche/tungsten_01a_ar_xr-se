@@ -8,6 +8,8 @@ const SpacecraftAssembly = ({ position }) => {
     const wingLGLTF = useLoader(GLTFLoader, SpacecraftComponents.LEFT_WING);
     const antentnaGLTF = useLoader(GLTFLoader, SpacecraftComponents.ANTENNA);
     const neutronGLTF = useLoader(GLTFLoader, SpacecraftComponents.NEUTRON_SPECTROMETER);
+    const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
+
 
     return (
         <mesh position={position}>
@@ -18,12 +20,15 @@ const SpacecraftAssembly = ({ position }) => {
             {/* BUS */}
             <primitive position={[0, 0, 0]} object={busGLTF.scene} scale={[1, 1, 1]} />
             {/* ANTENNA */}
-            <primitive position={[0, 0.34, 0.043]} object={antentnaGLTF.scene} scale={[1, 1, 1]} />
+            <primitive position={[0, 0.34, 0.03]} object={antentnaGLTF.scene} scale={[1, 1, 1]} />
             {/* Neutron Spectrometer */}
-            <primitive position={[0.065, 0, 0.21]} rotation-z={Math.PI / 2} object={neutronGLTF.scene} scale={[0.06, 0.06, 0.06]} />
+            <primitive position={[-.138, .45, -.23]}  object={neutronGLTF.scene} scale={[1, 1, 1]} />
+            {/* Gamma Ray */}
+            <primitive position={[-.143, .65, -.183]}  object={gammaRayGLTF.scene} scale={[1, 1, 1]} />
         </mesh>
     );
 };
+
 
 export default SpacecraftAssembly;
 

@@ -7,15 +7,15 @@ const SpacecraftIcons = {
     RIGHT_WING: 'public/icons/right_wing.png',
   };
   
-  const SpacecraftComponents = {
+ const SpacecraftComponents = {
     ANTENNA: '/models/gltf-files/antenna.gltf',
-    BUS: '/models/gltf-files/bus.gltf',
-    BUS_WITH_STRUCTURE: '/models/gltf-files/bus_with_structure.gltf',
-    GAMMA_RAY: '/models/gltf-files/gamma_ray.gltf',
+    BUS: '/models/gltf-files/bus_and_structure.gltf',
+    GAMMA_RAY: '/models/gltf-files/gamma_ray_scaled.gltf',
     LEFT_WING: '/models/gltf-files/left_wing.gltf',
-    NEUTRON_SPECTROMETER: '/models/gltf-files/neutron_spectrometer.gltf',
+    NEUTRON_SPECTROMETER: '/models/gltf-files/Neutron_Spectrometer_Scaled.gltf',
     RIGHT_WING: '/models/gltf-files/right_wing.gltf',
   };
+
   
   export { SpacecraftIcons, SpacecraftComponents };
   
