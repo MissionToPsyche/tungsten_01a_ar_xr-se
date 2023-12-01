@@ -19,3 +19,6 @@ const SpacecraftIcons = {
   
   export { SpacecraftIcons, SpacecraftComponents };
   
+  import buttonPress from '/audio/button_press.mp3';
+
+  export const BUTTON_PRESS = buttonPress;
