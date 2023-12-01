@@ -4,40 +4,42 @@ import { AudioContext } from '../../Context/AudioContext.jsx';
 import ToggleButton from './ToggleButton';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import "./SettingsStyles.css";
+import { BUTTON_PRESS } from '../../Context/CommonConstants';
 
 import Credits from './Credits'; 
 
 const SettingsViewContainer = () => {
-
-    // State to manage music and sound effect toggles
-    const [musicEnabled, setMusicEnabled] = useState(true);
-    const [soundEffectsEnabled, setSoundEffectsEnabled] = useState(true);
-    const [showCredits, setShowCredits] = useState(false);
     const navigate = useNavigate();
-    const { isMusicPlaying, setIsMusicPlaying } = useContext(AudioContext);
 
+   // Manage music and sound effects
+    const { isMusicPlaying, setIsMusicPlaying, soundEffectsEnabled, setSoundEffectsEnabled } = useContext(AudioContext);
 
-   // Popup toggle functions
-   const togglePopup = (setPopupState) => () => setPopupState(prev => !prev);
+    // State to manage credits popup
+    const [showCredits, setShowCredits] = useState(false);
 
-    const handleBackButtonClick = () => {
-        // Call the function in ARView from Interface
-        if (arViewRef.current) {
-            arViewRef.current.invokeFunctionInARView();
+    // Popup toggle function
+    const togglePopup = (setPopupState) => () => setPopupState(prev => !prev);
+
+    // Function to toggle the music on or off
+    const toggleMusic = () => {
+        setIsMusicPlaying(!isMusicPlaying);
+    };
+
+    // Function to toggle sound effects on or off
+    const toggleSoundEffects = () => {
+        setSoundEffectsEnabled(prev => !prev);
+    };
+
+    const playSound = () => {
+        if (soundEffectsEnabled) {
+            new Audio(BUTTON_PRESS).play();
         }
     };
 
-     // Function to toggle the music on or off
-     const toggleMusic = () => {
-        setIsMusicPlaying(!isMusicPlaying);
-    
-    };
-
-
     return (
         <div className='settings-container'>
-            <div className=''>
-                <button onClick={() => navigate('/')} className='back-button'><BackArrow /></button>
+            <div>
+                <button onClick={() => { playSound(); navigate('/'); }} className='back-button'><BackArrow /></button>
             </div>
             <div className='settings-header-section'>
                 <h1>SETTINGS</h1>
@@ -46,20 +48,20 @@ const SettingsViewContainer = () => {
                 <ToggleButton
                     label="Music"
                     isChecked={isMusicPlaying}
-                    onChange={toggleMusic}
+                    onChange={() => { playSound(); toggleMusic(); }}
                     className='toggle-button'
                 />
                 <ToggleButton
-                    label="Sound"
+                    label="Sound Effects"
                     isChecked={soundEffectsEnabled}
-                    onChange={() => setSoundEffectsEnabled(prev => !prev)}
+                    onChange={() => { playSound(); toggleSoundEffects(); }}
                     className='toggle-button'
                 />
             </div>
             <div className='credits-section'>
-                <button onClick={togglePopup(setShowCredits)}>Credits</button>
+                <button onClick={() => { playSound(); togglePopup(setShowCredits)(); }}>Credits</button>
             </div>
-            {showCredits && (<Credits onClose={togglePopup(setShowCredits)} /> )}
+            {showCredits && (<Credits onClose={() => { playSound(); togglePopup(setShowCredits)(); }} />)}
         </div>
     );
 };

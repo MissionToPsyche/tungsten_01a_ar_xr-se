@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useContext } from 'react';
 import "./IntroPopup.css";
+import { AudioContext } from '../../../Context/AudioContext'; 
+import { BUTTON_PRESS } from '../../../Context/CommonConstants';
 
 const IntroPopup = ({ onClose }) => {
+  const { soundEffectsEnabled } = useContext(AudioContext);
+
+  const playSound = () => {
+    if (soundEffectsEnabled) {
+      new Audio(BUTTON_PRESS).play();
+    }
+  };
+
+  const handleClose = () => {
+    playSound();
+    onClose();
+  };
+
   return (
     <div className="intro-container">
       <div className="intro-background">
@@ -20,7 +35,7 @@ const IntroPopup = ({ onClose }) => {
           Instructions on how to play the game go here...
           </p>
         </div>
-        <button className="intro-button" onClick={onClose}>CLOSE</button>
+        <button className="intro-button" onClick={handleClose}>CLOSE</button>
       </div>
     </div>
   );
