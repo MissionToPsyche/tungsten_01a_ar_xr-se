@@ -10,6 +10,27 @@ const SpacecraftAssembly = ({ position }) => {
     const neutronGLTF = useLoader(GLTFLoader, SpacecraftComponents.NEUTRON_SPECTROMETER);
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
+    // Adjust the intensity to control the greyed-out effect
+    const greyedOutIntensity = 0.12; // do not go over .13, becomes too dark
+
+    // Function to apply the greyed-out effect to a GLTF scene
+    const applyGreyedOutEffect = (scene) => {
+      scene.traverse((child) => {
+          if (child.isMesh) {
+              child.material.color.offsetHSL(0, 0, -greyedOutIntensity);
+          }
+      });
+    };
+
+    // Apply the effect to all loaded GLTF models
+    applyGreyedOutEffect(busGLTF.scene);
+    applyGreyedOutEffect(wingRGLTF.scene);
+    applyGreyedOutEffect(wingLGLTF.scene);
+    applyGreyedOutEffect(antentnaGLTF.scene);
+    applyGreyedOutEffect(neutronGLTF.scene);
+    applyGreyedOutEffect(gammaRayGLTF.scene);
+
+
 
     return (
         <mesh position={position}>
