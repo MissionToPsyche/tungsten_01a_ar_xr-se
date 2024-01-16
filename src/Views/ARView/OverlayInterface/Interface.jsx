@@ -59,18 +59,18 @@ const Interface = forwardRef((props, ref) => {
         arViewRef.current?.invokeFunctionInARView();
     };
 
-   // Info popup handlers
-  const showInfoPopup = () => {
-    playSound();
-    console.log('Info Popup Opened');
-    setShowInfo(true);
-  };
+    // Info popup handlers
+    const showInfoPopup = () => {
+        playSound();
+        console.log('Info Popup Opened');
+        setShowInfo(true);
+    };
 
-  const closeInfoPopup = () => {
-    playSound();
-    console.log('Info Popup Closed');
-    setShowInfo(false);
-  };
+    const closeInfoPopup = () => {
+        playSound();
+        console.log('Info Popup Closed');
+        setShowInfo(false);
+    };
 
 
     return (
@@ -129,14 +129,6 @@ const Interface = forwardRef((props, ref) => {
                         disabled={antennaClicked}
                     >
                         <img src={SpacecraftIcons.ANTENNA} />
-                    </button>
-
-                    <button
-                        className={`select-button ${busClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowBusPopup, setBusClicked)}
-                        disabled={busClicked}
-                    >
-                        <img src={SpacecraftIcons.BUS} />
                     </button>
                 </div>
             </div>
