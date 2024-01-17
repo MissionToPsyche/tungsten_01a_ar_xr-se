@@ -38,7 +38,7 @@ const HomeViewContainer = () => {
         <div className="container">
             <div className="header-section">
                 <h2>PSYCHE</h2>
-                <h3>AR Experience</h3>
+                <h3>Beyond Reality</h3>
             </div>
 
             <div className="button-section">
