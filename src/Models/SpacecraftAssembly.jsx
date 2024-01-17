@@ -1,8 +1,12 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { SpacecraftComponents } from "../Context/CommonConstants";
+import {useRef, useEffect } from 'react';
 
-const SpacecraftAssembly = ({ position }) => {
+
+const SpacecraftAssembly = ({ position, onReady }) => {
+  
+  const greyRef = useRef();
     const busGLTF = useLoader(GLTFLoader, SpacecraftComponents.BUS);
     const wingRGLTF = useLoader(GLTFLoader, SpacecraftComponents.RIGHT_WING);
     const wingLGLTF = useLoader(GLTFLoader, SpacecraftComponents.LEFT_WING);
@@ -11,8 +15,8 @@ const SpacecraftAssembly = ({ position }) => {
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
     // Adjust the intensity to control the greyed-out effect
-    const greyedOutIntensity = 0.12; // do not go over .13, becomes too dark
-
+    const greyedOutIntensity = 0.12; // do not go over .13, becomes too dark'
+    const undoGreyedOut= 0.0;
     // Function to apply the greyed-out effect to a GLTF scene
     const applyGreyedOutEffect = (scene) => {
       scene.traverse((child) => {
@@ -20,7 +24,28 @@ const SpacecraftAssembly = ({ position }) => {
               child.material.color.offsetHSL(0, 0, -greyedOutIntensity);
           }
       });
+
+  // Function to undo the greyed-out effect to a GLTF scene
+   
+
     };
+
+    
+  useEffect(() => {
+ 
+    const wingLGLTF = useLoader(GLTFLoader, SpacecraftComponents.LEFT_WING);
+    const undoGreyedOutEffect = (scene) => {
+      scene.traverse((child) => {
+        if (child.isMesh) {
+          child.material.color.offsetHSL(0, 0, -undoGreyedOut);
+        }
+      });}
+      greyRef.current = undoGreyedOutEffect(wingLGLTF.scene);
+  
+      onReady(greyRef.current);
+   
+  }, [onReady]);
+  
 
     // Apply the effect to all loaded GLTF models
     applyGreyedOutEffect(busGLTF.scene);
@@ -48,9 +73,11 @@ const SpacecraftAssembly = ({ position }) => {
             <primitive position={[-.143, .65, -.183]}  object={gammaRayGLTF.scene} scale={[1, 1, 1]} />
         </mesh>
     );
-};
+    }
+//};
 
 
+//export {undoGreyedOutEffect};
 export default SpacecraftAssembly;
 
 
@@ -103,6 +130,10 @@ export default function Model(props) {
     </group>
   );
 }
+
+useGLTF.preload("/models/bus.gltf");
+
+*/
 
 useGLTF.preload("/models/bus.gltf");
 
