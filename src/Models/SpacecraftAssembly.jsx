@@ -1,6 +1,8 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { SpacecraftComponents } from "../Context/CommonConstants";
+import { useSpacecraftPartsVisibility} from '../Context/SpacecraftPartsVisibilityContext';
+
 
 const SpacecraftAssembly = ({ position }) => {
     const busGLTF = useLoader(GLTFLoader, SpacecraftComponents.BUS);
@@ -10,8 +12,12 @@ const SpacecraftAssembly = ({ position }) => {
     const neutronGLTF = useLoader(GLTFLoader, SpacecraftComponents.NEUTRON_SPECTROMETER);
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
+
+    // Use useSpacecraftContext hook to access and modify  pieces states
+    const { spacecraftPartsVisibility } = useSpacecraftContext();
+ 
     // Adjust the intensity to control the greyed-out effect
-    const greyedOutIntensity = 0.12; // do not go over .13, becomes too dark
+    const greyedOutIntensity = isGreyedOut ? 0.12 : 0; // Assuming 0 is not grey-out
 
     // Function to apply the greyed-out effect to a GLTF scene
     const applyGreyedOutEffect = (scene) => {
@@ -22,15 +28,17 @@ const SpacecraftAssembly = ({ position }) => {
       });
     };
 
-    // Apply the effect to all loaded GLTF models
-    applyGreyedOutEffect(busGLTF.scene);
-    applyGreyedOutEffect(wingRGLTF.scene);
-    applyGreyedOutEffect(wingLGLTF.scene);
-    applyGreyedOutEffect(antentnaGLTF.scene);
-    applyGreyedOutEffect(neutronGLTF.scene);
-    applyGreyedOutEffect(gammaRayGLTF.scene);
-
-
+    // Extra Info about effect hooks: https://legacy.reactjs.org/docs/hooks-overview.html
+    // Effect hook to apply changes whenever the visibility state changes
+    useEffect(() => {
+      // Apply the effect to all loaded GLTF models
+      applyGreyedOutEffect(busGLTF.scene, !spacecraftPartsVisibility.BUS);
+      applyGreyedOutEffect(wingRGLTF.scene, !spacecraftPartsVisibility.RIGHT_WING);
+      applyGreyedOutEffect(wingLGLTF.scene, !spacecraftPartsVisibility.LEFT_WING);
+      applyGreyedOutEffect(antentnaGLTF.scene, !spacecraftPartsVisibility.ANTENNA);
+      applyGreyedOutEffect(neutronGLTF.scene, !spacecraftPartsVisibility.NEUTRON_SPECTROMETER);
+      applyGreyedOutEffect(gammaRayGLTF.scene, !spacecraftPartsVisibility.GAMMA_RAY);
+  }, [spacecraftPartsVisibility]);
 
     return (
         <mesh position={position}>
