@@ -15,10 +15,16 @@ import { SpacecraftIcons } from '../../../Context/CommonConstants';
 import InfoPopup from '../InfoPopups/InfoPopup';
 import { AudioContext } from '../../../Context/AudioContext'; 
 import { BUTTON_PRESS } from '../../../Context/CommonConstants';
+import { useSpacecraftContext } from '../../../Context/SpacecraftPartsVisibilityContext';
+
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
     const arViewRef = useARContext();
+
+    // Initialize context
+    const { spacecraftPartsVisibility, setSpacecraftPartsVisibility } = useSpacecraftContext();
+
 
     // Sound effects
     const { soundEffectsEnabled } = useContext(AudioContext);
@@ -51,6 +57,11 @@ const Interface = forwardRef((props, ref) => {
         playSound();
         setPopupState(prev => !prev);
         setButtonClicked(true);
+         // Update the context state to remove the greyed-out effect for the clicked part
+        setSpacecraftPartsVisibility(prevState => ({
+            ...prevState,
+            [partName]: true,
+        }));
     };
 
     // Handle back button click
@@ -59,18 +70,18 @@ const Interface = forwardRef((props, ref) => {
         arViewRef.current?.invokeFunctionInARView();
     };
 
-   // Info popup handlers
-  const showInfoPopup = () => {
-    playSound();
-    console.log('Info Popup Opened');
-    setShowInfo(true);
-  };
+    // Info popup handlers
+    const showInfoPopup = () => {
+        playSound();
+        console.log('Info Popup Opened');
+        setShowInfo(true);
+    };
 
-  const closeInfoPopup = () => {
-    playSound();
-    console.log('Info Popup Closed');
-    setShowInfo(false);
-  };
+    const closeInfoPopup = () => {
+        playSound();
+        console.log('Info Popup Closed');
+        setShowInfo(false);
+    };
 
 
     return (
@@ -85,7 +96,7 @@ const Interface = forwardRef((props, ref) => {
                 <div className='button-container'>
                     <button
                         className={`select-button ${busClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowBusPopup, setBusClicked)}
+                        onClick={togglePopup(setShowBusPopup, setBusClicked, 'bus')}
                         disabled={busClicked}
                     >
                         <img src={SpacecraftIcons.BUS} />
@@ -93,7 +104,7 @@ const Interface = forwardRef((props, ref) => {
 
                     <button
                         className={`select-button ${leftWingClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowLeftWingPopup, setLeftWingClicked)}
+                        onClick={togglePopup(setShowLeftWingPopup, setLeftWingClicked, 'leftWing')}
                         disabled={leftWingClicked}
                     >
                         <img src={SpacecraftIcons.LEFT_WING} />                        
@@ -101,7 +112,7 @@ const Interface = forwardRef((props, ref) => {
 
                     <button
                         className={`select-button ${rightWingClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowRightWingPopup, setRightWingClicked)}
+                        onClick={togglePopup(setShowRightWingPopup, setRightWingClicked, 'rightWing')}
                         disabled={rightWingClicked}
                     >
                         <img src={SpacecraftIcons.RIGHT_WING} />
@@ -109,7 +120,7 @@ const Interface = forwardRef((props, ref) => {
 
                     <button
                         className={`select-button ${gammaRayClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowGammaRayPopup, setGammaRayClicked)}
+                        onClick={togglePopup(setShowGammaRayPopup, setGammaRayClicked, 'gammaRay')}
                         disabled={gammaRayClicked}
                     >
                         <img src={SpacecraftIcons.GAMMA_RAY} />
@@ -117,7 +128,7 @@ const Interface = forwardRef((props, ref) => {
 
                     <button
                         className={`select-button ${neutronSpectrometerClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)}
+                        onClick={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked, 'neutronSpectrometer')}
                         disabled={neutronSpectrometerClicked}
                     >
                         <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
@@ -125,19 +136,12 @@ const Interface = forwardRef((props, ref) => {
 
                     <button
                         className={`select-button ${antennaClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowAntennaPopup, setAntennaClicked)}
+                        onClick={togglePopup(setShowAntennaPopup, setAntennaClicked, 'antenna')}
                         disabled={antennaClicked}
                     >
                         <img src={SpacecraftIcons.ANTENNA} />
                     </button>
 
-                    <button
-                        className={`select-button ${busClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowBusPopup, setBusClicked)}
-                        disabled={busClicked}
-                    >
-                        <img src={SpacecraftIcons.BUS} />
-                    </button>
                 </div>
             </div>
 
