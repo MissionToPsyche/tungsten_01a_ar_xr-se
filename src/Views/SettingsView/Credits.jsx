@@ -24,7 +24,7 @@ const Credits = ({ onClose }) => {
             <h2 className='credits-header'>Authors:</h2>
             <p className='credits-info'>
                 Edgar Hakobyan - ehakobya@asu.edu<br />
-                Mia Harmon - mharmon7@asu.edu<br />
+                Mia Palmer - mharmon7@asu.edu<br />
                 Sarah Nicolas - senicola@asu.edu
             </p>
 

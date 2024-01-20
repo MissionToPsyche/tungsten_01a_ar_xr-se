@@ -11,12 +11,13 @@
     background-color:white;
     border-radius: 15px;
     cursor: pointer;
-    margin-left: 10px;
     transition: background-color 0.3s;
+    display:inline-block;
+    
   }
   
   .slider.on {
-    background-color: white;
+    background-color: #ee5868;
   }
   
   .thumb {
