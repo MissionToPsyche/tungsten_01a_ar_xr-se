@@ -1,3 +1,5 @@
+/* 
+
 .container {
     display: flex;
     background: url(assets/meteor1.png) top right no-repeat;
@@ -71,8 +73,113 @@
     height: 10vw; 
     border-radius: 50%;
     background-color: #ef5965;
+    width: 10vw; 
+    height: 10vw; 
     margin: 2vh;
     font-size: 8vw; 
     color: #433538;
   }
   
+  */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    justify-content: space-between;
+    background: url(assets/meteor1.png) top right no-repeat;
+    background-color: #433538;
+    background-size: 90vw;
+    height: 100vh;
+}
+
+.header-section>h2 {
+    font-size: 150px;
+    font-weight: 900;
+    font-family: 'Trade Gothic Bold Extended', sans-serif;
+    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
+    color: #ef5965;
+    margin-top: 3vw;
+}
+
+.header-section>h3 {
+    font-size: 75px;
+    font-family: 'Trade Gothic Bold', sans-serif;
+    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
+    color: #ef5965;
+    line-height: 50%;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-section>button {
+    width: 350px;
+    height: 75px;
+    font-size: 40px;
+    font-weight: 800;
+    font-family: 'Trade Gothic Bold', sans-serif;
+    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
+    background-color: #ef5965;
+    color: white;
+    border: 2px solid #A5405C;
+    border-radius: 5px;
+    margin: 1vh 0;
+}
+
+.link-section {
+    margin-bottom: 3vh;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin: 1vw;
+    border-radius: 50%;
+    background-color: #ef5965;
+    color: #433538;
+}
+
+@media screen and (max-width: 800px) {
+    .header-section>h2 {
+        font-size: 100px;
+    }
+
+    .header-section>h3 {
+        font-size: 50px;
+    }
+
+    .button-section>button {}
+
+    .social-icon {}
+}
+
+@media screen and (max-width: 600px) {
+    .header-section>h2 {
+        font-size: 15vw;
+    }
+
+    .header-section>h3 {
+        font-size: 8vw;
+    }
+
+    .button-section>button {
+        width: 50vw;
+        height: 20vw;
+        font-size: 8vw;
+        margin: 0.75vh 0;
+    }
+
+    .social-icon {
+        width: 10vw;
+        height: 10vw;
+        padding: 2vw;
+        margin: 0 1vw;
+    }
+}

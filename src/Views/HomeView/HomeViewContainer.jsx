@@ -13,7 +13,7 @@ const HomeViewContainer = () => {
 
     const playSound = () => {
         if (soundEffectsEnabled) {
-            new Audio(BUTTON_PRESS).play(); 
+            new Audio(BUTTON_PRESS).play();
         }
     };
 
@@ -36,6 +36,7 @@ const HomeViewContainer = () => {
 
     return (
         <div className="container">
+
             <div className="header-section">
                 <h2>PSYCHE</h2>
                 <h3>Beyond Reality</h3>
@@ -47,20 +48,13 @@ const HomeViewContainer = () => {
                 <button onClick={() => { playSound(); navigate('/settings'); }} type="button">SETTINGS</button>
             </div>
 
-            <div className="links-section">
-                <div className="social-icon" onClick={redirectToFacebook}>
-                    <FacebookIcon className="icon" />
-                </div>
-                <div className="social-icon" onClick={redirectToTwitter}>
-                    <TwitterIcon className="icon" />
-                </div>
-                <div className="social-icon" onClick={redirectToInstagram}>
-                    <InstaIcon className="icon" />
-                </div>
-                <div className="social-icon" onClick={redirectToYoutube}>
-                    <YoutubeIcon className="icon" />
-                </div>
+            <div className="link-section">
+                <FacebookIcon className="social-icon" />
+                <TwitterIcon className="social-icon" />
+                <InstaIcon className="social-icon" />
+                <YoutubeIcon className="social-icon" />
             </div>
+
         </div>
     );
 };
