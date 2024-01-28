@@ -42,7 +42,7 @@ const SettingsViewContainer = () => {
                 <button onClick={() => { playSound(); navigate('/'); }} className='back-button'><BackArrow /></button>
             </div>
             <div className='settings-header-section'>
-                <h1>SETTINGS</h1>
+                <h3>SETTINGS</h3>
             </div>
             <div className='toggle-button-section'>
                 <ToggleButton
@@ -52,7 +52,7 @@ const SettingsViewContainer = () => {
                     className='toggle-button'
                 />
                 <ToggleButton
-                    label="Sound Effects"
+                    label="Sound"
                     isChecked={soundEffectsEnabled}
                     onChange={() => { playSound(); toggleSoundEffects(); }}
                     className='toggle-button'
