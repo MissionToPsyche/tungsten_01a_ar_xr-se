@@ -15,18 +15,21 @@ const SpacecraftAssembly = () => {
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
     
-    const greyedOutIntensity = 0.15; 
+    const greyedOutIntensity = 0.18; 
 
-    // Function to apply the greyed-out effect to a GLTF scene
     const applyGreyedOutEffect = (scene, componentName) => {
-        if (!activeComponents[componentName]) {
-            scene.traverse((child) => {
-                if (child.isMesh) {
-                    child.material.color.offsetHSL(0, 0, -greyedOutIntensity);
-                }
-            });
-        }
-    };
+      scene.traverse((child) => {
+          if (child.isMesh) {
+              if (!activeComponents[componentName]) {
+                  // Apply greyed-out effect
+                  child.material.color.offsetHSL(0, 0, -greyedOutIntensity);
+              } else {
+                  // Reset color to original state
+                  child.material.color.offsetHSL(0, 0, greyedOutIntensity);
+              }
+          }
+      });
+  };
 
     // Apply the effect conditionally based on activeComponents
     useEffect(() => {

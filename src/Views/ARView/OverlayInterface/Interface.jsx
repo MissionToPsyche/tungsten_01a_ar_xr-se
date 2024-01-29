@@ -22,7 +22,7 @@ const Interface = forwardRef((props, ref) => {
 
     const navigate = useNavigate();
     const arViewRef = useARContext();
-    const { activateComponent } = useContext(SpacecraftContext);
+    const { activateComponent, activeComponents } = useContext(SpacecraftContext);
     
     // Sound effects
     const { soundEffectsEnabled } = useContext(AudioContext);
@@ -55,11 +55,14 @@ const Interface = forwardRef((props, ref) => {
         playSound();
         setPopupState(prev => !prev);
 
+        // Toggle the activation status of the component
         if (!setButtonClicked) {
             setButtonClicked(true);
-            activateComponent(componentName); // Activating the component
         }
-    };
+        activateComponent(componentName, !activeComponents[componentName]); // Toggle the component activation
+        console.log('Toggled, button ' + componentName)
+};
+
 
     // Handle back button click
     const handleBackButtonClick = () => {
