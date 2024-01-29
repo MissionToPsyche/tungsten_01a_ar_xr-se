@@ -54,14 +54,12 @@ const Interface = forwardRef((props, ref) => {
     const togglePopup = (componentName, setPopupState, setButtonClicked) => () => {
         playSound();
         setPopupState(prev => !prev);
-
-        // Toggle the activation status of the component
-        if (!setButtonClicked) {
-            setButtonClicked(true);
-        }
-        activateComponent(componentName, !activeComponents[componentName]); // Toggle the component activation
+        setButtonClicked(prev => !prev); // locks button after selected
+        activateComponent(componentName, true);
+        console.log("Active Components:", activeComponents);
         console.log('Toggled, button ' + componentName)
-};
+    };
+    
 
 
     // Handle back button click

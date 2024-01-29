@@ -1,16 +1,22 @@
 import React, { createContext, useState } from 'react';
 
-// Create the context
 export const SpacecraftContext = createContext();
 
 export const SpacecraftProvider = ({ children }) => {
-    const [activeComponents, setActiveComponents] = useState({});
+    // Initialize all components as inactive
+    const [activeComponents, setActiveComponents] = useState({
+        BUS: false,
+        RIGHT_WING: false,
+        LEFT_WING: false,
+        ANTENNA: false,
+        NEUTRON_SPECTROMETER: false,
+        GAMMA_RAY: false,
+    });
 
     const activateComponent = (component, isActive) => {
         setActiveComponents(prev => ({ ...prev, [component]: isActive }));
     };
 
-    // The value that will be supplied to any components
     const contextValue = {
         activeComponents,
         activateComponent,

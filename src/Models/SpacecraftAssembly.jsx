@@ -15,7 +15,7 @@ const SpacecraftAssembly = () => {
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
     
-    const greyedOutIntensity = 0.18; 
+    const greyedOutIntensity = 0.12; 
 
     const applyGreyedOutEffect = (scene, componentName) => {
       scene.traverse((child) => {
@@ -30,16 +30,20 @@ const SpacecraftAssembly = () => {
           }
       });
   };
+  
 
-    // Apply the effect conditionally based on activeComponents
-    useEffect(() => {
+  useEffect(() => {
+    if (busGLTF && wingRGLTF && wingLGLTF && antennaGLTF && neutronGLTF && gammaRayGLTF) {
         applyGreyedOutEffect(busGLTF.scene, 'BUS');
         applyGreyedOutEffect(wingRGLTF.scene, 'RIGHT_WING');
         applyGreyedOutEffect(wingLGLTF.scene, 'LEFT_WING');
         applyGreyedOutEffect(antennaGLTF.scene, 'ANTENNA');
         applyGreyedOutEffect(neutronGLTF.scene, 'NEUTRON_SPECTROMETER');
         applyGreyedOutEffect(gammaRayGLTF.scene, 'GAMMA_RAY');
-    }, [activeComponents, busGLTF, wingRGLTF, wingLGLTF, antennaGLTF, neutronGLTF, gammaRayGLTF]);
+    }
+  }, [activeComponents, busGLTF, wingRGLTF, wingLGLTF, antennaGLTF, neutronGLTF, gammaRayGLTF]);
+
+
 
     // Define the static position for the mesh (the entire orbiter position)
     const position = [0, 0, 0];
