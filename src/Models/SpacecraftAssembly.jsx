@@ -14,35 +14,42 @@ const SpacecraftAssembly = () => {
     const neutronGLTF = useLoader(GLTFLoader, SpacecraftComponents.NEUTRON_SPECTROMETER);
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
+    const applyOpacityChange = (scene, isActive) => {
+        const inactiveOpacity = 0.2; // 0 = invisiible, 1 = visible 
+        scene.traverse((child) => {
+            if (child.isMesh) {
+                child.material.transparent = true;
+                child.material.opacity = isActive ? 1 : inactiveOpacity; 
+            }
+        });
+    };
     
-    const greyedOutIntensity = 0.12; 
+    
 
-    const applyGreyedOutEffect = (scene, componentName) => {
-      scene.traverse((child) => {
-          if (child.isMesh) {
-              if (!activeComponents[componentName]) {
-                  // Apply greyed-out effect
-                  child.material.color.offsetHSL(0, 0, -greyedOutIntensity);
-              } else {
-                  // Reset color to original state
-                  child.material.color.offsetHSL(0, 0, greyedOutIntensity);
-              }
-          }
-      });
-  };
-  
+     // Effect hook for each component
+    useEffect(() => {
+        if (busGLTF) applyOpacityChange(busGLTF.scene, activeComponents.BUS);
+    }, [activeComponents.BUS, busGLTF]);
 
-  useEffect(() => {
-    if (busGLTF && wingRGLTF && wingLGLTF && antennaGLTF && neutronGLTF && gammaRayGLTF) {
-        applyGreyedOutEffect(busGLTF.scene, 'BUS');
-        applyGreyedOutEffect(wingRGLTF.scene, 'RIGHT_WING');
-        applyGreyedOutEffect(wingLGLTF.scene, 'LEFT_WING');
-        applyGreyedOutEffect(antennaGLTF.scene, 'ANTENNA');
-        applyGreyedOutEffect(neutronGLTF.scene, 'NEUTRON_SPECTROMETER');
-        applyGreyedOutEffect(gammaRayGLTF.scene, 'GAMMA_RAY');
-    }
-  }, [activeComponents, busGLTF, wingRGLTF, wingLGLTF, antennaGLTF, neutronGLTF, gammaRayGLTF]);
+    useEffect(() => {
+        if (wingRGLTF) applyOpacityChange(wingRGLTF.scene, activeComponents.RIGHT_WING);
+    }, [activeComponents.RIGHT_WING, wingRGLTF]);
 
+    useEffect(() => {
+        if (wingLGLTF) applyOpacityChange(wingLGLTF.scene, activeComponents.LEFT_WING);
+    }, [activeComponents.LEFT_WING, wingLGLTF]);
+
+    useEffect(() => {
+        if (antennaGLTF) applyOpacityChange(antennaGLTF.scene, activeComponents.ANTENNA);
+    }, [activeComponents.ANTENNA, antennaGLTF]);
+
+    useEffect(() => {
+        if (neutronGLTF) applyOpacityChange(neutronGLTF.scene, activeComponents.NEUTRON_SPECTROMETER);
+    }, [activeComponents.NEUTRON_SPECTROMETER, neutronGLTF]);
+
+    useEffect(() => {
+        if (gammaRayGLTF) applyOpacityChange(gammaRayGLTF.scene, activeComponents.GAMMA_RAY);
+    }, [activeComponents.GAMMA_RAY, gammaRayGLTF]);
 
 
     // Define the static position for the mesh (the entire orbiter position)
