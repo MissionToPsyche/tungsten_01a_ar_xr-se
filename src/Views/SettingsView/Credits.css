@@ -28,6 +28,10 @@
   margin-bottom: 0.5rem; 
 }
 
+div .info {
+  align-items: center;
+  width: 80%;
+}
 .credits-info {
   font-size: 1rem; 
   font-weight: medium; 

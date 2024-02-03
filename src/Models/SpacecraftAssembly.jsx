@@ -1,88 +1,101 @@
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { SpacecraftComponents } from "../Context/CommonConstants";
+import React, { useContext, useEffect } from 'react';
+import { useLoader } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { SpacecraftComponents } from '../Context/CommonConstants';
+import { SpacecraftContext } from '../Context/SpacecraftContext';
 
-const SpacecraftAssembly = ({ position }) => {
+const SpacecraftAssembly = () => {
+    const { activeComponents } = useContext(SpacecraftContext);
+
     const busGLTF = useLoader(GLTFLoader, SpacecraftComponents.BUS);
     const wingRGLTF = useLoader(GLTFLoader, SpacecraftComponents.RIGHT_WING);
     const wingLGLTF = useLoader(GLTFLoader, SpacecraftComponents.LEFT_WING);
-    const antentnaGLTF = useLoader(GLTFLoader, SpacecraftComponents.ANTENNA);
+    const antennaGLTF = useLoader(GLTFLoader, SpacecraftComponents.ANTENNA);
     const neutronGLTF = useLoader(GLTFLoader, SpacecraftComponents.NEUTRON_SPECTROMETER);
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
+    const applyOpacityChange = (scene, isActive) => {
+        const inactiveOpacity = 0.2; // 0 = invisiible, 1 = visible 
+        scene.traverse((child) => {
+            if (child.isMesh) {
+                child.material.transparent = true;
+                child.material.opacity = isActive ? 1 : inactiveOpacity; 
+            }
+        });
+    };
+    
+    
+
+     // Effect hook for each component
+    useEffect(() => {
+        if (busGLTF) applyOpacityChange(busGLTF.scene, activeComponents.BUS);
+    }, [activeComponents.BUS, busGLTF]);
+
+    useEffect(() => {
+        if (wingRGLTF) applyOpacityChange(wingRGLTF.scene, activeComponents.RIGHT_WING);
+    }, [activeComponents.RIGHT_WING, wingRGLTF]);
+
+    useEffect(() => {
+        if (wingLGLTF) applyOpacityChange(wingLGLTF.scene, activeComponents.LEFT_WING);
+    }, [activeComponents.LEFT_WING, wingLGLTF]);
+
+    useEffect(() => {
+        if (antennaGLTF) applyOpacityChange(antennaGLTF.scene, activeComponents.ANTENNA);
+    }, [activeComponents.ANTENNA, antennaGLTF]);
+
+    useEffect(() => {
+        if (neutronGLTF) applyOpacityChange(neutronGLTF.scene, activeComponents.NEUTRON_SPECTROMETER);
+    }, [activeComponents.NEUTRON_SPECTROMETER, neutronGLTF]);
+
+    useEffect(() => {
+        if (gammaRayGLTF) applyOpacityChange(gammaRayGLTF.scene, activeComponents.GAMMA_RAY);
+    }, [activeComponents.GAMMA_RAY, gammaRayGLTF]);
+
+
+    // Define the static position for the mesh (the entire orbiter position)
+    const position = [0, 0, 0];
 
     return (
         <mesh position={position}>
             {/* RIGHT WING */}
-            <primitive position={[1.37, -0.03, 0]} object={wingRGLTF.scene} scale={[1, 1, 1]} />
+            <primitive 
+                position={[1.37, -0.03, 0]} 
+                object={wingRGLTF.scene} 
+                scale={[1, 1, 1]}
+            />
             {/* LEFT WING */}
-            <primitive position={[-1.37, -0.03, -0.015]} rotation-y={-Math.PI / 1} object={wingLGLTF.scene} scale={[1, 1, 1]} />
+            <primitive 
+                position={[-1.37, -0.03, -0.015]} 
+                rotation-y={-Math.PI / 1} 
+                object={wingLGLTF.scene} 
+                scale={[1, 1, 1]}
+            />
             {/* BUS */}
-            <primitive position={[0, 0, 0]} object={busGLTF.scene} scale={[1, 1, 1]} />
+            <primitive 
+                position={[0, 0, 0]} 
+                object={busGLTF.scene} 
+                scale={[1, 1, 1]}
+            />
             {/* ANTENNA */}
-            <primitive position={[0, 0.34, 0.03]} object={antentnaGLTF.scene} scale={[1, 1, 1]} />
+            <primitive 
+                position={[0, 0.34, 0.03]} 
+                object={antennaGLTF.scene} 
+                scale={[1, 1, 1]}
+            />
             {/* Neutron Spectrometer */}
-            <primitive position={[-.138, .45, -.23]}  object={neutronGLTF.scene} scale={[1, 1, 1]} />
+            <primitive 
+                position={[-.138, .45, -.23]}  
+                object={neutronGLTF.scene} 
+                scale={[1, 1, 1]}
+            />
             {/* Gamma Ray */}
-            <primitive position={[-.143, .65, -.183]}  object={gammaRayGLTF.scene} scale={[1, 1, 1]} />
+            <primitive 
+                position={[-.143, .65, -.183]}  
+                object={gammaRayGLTF.scene} 
+                scale={[1, 1, 1]}
+            />
         </mesh>
     );
 };
 
-
 export default SpacecraftAssembly;
-
-
-/*
-import { OrbitControls } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
-
-const Cube = ({ position }) => {
-  const cubeRef = useRef();
-
-  useFrame((state) => {
-    cubeRef.current.rotation.y += 0.01;
-  });
-
-  return (
-    <>
-      <OrbitControls />
-      <ambientLight />
-      <mesh ref={cubeRef} position={position}>
-        <boxGeometry args={[0.5, 0.5, 0.5]} />
-        <meshStandardMaterial color={"mediumpurple"} />
-      </mesh>
-    </>
-  );
-};
-
-export default Cube;
-*/
-
-/*
-
-import React, { useRef } from "react";
-import { useGLTF, useAnimations } from "@react-three/drei";
-
-export default function Model(props) {
-  const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/models/bus.gltf");
-  const { actions } = useAnimations(animations, group);
-  return (
-    <group ref={group} {...props} dispose={null}>
-      <group scale={1.91}>
-        <primitive object={nodes.root} />
-        <skinnedMesh
-          geometry={nodes.druid.geometry}
-          material={materials.color_main}
-          skeleton={nodes.druid.skeleton}
-        />
-      </group>
-    </group>
-  );
-}
-
-useGLTF.preload("/models/bus.gltf");
-
-*/
