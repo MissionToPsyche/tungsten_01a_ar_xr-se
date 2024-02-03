@@ -1,28 +1,43 @@
-import { Html, OrbitControls } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
-import { Interactive, useHitTest, useXR } from "@react-three/xr";
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { OrbitControls, Html } from "@react-three/drei";
+import { useThree, useFrame } from "@react-three/fiber";
+import { Interactive, useHitTest, useXR } from "@react-three/xr";
+import * as THREE from 'three'; 
 
 import { useARContext } from './Contexts/ARContext';
 import SpacecraftAssembly from "../../Models/SpacecraftAssembly";
 import Cube from "./Cube";
-
 import { FaArrowAltCircleLeft, FaInfoCircle } from 'react-icons/fa';
 
 const ARView = () => {
-
     const navigate = useNavigate();
     const arViewRef = useARContext();
     const reticleRef = useRef();
     const [models, setModels] = useState([]);
     const { xr, isPresenting } = useXR();
+    const { scene, camera } = useThree(); 
 
-    useThree(({ camera }) => {
+    // Adjust camera position if not presenting
+    useEffect(() => {
         if (!isPresenting) {
             camera.position.z = 3;
         }
-    });
+    }, [isPresenting, camera]);
+
+    // Load and set the space-themed background
+    useEffect(() => {
+        if (!isPresenting) {
+            const loader = new THREE.TextureLoader();
+            loader.load('/assets/outer-space-background.jpg', (texture) => {
+                const bgGeometry = new THREE.SphereGeometry(500, 60, 40);
+                bgGeometry.scale(-1, 1, 1); // Invert the geometry so that the inside of the sphere is rendered
+                const bgMaterial = new THREE.MeshBasicMaterial({ map: texture });
+                const bgMesh = new THREE.Mesh(bgGeometry, bgMaterial);
+                scene.add(bgMesh);
+            });
+        }
+    }, [isPresenting, scene]);
 
     useHitTest((hitMatrix, hit) => {
         hitMatrix.decompose(
@@ -30,13 +45,12 @@ const ARView = () => {
             reticleRef.current.quaternion,
             reticleRef.current.scale
         );
-
         reticleRef.current.rotation.set(-Math.PI / 2, 0, 0);
     });
 
     const placeModel = (e) => {
-        let position = e.intersection.object.position.clone();
-        let id = Date.now();
+        const position = e.intersection.object.position.clone();
+        const id = Date.now();
         setModels([...models, { position, id }]);
     };
 
@@ -59,10 +73,7 @@ const ARView = () => {
         <>
             <OrbitControls />
             <ambientLight />
-            {isPresenting &&
-                models.map(({ position, id }) => {
-                    return <SpacecraftAssembly key={id} position={position} />;
-                })}
+            {isPresenting && models.map(({ position, id }) => <SpacecraftAssembly key={id} position={position} />)}
             {isPresenting && (
                 <Interactive onSelect={placeModel}>
                     <mesh ref={reticleRef} rotation-x={-Math.PI / 2}>
