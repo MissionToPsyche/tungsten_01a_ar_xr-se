@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import { AudioContext } from '../../Context/AudioContext'; 
 import { BUTTON_PRESS } from '../../Context/CommonConstants'; 
+import {InstructionPictures } from '../../Context/CommonConstants';
 import './HelpView.css'
 
 const HelpViewContainer = () => {
@@ -29,7 +30,20 @@ const HelpViewContainer = () => {
             <div className='text-container'>
                 <h1 className='title'>HELP</h1>
                 <p className='description'>
-                    Sunt consequat nisi deserunt qui sint elit ullamco labore sit ex. Consectetur excepteur nulla ut exercitation nulla officia minim sit nostrud commodo velit Lorem Lorem. Irure dolore cillum ea commodo. Amet nisi consequat tempor deserunt minim sint nostrud nulla deserunt eiusmod. Ex fugiat pariatur veniam in aliquip voluptate laborum nulla. Id ut deserunt nulla nisi ullamco est elit consequat ullamco dolore ullamco et enim sunt.
+                Welcome to a game that takes you beyond reality! We need your help as we journey around the Psyche orbiter through the use of Augmented Reality (AR).<br />
+                <br />
+                 Simply tap the “Enter AR” button located at the top of your screen to bring the orbiter to life. <br />
+                 Utilize your device’s camera to explore the psyche orbiter by physically moving around. <br />
+                 <br />
+                Tap on the red tiles at the bottom of the screen to learn about each instrument and watch it light up on the Psyche orbiter. Be aware! You can only click on each piece once.<br /> 
+                <div className="popup-image">
+                    <img src={InstructionPictures.TILE} />
+                </div>
+                Keep on clicking all of the pieces until the entire orbiter has been revealed! Enjoy the adventure!<br />
+                <br />
+                <div className="popup-image">
+                    <img src={InstructionPictures.SHADE_COLOR} />
+                </div>
                 </p>
             </div>
         </div>
