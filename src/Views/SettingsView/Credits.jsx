@@ -33,13 +33,16 @@ const Credits = ({ onClose }) => {
             <h2 className='credits-header'>Audio</h2>
             <div className = 'info'>
                 <p className='credits-info'>
-                Music: <a href="https://pixabay.com/music/upbeat-space-chillout-14194/" target="_blank" rel="noopener noreferrer">Space Chillout</a><br />
-                Producer: penguinmusic<br />
-                Source: Pixabay Music<br />
-                <br />
-                Sound Effects: <a href="https://www.zapsplat.com/music/ui-button-click-1/ " target="_blank" rel="noopener noreferrer">UI Button Click 1</a><br />
-                Producer: ZapSplat<br />
-                Attribute : Sound effects obtained from https://www.zapsplat.com<br />
+                    Music: <a href="https://pixabay.com/music/upbeat-space-chillout-14194/" target="_blank" rel="noopener noreferrer">Space Chillout</a><br />
+                    Producer: penguinmusic<br />
+                    Source: Pixabay Music<br />
+                    <br />
+                    Sound Effects: <a href="https://www.zapsplat.com/music/ui-button-click-1/ " target="_blank" rel="noopener noreferrer">UI Button Click 1</a><br />
+                    Producer: ZapSplat<br />
+                    Attribute : Sound effects obtained from https://www.zapsplat.com<br />
+                    <br />
+                    Space Background Image: <a href="https://www.freepik.com/free-photo/outer-space-background_4100956.htm#query=panorama%20360%20space&position=3&from_view=keyword&track=ais&uuid=3917f46a-636f-44be-ae24-42f8451c0502">Free photo outer space background</a><br/>
+                    Source: Freepik
                 </p>
             </div>
             
