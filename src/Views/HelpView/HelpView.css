@@ -1,35 +1,56 @@
 .view-container {
-    background-color: #413539;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #433538;
+    background-size: 90vw;
     min-height: 100vh;
-  }
-  
-  .text-container {
+}
+
+.text-container {
     text-align: center;
-    margin: 0 10vw; 
-    padding: 5vh 0; 
-  }
-  
-  .title {
-    color: #ef5868;
-    font-weight: bold;
-    font-size: 20vw; 
-    font-weight: 900;
+    margin: 0 10vw;
+    padding: 5vh 0;
+}
+
+.title {
+    text-align: center;
+    font-size: 100px;
     font-family: 'Trade Gothic Bold', sans-serif;
-    padding: 2vh; 
-  }
-  
-  .description {
+    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
+    color: #ef5965;
+    line-height: 50%;
+}
+
+.description {
+    margin: 10vh 0;
     font-family: "Roboto Mono", monospace;
-    font-size: 5vw; 
+    font-size: 36px;
     font-family: 'Trade Gothic', sans-serif;
-  }
-  
-  .back-button {
+}
+
+.back-button {
     height: auto;
-    font-size: 3vh; 
-    padding: 2vh 3vw; 
+    font-size: 30px;
+    padding: 2vh 3vw;
     color: white;
     background: none;
     border: none;
     cursor: pointer;
-  }
+}
+
+@media screen and (max-width: 800px) {
+    .title {
+        font-size: 13vw;
+    }
+    
+    .description {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 13vw;
+    }
+}
