@@ -4,6 +4,7 @@ import { BsFillArrowLeftCircleFill as BackArrow } from "react-icons/bs";
 import { AudioContext } from "../../Context/AudioContext";
 import { BUTTON_PRESS } from "../../Context/CommonConstants";
 import "./HelpView.css";
+import { popupText } from "../ARView/InfoPopups/InfoPopupContent";
 
 const HelpViewContainer = () => {
   const { soundEffectsEnabled } = useContext(AudioContext);
@@ -30,15 +31,7 @@ const HelpViewContainer = () => {
       {/* Contents of help page */}
       <div className="text-container">
         <h1 className="title">HELP</h1>
-        <p className="description">
-          Sunt consequat nisi deserunt qui sint elit ullamco labore sit ex.
-          Consectetur excepteur nulla ut exercitation nulla officia minim sit
-          nostrud commodo velit Lorem Lorem. Irure dolore cillum ea commodo.
-          Amet nisi consequat tempor deserunt minim sint nostrud nulla deserunt
-          eiusmod. Ex fugiat pariatur veniam in aliquip voluptate laborum nulla.
-          Id ut deserunt nulla nisi ullamco est elit consequat ullamco dolore
-          ullamco et enim sunt.
-        </p>
+        <p className="description">{popupText}</p>
       </div>
     </div>
   );

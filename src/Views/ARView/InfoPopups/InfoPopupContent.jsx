@@ -1,0 +1,2 @@
+export const popupText =
+  "Sunt consequat nisi deserunt qui sint elit ullamco labore sit ex. Consectetur excepteur nulla ut exercitation nulla officia minim sit nostrud commodo velit Lorem Lorem. Irure dolore cillum ea commodo. Amet nisi consequat tempor deserunt minim sint nostrud nulla deserunt eiusmod. Ex fugiat pariatur veniam in aliquip voluptate laborum nulla. Id ut deserunt nulla nisi ullamco est elit consequat ullamco doloreullamco et enim sunt.";
