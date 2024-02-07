@@ -2,7 +2,7 @@ import React from "react";
 import "../GameInfoPopup/SatellitePiecesPopup.css";
 import { popupText } from "./InfoPopupContent";
 ("./InfoPopupContent");
-
+import HelpViewContainer from "../../HelpView/HelpViewContainer";
 const InfoPopup = ({ onClose }) => {
   return (
     <div className="popup-container">
