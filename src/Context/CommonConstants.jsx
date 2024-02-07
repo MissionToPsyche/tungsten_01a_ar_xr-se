@@ -18,7 +18,7 @@ const SpacecraftIcons = {
 
   const InstructionPictures = {
     TILE: 'public/pictures/HelpPage2.png',
-    SHADE_COLOR: ' public/pictures/ShadetoColor2.png'
+    SHADE_COLOR: ' public/pictures/NewShadetoColor3.png'
   }
 
   
