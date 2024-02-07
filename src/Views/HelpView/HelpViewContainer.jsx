@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsFillArrowLeftCircleFill as BackArrow } from "react-icons/bs";
 import { AudioContext } from "../../Context/AudioContext";
+import { BUTTON_PRESS } from '../../Context/CommonConstants'; 
 import { InstructionPictures } from "../../Context/CommonConstants";
 import { popupText } from "../ARView/InfoPopups/InfoPopupContent";
 import "./HelpView.css";
