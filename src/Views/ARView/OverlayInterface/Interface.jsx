@@ -15,11 +15,15 @@ import { SpacecraftIcons } from '../../../Context/CommonConstants';
 import InfoPopup from '../InfoPopups/InfoPopup';
 import { AudioContext } from '../../../Context/AudioContext'; 
 import { BUTTON_PRESS } from '../../../Context/CommonConstants';
+import { SpacecraftContext } from '../../../Context/SpacecraftContext';
+
 
 const Interface = forwardRef((props, ref) => {
+
     const navigate = useNavigate();
     const arViewRef = useARContext();
-
+    const { activateComponent, activeComponents } = useContext(SpacecraftContext);
+    
     // Sound effects
     const { soundEffectsEnabled } = useContext(AudioContext);
     const playSound = () => {
@@ -46,12 +50,17 @@ const Interface = forwardRef((props, ref) => {
     const [antennaClicked, setAntennaClicked] = useState(false);
     const [busClicked, setBusClicked] = useState(false);
 
-    // Popup toggle functions
-    const togglePopup = (setPopupState, setButtonClicked) => () => {
+    // Modified Popup toggle functions
+    const togglePopup = (componentName, setPopupState, setButtonClicked) => () => {
         playSound();
         setPopupState(prev => !prev);
-        setButtonClicked(true);
+        setButtonClicked(prev => !prev); // locks button after selected
+        activateComponent(componentName, true);
+        console.log("Active Components:", activeComponents);
+        console.log('Toggled, button ' + componentName)
     };
+    
+
 
     // Handle back button click
     const handleBackButtonClick = () => {
@@ -83,49 +92,55 @@ const Interface = forwardRef((props, ref) => {
                 </div>
 
                 <div className='button-container'>
+                    {/* BUS button */}
                     <button
                         className={`select-button ${busClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowBusPopup, setBusClicked)}
+                        onClick={togglePopup('BUS', setShowBusPopup, setBusClicked)}
                         disabled={busClicked}
                     >
                         <img src={SpacecraftIcons.BUS} />
                     </button>
 
+                     {/* LEFT WING button */}
                     <button
                         className={`select-button ${leftWingClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowLeftWingPopup, setLeftWingClicked)}
+                        onClick={togglePopup('LEFT_WING', setShowLeftWingPopup, setLeftWingClicked)}
                         disabled={leftWingClicked}
                     >
-                        <img src={SpacecraftIcons.LEFT_WING} />                        
+                        <img src={SpacecraftIcons.LEFT_WING} />
                     </button>
 
+                    {/* RIGHT WING button */}
                     <button
                         className={`select-button ${rightWingClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowRightWingPopup, setRightWingClicked)}
+                        onClick={togglePopup('RIGHT_WING', setShowRightWingPopup, setRightWingClicked)}
                         disabled={rightWingClicked}
                     >
                         <img src={SpacecraftIcons.RIGHT_WING} />
                     </button>
 
+                    {/* GAMMA RAY button */}
                     <button
                         className={`select-button ${gammaRayClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowGammaRayPopup, setGammaRayClicked)}
+                        onClick={togglePopup('GAMMA_RAY', setShowGammaRayPopup, setGammaRayClicked)}
                         disabled={gammaRayClicked}
                     >
                         <img src={SpacecraftIcons.GAMMA_RAY} />
                     </button>
 
+                    {/* NEUTRON SPECTROMETER button */}
                     <button
                         className={`select-button ${neutronSpectrometerClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)}
+                        onClick={togglePopup('NEUTRON_SPECTROMETER', setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)}
                         disabled={neutronSpectrometerClicked}
                     >
                         <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
                     </button>
 
+                    {/* ANTENNA button */}
                     <button
                         className={`select-button ${antennaClicked ? 'button-clicked' : ''}`}
-                        onClick={togglePopup(setShowAntennaPopup, setAntennaClicked)}
+                        onClick={togglePopup('ANTENNA', setShowAntennaPopup, setAntennaClicked)}
                         disabled={antennaClicked}
                     >
                         <img src={SpacecraftIcons.ANTENNA} />
@@ -133,12 +148,13 @@ const Interface = forwardRef((props, ref) => {
                 </div>
             </div>
 
-            {showLeftWingPopup && <LeftWingPopup onClose={togglePopup(setShowLeftWingPopup, setLeftWingClicked)} />}
-            {showRightWingPopup && <RightWingPopup onClose={togglePopup(setShowRightWingPopup, setRightWingClicked)} />}
-            {showGammaRayPopup && <GammaRayPopup onClose={togglePopup(setShowGammaRayPopup, setGammaRayClicked)} />}
-            {showNeutronSpectrometerPopup && <NeutronSpectrometerPopup onClose={togglePopup(setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)} />}
-            {showAntennaPopup && <AntennaPopup onClose={togglePopup(setShowAntennaPopup, setAntennaClicked)} />}
-            {showBusPopup && <BusPopup onClose={togglePopup(setShowBusPopup, setBusClicked)} />}
+            {/* Popups */}
+            {showLeftWingPopup && <LeftWingPopup onClose={togglePopup('LEFT_WING', setShowLeftWingPopup, setLeftWingClicked)} />}
+            {showRightWingPopup && <RightWingPopup onClose={togglePopup('RIGHT_WING', setShowRightWingPopup, setRightWingClicked)} />}
+            {showGammaRayPopup && <GammaRayPopup onClose={togglePopup('GAMMA_RAY', setShowGammaRayPopup, setGammaRayClicked)} />}
+            {showNeutronSpectrometerPopup && <NeutronSpectrometerPopup onClose={togglePopup('NEUTRON_SPECTROMETER', setShowNeutronSpectrometerPopup, setNeutronSpectrometerClicked)} />}
+            {showAntennaPopup && <AntennaPopup onClose={togglePopup('ANTENNA', setShowAntennaPopup, setAntennaClicked)} />}
+            {showBusPopup && <BusPopup onClose={togglePopup('BUS', setShowBusPopup, setBusClicked)} />}
             {showInfo && <InfoPopup onClose={closeInfoPopup} />}
         </div>
     );

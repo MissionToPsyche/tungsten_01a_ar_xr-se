@@ -16,8 +16,13 @@ const SpacecraftIcons = {
     RIGHT_WING: '/models/gltf-files/right_wing.gltf',
   };
 
+  const InstructionPictures = {
+    TILE: 'public/pictures/HelpPage2.png',
+    SHADE_COLOR: ' public/pictures/ShadetoColor2.png'
+  }
+
   
-  export { SpacecraftIcons, SpacecraftComponents };
+  export { SpacecraftIcons, SpacecraftComponents, InstructionPictures };
   
   import buttonPress from '/audio/button_press.mp3';
 
