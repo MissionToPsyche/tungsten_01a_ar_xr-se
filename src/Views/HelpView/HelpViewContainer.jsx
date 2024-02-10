@@ -1,23 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
-import { AudioContext } from '../../Context/AudioContext'; 
+import { BsFillArrowLeftCircleFill as BackArrow } from "react-icons/bs";
+import { AudioContext } from "../../Context/AudioContext";
 import { BUTTON_PRESS } from '../../Context/CommonConstants'; 
-import {InstructionPictures } from '../../Context/CommonConstants';
-import './HelpView.css'
+import { InstructionPictures } from "../../Context/CommonConstants";
+import { popupText } from "../ARView/InfoPopups/InfoPopupContent";
+import "./HelpView.css";
 
 const HelpViewContainer = () => {
+  const { soundEffectsEnabled } = useContext(AudioContext);
+  const navigate = useNavigate();
 
-    const { soundEffectsEnabled } = useContext(AudioContext);
-    const navigate = useNavigate();
+  const playSound = () => {
+    if (soundEffectsEnabled) {
+      new Audio(BUTTON_PRESS).play();
+    }
+  };
 
-    const playSound = () => {
-        if (soundEffectsEnabled) {
-            new Audio(BUTTON_PRESS).play();
-        }
-    };
-
-    const handleBack = () => {
+  const handleBack = () => {
+    playSound();
+    navigate("/");
+  };
+  
+  const handleBack = () => {
         playSound();
         navigate('/');
     };
@@ -51,4 +56,3 @@ const HelpViewContainer = () => {
 }
 
 export default HelpViewContainer
-
