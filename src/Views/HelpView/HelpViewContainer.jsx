@@ -42,7 +42,7 @@ const HelpViewContainer = () => {
                 Keep on clicking all of the pieces until the entire orbiter has been revealed! Enjoy the adventure!<br />
                 <br />
                 <div className="popup-image">
-                    <img src={InstructionPictures.SHADE_COLOR} />
+                    <img src={InstructionPictures.NEW_SHADE_COLOR} />
                 </div>
                 </p>
             </div>
@@ -51,3 +51,4 @@ const HelpViewContainer = () => {
 }
 
 export default HelpViewContainer
+
