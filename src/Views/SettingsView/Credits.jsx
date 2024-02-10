@@ -41,8 +41,8 @@ const Credits = ({ onClose }) => {
                     Producer: ZapSplat<br />
                     Attribute : Sound effects obtained from https://www.zapsplat.com<br />
                     <br />
-                    Space Background Image: <a href="https://www.freepik.com/free-photo/outer-space-background_4100956.htm#query=panorama%20360%20space&position=3&from_view=keyword&track=ais&uuid=3917f46a-636f-44be-ae24-42f8451c0502">Free photo outer space background</a><br/>
-                    Source: Freepik
+                    Space Background Image: <a href="https://www.istockphoto.com/photo/360-degree-space-nebula-panorama-equirectangular-projection-environment-map-hdri-gm1363877988-435277415?phrase=360+space+panorama">360 Outer Space Background</a><br/>
+                    Source: iStock
                 </p>
             </div>
             

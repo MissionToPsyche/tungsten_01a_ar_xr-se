@@ -25,16 +25,13 @@ const ARView = () => {
         }
     }, [isPresenting, camera]);
 
-    // Load and set the space-themed background
+        // Load and set the space-themed background
     useEffect(() => {
         if (!isPresenting) {
-            const loader = new THREE.TextureLoader();
-            loader.load('/assets/outer-space-background.jpg', (texture) => {
-                const bgGeometry = new THREE.SphereGeometry(500, 60, 40);
-                bgGeometry.scale(-1, 1, 1); // Invert the geometry so that the inside of the sphere is rendered
-                const bgMaterial = new THREE.MeshBasicMaterial({ map: texture });
-                const bgMesh = new THREE.Mesh(bgGeometry, bgMaterial);
-                scene.add(bgMesh);
+            new THREE.TextureLoader().load('assets/space-background-360.jpg', (texture) => {
+                texture.mapping = THREE.EquirectangularReflectionMapping;
+                scene.background = texture;
+                scene.environment = texture; // Set as the environment map
             });
         }
     }, [isPresenting, scene]);

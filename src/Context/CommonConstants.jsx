@@ -18,7 +18,8 @@ const SpacecraftIcons = {
 
   const InstructionPictures = {
     TILE: 'public/pictures/HelpPage2.png',
-    SHADE_COLOR: ' public/pictures/ShadetoColor2.png'
+    SHADE_COLOR: ' public/pictures/ShadetoColor2.png',
+    NEW_SHADE_COLOR: ' public/pictures/NewShadetoColor3.png'
   }
 
   
@@ -27,3 +28,4 @@ const SpacecraftIcons = {
   import buttonPress from '/audio/button_press.mp3';
 
   export const BUTTON_PRESS = buttonPress;
+
