@@ -1,35 +1,36 @@
 .view-container {
-    background-color: #413539;
-    min-height: 100vh;
-  }
-  
-  .text-container {
-    text-align: center;
-    margin: 0 10vw; 
-    padding: 5vh 0; 
-  }
-  
-  .title {
-    color: #ef5868;
-    font-weight: bold;
-    font-size: 20vw; 
-    font-weight: 900;
-    font-family: 'Trade Gothic Bold', sans-serif;
-    padding: 2vh; 
-  }
-  
-  .description {
-    font-family: "Roboto Mono", monospace;
-    font-size: 5vw; 
-    font-family: 'Trade Gothic', sans-serif;
-  }
-  
-  .back-button {
-    height: auto;
-    font-size: 3vh; 
-    padding: 2vh 3vw; 
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
+  background-color: #413539;
+  min-height: 100vh;
+}
+
+.text-container {
+  text-align: center;
+  margin: 0 10vw;
+  padding: 5vh 0;
+}
+
+.title {
+  color: #ef5868;
+  font-weight: bold;
+  font-size: 20vw;
+  font-weight: 900;
+  font-family: "Trade Gothic Bold", sans-serif;
+  padding: 2vh;
+}
+
+.description {
+  font-family: "Roboto Mono", monospace;
+  font-size: 5vw;
+  font-family: "Trade Gothic", sans-serif;
+  text-shadow: 8px 8px 8px #1900ff80;
+}
+
+.back-button {
+  height: auto;
+  font-size: 3vh;
+  padding: 2vh 3vw;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
