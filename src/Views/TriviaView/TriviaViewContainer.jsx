@@ -24,8 +24,8 @@ const TriviaViewContainer = () => {
         const randomIndex = Math.floor(Math.random() * questions.length);
         setCurrentQuestion(questions[randomIndex]);
         setSelectedAnswer('');
-        setFeedback('');
         setCorrectOption('');
+        setFeedback('');
     };
 
     // Function to handle answer selection
