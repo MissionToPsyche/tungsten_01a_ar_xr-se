@@ -36,11 +36,13 @@ const TriviaViewContainer = () => {
     // Function to handle submission of selected answer
     const handleSubmit = () => {
         if (selectedAnswer === currentQuestion.answer) {
-            // setScore(score + 1);
+            setScore(score + 1);
             setFeedback('Correct!');
             setCorrectOption(selectedAnswer); // Set the correct option
         } else {
-            // setScore(score - 1);
+            if (score > 0) {
+                setScore(score - 1);
+            }
             setFeedback(`Incorrect! The correct answer is option ${currentQuestion.answer.toUpperCase()}`);
             setCorrectOption(currentQuestion.answer); // Set the correct option
         }
@@ -81,9 +83,9 @@ const TriviaViewContainer = () => {
                     <button onClick={handleSubmit} disabled={!selectedAnswer}>
                         Submit
                     </button>
-                    {/* <button onClick={handleSubmit} disabled={!selectedAnswer}>
-                        Skip
-                    </button> */}
+                    <button onClick={selectRandomQuestion} disabled={!selectedAnswer}>
+                        Next
+                    </button>
                 </div>
             </div>
         </div>
