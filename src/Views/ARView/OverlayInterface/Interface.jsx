@@ -104,6 +104,25 @@ const Interface = forwardRef((props, ref) => {
         setShowInfo(false);
     };
 
+    const allComponentsActivated = () => {
+        const requiredComponents = ['LEFT_WING', 'RIGHT_WING', 'GAMMA_RAY', 'NEUTRON_SPECTROMETER', 'ANTENNA', 'BUS'];
+        return requiredComponents.every(component => activeComponents[component]);
+    };
+
+    // Function to restart/play again
+    const handleRestart = () => {
+        // TODO: Implement restart functionality here
+        console.log('Restarting...');
+        // Reset states or perform other actions to restart
+    };
+
+    // Function to navigate to the Psyche website 
+    const handleGoToWebsite = () => {
+        window.location.href = 'https://psyche.asu.edu/mission/the-spacecraft/';
+    };
+
+
+
     return (
         <div id='overlay-content' ref={ref}>
             <div className='dom-container'>
@@ -112,61 +131,73 @@ const Interface = forwardRef((props, ref) => {
                     <button className='info-button' onClick={showInfoPopup}><InfoCircle /></button>
                 </div>
 
-                <div className='button-container'>
-                    {/* BUS button */}
-                    <button
-                        className={`select-button ${buttonClicked.BUS ? 'button-clicked' : ''}`}
-                        onClick={togglePopup('BUS')}
-                        disabled={buttonClicked.BUS}
-                    >
-                        <img src={SpacecraftIcons.BUS} />
-                    </button>
+                {/* Conditionally render buttons if all components are NOT activated */}
+                {!allComponentsActivated() && (
+                    <div className='button-container'>
+                        {/* BUS button */}
+                        <button
+                            className={`select-button ${buttonClicked.BUS ? 'button-clicked' : ''}`}
+                            onClick={togglePopup('BUS')}
+                            disabled={buttonClicked.BUS}
+                        >
+                            <img src={SpacecraftIcons.BUS} />
+                        </button>
 
-                     {/* LEFT WING button */}
-                    <button
-                        className={`select-button ${buttonClicked.LEFT_WING ? 'button-clicked' : ''}`}
-                        onClick={togglePopup('LEFT_WING')}
-                        disabled={buttonClicked.LEFT_WING}
-                    >
-                        <img src={SpacecraftIcons.LEFT_WING} />
-                    </button>
+                        {/* LEFT WING button */}
+                        <button
+                            className={`select-button ${buttonClicked.LEFT_WING ? 'button-clicked' : ''}`}
+                            onClick={togglePopup('LEFT_WING')}
+                            disabled={buttonClicked.LEFT_WING}
+                        >
+                            <img src={SpacecraftIcons.LEFT_WING} />
+                        </button>
 
-                    {/* RIGHT WING button */}
-                    <button
-                        className={`select-button ${buttonClicked.RIGHT_WING ? 'button-clicked' : ''}`}
-                        onClick={togglePopup('RIGHT_WING')}
-                        disabled={buttonClicked.RIGHT_WING}
-                    >
-                        <img src={SpacecraftIcons.RIGHT_WING} />
-                    </button>
+                        {/* RIGHT WING button */}
+                        <button
+                            className={`select-button ${buttonClicked.RIGHT_WING ? 'button-clicked' : ''}`}
+                            onClick={togglePopup('RIGHT_WING')}
+                            disabled={buttonClicked.RIGHT_WING}
+                        >
+                            <img src={SpacecraftIcons.RIGHT_WING} />
+                        </button>
 
-                    {/* GAMMA RAY button */}
-                    <button
-                        className={`select-button ${buttonClicked.GAMMA_RAY ? 'button-clicked' : ''}`}
-                        onClick={togglePopup('GAMMA_RAY')}
-                        disabled={buttonClicked.GAMMA_RAY}
-                    >
-                        <img src={SpacecraftIcons.GAMMA_RAY} />
-                    </button>
+                        {/* GAMMA RAY button */}
+                        <button
+                            className={`select-button ${buttonClicked.GAMMA_RAY ? 'button-clicked' : ''}`}
+                            onClick={togglePopup('GAMMA_RAY')}
+                            disabled={buttonClicked.GAMMA_RAY}
+                        >
+                            <img src={SpacecraftIcons.GAMMA_RAY} />
+                        </button>
 
-                    {/* NEUTRON SPECTROMETER button */}
-                    <button
-                        className={`select-button ${buttonClicked.NEUTRON_SPECTROMETER ? 'button-clicked' : ''}`}
-                        onClick={togglePopup('NEUTRON_SPECTROMETER')}
-                        disabled={buttonClicked.NEUTRON_SPECTROMETER}
-                    >
-                        <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
-                    </button>
+                        {/* NEUTRON SPECTROMETER button */}
+                        <button
+                            className={`select-button ${buttonClicked.NEUTRON_SPECTROMETER ? 'button-clicked' : ''}`}
+                            onClick={togglePopup('NEUTRON_SPECTROMETER')}
+                            disabled={buttonClicked.NEUTRON_SPECTROMETER}
+                        >
+                            <img src={SpacecraftIcons.NEUTRON_SPECTROMETER} />
+                        </button>
 
-                    {/* ANTENNA button */}
-                    <button
-                        className={`select-button ${buttonClicked.ANTENNA ? 'button-clicked' : ''}`}
-                        onClick={togglePopup('ANTENNA')}
-                        disabled={buttonClicked.ANTENNA}
-                    >
-                        <img src={SpacecraftIcons.ANTENNA} />
-                    </button>
-                </div>
+                        {/* ANTENNA button */}
+                        <button
+                            className={`select-button ${buttonClicked.ANTENNA ? 'button-clicked' : ''}`}
+                            onClick={togglePopup('ANTENNA')}
+                            disabled={buttonClicked.ANTENNA}
+                        >
+                            <img src={SpacecraftIcons.ANTENNA} />
+                        </button>
+                    </div>
+                )}
+
+                {/* Conditionally render new buttons if all components are activated */}
+                {allComponentsActivated() && (
+                    <div className="new-button-container">
+                        <button onClick={handleRestart} className="restart-button">Restart</button>
+                        <button onClick={handleGoToWebsite} className="go-to-website-button">View Website</button>
+                    </div>
+                )}
+
             </div>
 
             {/* Popups */}
