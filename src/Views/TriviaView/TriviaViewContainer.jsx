@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import questions from '../../../public/trivia/TRIVIA_QUESTIONS.json';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
+import { AudioContext } from "../../Context/AudioContext";
+import { BUTTON_PRESS } from '../../Context/CommonConstants';
 
 import "./TriviaStyles.css";
 
@@ -12,6 +14,7 @@ const TriviaViewContainer = () => {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState('');
     const [correctOption, setCorrectOption] = useState('');
+    const { soundEffectsEnabled } = useContext(AudioContext);
 
     const navigate = useNavigate();
 
