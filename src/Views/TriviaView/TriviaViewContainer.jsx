@@ -14,6 +14,7 @@ const TriviaViewContainer = () => {
     const [score, setScore] = useState(0);
     const [feedback, setFeedback] = useState('');
     const [correctOption, setCorrectOption] = useState('');
+    const [questionNumber, setQuestionNumber] = useState(0);
     const { soundEffectsEnabled } = useContext(AudioContext);
 
     const navigate = useNavigate();
@@ -24,11 +25,16 @@ const TriviaViewContainer = () => {
 
     // Function to randomly select a question
     const selectRandomQuestion = () => {
-        const randomIndex = Math.floor(Math.random() * questions.length);
-        setCurrentQuestion(questions[randomIndex]);
-        setSelectedAnswer('');
-        setCorrectOption('');
-        setFeedback('');
+        if (questionNumber < 10) {
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            setCurrentQuestion(questions[randomIndex]);
+            setSelectedAnswer('');
+            setCorrectOption('');
+            setFeedback('');
+        } else {
+            // Game ends after 10 questions
+            navigate('/');
+        }
     };
 
     // Function to handle answer selection
@@ -49,6 +55,7 @@ const TriviaViewContainer = () => {
             setFeedback(`Incorrect! The correct answer is option ${currentQuestion.answer.toUpperCase()}`);
             setCorrectOption(currentQuestion.answer); // Set the correct option
         }
+        setQuestionNumber(questionNumber + 1); // Move to the next question
     };
 
     const playSound = () => {
