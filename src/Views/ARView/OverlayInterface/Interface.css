@@ -40,7 +40,7 @@
   width: 100%;
 }
 
-.button-container {
+.button-container, .new-button-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -87,20 +87,20 @@
   border: none;
 }
 
-.new-button-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px; 
-  padding: 20px; 
-  
-}
-
 .restart-button, .go-to-website-button {
-  font-size: 1.5rem; 
-  padding: 10px 20px; 
+  font-family: 'Trade Gothic Bold Extended', sans-serif;
+  font-size: 1rem; 
+  padding: 10px; 
   border-radius: 5px; 
   border: none; 
   cursor: pointer; 
+  width: 150px; 
+  height: auto; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  white-space: normal; 
+  overflow: hidden; 
 }
 
 .restart-button {
@@ -113,3 +113,14 @@
   color: white; 
 }
 
+.new-button-container, .new-button-container * {
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .restart-button, .go-to-website-button {
+    font-size: 1.25rem; /* Increases font size for larger screens */
+    padding: 15px 30px; /* Increases padding for larger screens */
+    width: 200px; /* Sets a larger fixed width for each button on larger screens */
+  }
+}

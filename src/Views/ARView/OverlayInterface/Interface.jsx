@@ -193,8 +193,8 @@ const Interface = forwardRef((props, ref) => {
                 {/* Conditionally render new buttons if all components are activated */}
                 {allComponentsActivated() && (
                     <div className="new-button-container">
-                        <button onClick={handleRestart} className="restart-button">Restart</button>
-                        <button onClick={handleGoToWebsite} className="go-to-website-button">View Website</button>
+                        <button onClick={handleRestart} className="restart-button">RESTART</button>
+                        <button onClick={handleGoToWebsite} className="go-to-website-button">VIEW WEBSITE</button>
                     </div>
                 )}
 
