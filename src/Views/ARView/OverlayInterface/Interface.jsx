@@ -113,7 +113,8 @@ const Interface = forwardRef((props, ref) => {
     const handleRestart = () => {
         // TODO: Implement restart functionality here
         console.log('Restarting...');
-        // Reset states or perform other actions to restart
+        // Reload the page to restart the game
+        window.location.reload();
     };
 
     // Function to navigate to the Psyche website 
