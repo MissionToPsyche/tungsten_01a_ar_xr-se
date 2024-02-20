@@ -1,6 +1,7 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
 import { SpacecraftIcons } from '../../../Context/CommonConstants';
+import antennaImage from '../../../../public/icons/antenna.png';
 
 const AntennaPopup = ({ onClose }) => {
     return (
@@ -11,7 +12,7 @@ const AntennaPopup = ({ onClose }) => {
                 </div>
       
                 <div className="popup-image">
-                    <img src={SpacecraftIcons.ANTENNA} />
+                    <img src={antennaImage} />
                 </div>
 
                 <div className="popup-text">
