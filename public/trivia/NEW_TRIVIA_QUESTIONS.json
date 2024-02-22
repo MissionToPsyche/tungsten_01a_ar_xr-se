@@ -1,0 +1,203 @@
+[
+    {
+        "question": "The psyche spacecraft is roughly the same size as:",
+        "options": [
+            "A football field",
+            "A singles tennis court",
+            "A car",
+            "A bicycle"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "Who was Psyche discovered by?",
+        "options": [
+            "Albert Einstein",
+            "Annibale de Gasparis",
+            "Isaac Newton",
+            "Galileo Galilei"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "When did the Psyche spacecraft launch?",
+        "options": [
+            "October 13, 2023",
+            "December 5, 2019",
+            "August 21, 2000",
+            "The Spacecraft has not launched yet"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "The asteroid is located in the main asteroid belt between which two planets?",
+        "options": [
+            "Earth and Mars",
+            "Mercury and Venus",
+            "Mars and Jupiter",
+            "Jupiter and Saturn"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "How many solar arrays is the Psyche spacecraft comprised of?",
+        "options": [
+            "1",
+            "2",
+            "4",
+            "10"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "What is unique about the Psyche asteroid?",
+        "options": [
+            "It is rich in metal",
+            "It is the largest asteroid that has been discovered",
+            "It is composed mainly of ice",
+            "It is located near Earth"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "Where was the launch location for the Psyche Mission?",
+        "options": [
+            "Marshall Space Flight Center",
+            "Stennis Space Center",
+            "Lyndon B. Johnson Space Center",
+            "Kennedy Space Center"
+        ],
+        "answer": "d"
+    },
+    {
+        "question": "When will the spacecraft arrive at the Asteroid?",
+        "options": [
+            "Mid-2029",
+            "End of 2026",
+            "Mid-2035",
+            "It has already arrived at the Asteroid"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "How far will the Psyche spacecraft travel?",
+        "options": [
+            "100 miles",
+            "100,000 miles",
+            "1 million miles",
+            "2.2 billion miles"
+        ],
+        "answer": "d"
+    },
+    {
+        "question": "Where was the launch location for the Psyche Mission?",
+        "options": [
+            "Marshall Space Flight Center",
+            "Stennis Space Center",
+            "Lyndon B. Johnson Space Center",
+            "Kennedy Space Center"
+        ],
+        "answer": "d"
+    },
+    {
+        "question": "What type of new communication technology will the Psyche mission be testing?",
+        "options": [
+            "Solar",
+            "Radio",
+            "Laser",
+            "Gravity"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "The bus(body) is roughly the size of:",
+        "options": [
+            "A large airplane",
+            "A small van",
+            "A motorcycle",
+            "A skateboard"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "How much does the psyche mission cost?",
+        "options": [
+            "$1 million",
+            "$150 million",
+            "$850 million",
+            "1.4 billion"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "The Psyche Mission is led by which university?",
+        "options": [
+            "Arizona State University",
+            "Harvard University",
+            "University of Florida",
+            "California Institute of Technology"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "What will happen at the end of the Psyche mission?",
+        "options": [
+            "The spacecraft will stay in orbit around Psyche",
+            "The spacecraft will come back to Earth",
+            "The spacecraft will travel towards the sun",
+            "The spacecraft will travel to another asteroid"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "What is the purpose of the Psyche Gamma-Ray and Neutron Spectrometer?",
+        "options": [
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "What is the purpose of the X-band radio telecommunications?",
+        "options": [
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
+        ],
+        "answer": "d"
+    },
+    {
+        "question": "What is the purpose of the Psyche Magnetometer?",
+        "options": [
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "What is the purpose of the Psyche Multispectral Imager?",
+        "options": [
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "How many phases does the Psyche Mission consist of?",
+        "options": [
+            "One",
+            "Three",
+            "Six",
+            "Fifteen"
+        ],
+        "answer": "c"
+    }
+    
+]
