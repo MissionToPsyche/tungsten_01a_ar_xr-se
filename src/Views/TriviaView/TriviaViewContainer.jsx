@@ -93,7 +93,7 @@ const TriviaViewContainer = () => {
                                 </li>
                             ))}
                     </ul>
-                    {feedback && <p>{feedback}</p>}
+                    {feedback && <p className='trivia-feedback'>{feedback}</p>}
                     <div className='action-buttons'>
                         <button onClick={handleSubmit} disabled={!selectedAnswer}>
                             Submit

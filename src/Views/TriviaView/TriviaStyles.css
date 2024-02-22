@@ -95,6 +95,17 @@
     margin: 1vh 0;
 }
 
+.trivia-feedback {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Trade Gothic', sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
+}
+
 /* ProgressBarStyles.css */
 
 .progress-bar-container {
