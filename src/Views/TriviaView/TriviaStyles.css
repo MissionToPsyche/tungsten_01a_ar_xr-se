@@ -94,3 +94,23 @@
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
     margin: 1vh 0;
 }
+
+/* ProgressBarStyles.css */
+
+.progress-bar-container {
+    margin: 3vh 10vw;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 10px;
+  }
+  

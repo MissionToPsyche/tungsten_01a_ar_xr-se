@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { AudioContext } from "../../Context/AudioContext";
 import { BUTTON_PRESS } from '../../Context/CommonConstants';
 import FinalScorePage from './FinalScorePage';
+import ProgressBar from './ProgressBar';
 import "./TriviaStyles.css";
 
 const TriviaViewContainer = () => {
@@ -101,6 +102,7 @@ const TriviaViewContainer = () => {
                             Next
                         </button>
                     </div>
+                    <ProgressBar currentQuestionNumber={questionNumber} />
                 </div>
             )}
         </div>
