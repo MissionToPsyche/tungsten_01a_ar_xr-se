@@ -84,7 +84,7 @@ const TriviaViewContainer = () => {
                                 <li key={index}>
                                     <button
                                         onClick={() => handleAnswerSelection(String.fromCharCode(97 + index))}
-                                        className={`selection-button ${selectedAnswer === String.fromCharCode(97 + index) ? 'active-selection' : ''
+                                        className={`selection-button default-selection ${selectedAnswer === String.fromCharCode(97 + index) ? 'active-selection' : ''
                                             } ${correctOption === String.fromCharCode(97 + index) ? 'correct-selection' : ''}`}
                                         disabled={feedback !== ''}
                                     >
