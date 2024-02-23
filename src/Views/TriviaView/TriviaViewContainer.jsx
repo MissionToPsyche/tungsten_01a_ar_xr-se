@@ -68,17 +68,21 @@ const TriviaViewContainer = () => {
 
     return (
         <div className='trivia-container'>
+
             <div>
                 <button onClick={() => { playSound(); navigate('/'); }} className='back-button'><BackArrow /></button>
             </div>
-            <h1>Trivia Quiz</h1>
+
+            <h1 className='trivia-title'>Trivia Quiz</h1>
             {gameOver ? (
                 <FinalScorePage score={score} /> // Render the final score page if game over
             ) : (
                 <div className='trivia-questions-container'>
                     <h2 className='trivia-score'>Score: {score}</h2>
-                    <h3>{currentQuestion.question}</h3>
-                    <ul>
+                    <div className='trivia-question-container'>
+                        <h3 className='trivia-question'>{currentQuestion.question}</h3>
+                    </div>
+                    <ul className='trivia-answer-choice'>
                         {currentQuestion.options &&
                             currentQuestion.options.map((option, index) => (
                                 <li key={index}>
@@ -94,11 +98,11 @@ const TriviaViewContainer = () => {
                             ))}
                     </ul>
                     {feedback && <p className='trivia-feedback'>{feedback}</p>}
-                    <div className='action-buttons'>
-                        <button onClick={handleSubmit} disabled={!selectedAnswer}>
+                    <div className='action-buttons-container'>
+                        <button className='action-button' onClick={handleSubmit} disabled={!selectedAnswer}>
                             Submit
                         </button>
-                        <button onClick={selectRandomQuestion} disabled={!selectedAnswer}>
+                        <button className='action-button' onClick={selectRandomQuestion} disabled={!selectedAnswer}>
                             Next
                         </button>
                     </div>

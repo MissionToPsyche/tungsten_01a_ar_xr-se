@@ -3,14 +3,17 @@
     flex-direction: column;
     background: url(assets/meteor2.png) bottom left no-repeat;
     background-color: #433538;
+    background-size: 90vw;
     height: 100vh;
 }
 
-.trivia-container>h1 {
+.trivia-title {
     text-align: center;
     font-size: 100px;
     color: #ef5965;
     /* line-height: 50%; */
+    font-family: 'Trade Gothic Bold', sans-serif;
+    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
 }
 
 .trivia-score {
@@ -22,15 +25,16 @@
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
 }
 
-.trivia-container>h1 {
-    font-family: 'Trade Gothic Bold', sans-serif;
-    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
-}
-
-.trivia-questions-container>h3 {
+.trivia-question-container {
     display: flex;
     justify-content: center;
+    width: 100%;
+}
+
+.trivia-question {
+    width: 800px;
     margin-top: 40px;
+    margin: 0 100px;
     padding: 20px;
     text-align: center;
     font-size: 30px;
@@ -39,7 +43,7 @@
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
 }
 
-.trivia-questions-container ul {
+.trivia-answer-choice {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,15 +52,14 @@
 }
 
 .selection-button {
-    width: 80vw;
-    min-height: 10vw;
+    width: 700px;
+    height: 75px;
     border: none;
     border-radius: 10px;
     font-size: 20px;
     margin: 20px;
     padding: 10px;
     font-family: 'Trade Gothic Bold', sans-serif;
-
 }
 
 .default-selection {
@@ -74,18 +77,18 @@
     color: #ffffff;
 }
 
-.action-buttons {
+.action-buttons-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.action-buttons>button {
+.action-button {
     background-color: #ef5965;
     color: white;
-    width: 80vw;
-    min-height: 10vw;
+    width: 700px;
+    height: 75px;
     font-size: 30px;
     font-weight: 800;
     font-family: 'Trade Gothic Bold', sans-serif;
@@ -100,7 +103,7 @@
     justify-content: center;
     padding: 20px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Trade Gothic', sans-serif;
     color: #ffffff;
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
@@ -109,19 +112,63 @@
 /* ProgressBarStyles.css */
 
 .progress-bar-container {
-    margin: 3vh 10vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
 }
 
 .progress-bar {
-    width: 100%;
+    width: 700px;
     height: 20px;
     background-color: #ddd;
     border-radius: 10px;
-  }
-  
-  .progress {
+}
+
+.progress {
     height: 100%;
     background-color: #4caf50;
     border-radius: 10px;
-  }
-  
+}
+
+
+@media screen and (max-width: 800px) {
+    .trivia-title {
+        font-size: 10vw;
+    }
+
+    .trivia-score {
+        font-size: 8vw;
+    }
+
+    .trivia-question {
+        font-size: 3vw;
+    }
+
+    .trivia-feedback {
+        font-size: 3vw;
+    }
+
+    .selection-button {
+        width: 70vw;
+        font-size: 3vw;
+        height: 13vw;
+        margin-top: 0.5vh;
+    }
+
+    .action-button {
+        width: 70vw;
+        font-size: 3vw;
+        height: 10vw;
+        margin-top: 0.5vh;
+    }
+
+    .progress-bar {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-height: 1050px) {
+    .selection-button {
+        height: 10vw;
+    }
+}
