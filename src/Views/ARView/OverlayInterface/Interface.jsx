@@ -111,14 +111,15 @@ const Interface = forwardRef((props, ref) => {
 
     // Function to restart/play again
     const handleRestart = () => {
-        // TODO: Implement restart functionality here
         console.log('Restarting...');
+        playSound();
         // Reload the page to restart the game
         window.location.reload();
     };
 
     // Function to navigate to the Psyche website 
     const handleGoToWebsite = () => {
+        playSound();
         window.location.href = 'https://psyche.asu.edu/mission/the-spacecraft/';
     };
 
