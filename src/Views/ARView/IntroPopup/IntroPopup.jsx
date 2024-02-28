@@ -12,9 +12,11 @@ const IntroPopup = ({ onClose }) => {
     }
   };
 
-  const handleClose = () => {
+  // Function to handle difficulty selection and close popup
+  const handleSelectDifficulty = (difficulty) => {
     playSound();
-    onClose();
+    console.log(difficulty); // Placeholder to handle difficulty selection
+    onClose(); // Finally close the popup
   };
 
   return (
@@ -24,21 +26,23 @@ const IntroPopup = ({ onClose }) => {
         <div className="intro-content">
           <h2>Welcome to the AR Game!</h2>
         
-                
                 Tap the “Enter AR” button located at the top of your screen to bring the orbiter to life. <br /> 
                 Utilize your device’s camera to explore the psyche orbiter by physically moving around. <br />
-                 
+              
                 Tap on the red tiles at the bottom of the screen to learn about each instrument and watch it light up on the Psyche orbiter.<br /> 
               
                 Keep on clicking all of the pieces until the entire orbiter has been revealed!<br />
                 <br />
-         
+            <p>Select a difficulty:</p>
+            <div className="difficulty-selection">
+              <button className="difficulty-button" onClick={() => handleSelectDifficulty('Easy')}>Easy</button>
+              <button className="difficulty-button" onClick={() => handleSelectDifficulty('Medium')}>Medium</button>
+              <button className="difficulty-button" onClick={() => handleSelectDifficulty('Hard')}>Hard</button>
+            </div>
         </div>
-        <button className="intro-button" onClick={handleClose}>CLOSE</button>
       </div>
     </div>
   );
 };
 
 export default IntroPopup;
-
