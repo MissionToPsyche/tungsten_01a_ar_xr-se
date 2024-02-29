@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
-import questions from '../../../public/trivia/TRIVIA_QUESTIONS.json';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
 import { AudioContext } from "../../Context/AudioContext";
 import { BUTTON_PRESS } from '../../Context/CommonConstants';
-import FinalScorePage from './FinalScorePage';
-import ProgressBar from './ProgressBar';
-import DifficultySelection from './DifficultySelection';
+import FinalScorePage from './final-score/FinalScorePage';
+import ProgressBar from './progress-bar/ProgressBar';
+import DifficultySelection from './difficulty-selection/DifficultySelection';
+import questions from '../../../public/trivia/TRIVIA_QUESTIONS.json';
 import "./TriviaStyles.css";
 
-const TriviaViewContainer = () => {
+const TriviaContainer = () => {
 
     const [difficulty, setDifficulty] = useState('');
     const [gameStarted, setGameStarted] = useState(false);
@@ -21,12 +21,11 @@ const TriviaViewContainer = () => {
     const [questionNumber, setQuestionNumber] = useState(0);
     const [gameOver, setGameOver] = useState(false); // State variable to track game over
     const { soundEffectsEnabled } = useContext(AudioContext);
-
     const navigate = useNavigate();
 
     useEffect(() => {
         selectRandomQuestion();
-    }, []); // Run once on initial render
+    }, []);
 
     // Function to randomly select a question
     const selectRandomQuestion = () => {
@@ -78,19 +77,16 @@ const TriviaViewContainer = () => {
         return <DifficultySelection startGame={startGame} />;
     }
 
-
     return (
         <div className='trivia-container'>
-
             <div>
                 <button onClick={() => { playSound(); navigate('/'); }} className='back-button'><BackArrow /></button>
             </div>
-
             <h1 className='trivia-title'>Trivia Quiz</h1>
             {gameOver ? (
                 <FinalScorePage score={score} /> // Render the final score page if game over
             ) : (
-                <div className='trivia-questions-container'>
+                <div>
                     <h2 className='trivia-score'>Score: {score}</h2>
                     <div className='trivia-question-container'>
                         <h3 className='trivia-question'>{currentQuestion.question}</h3>
@@ -126,4 +122,4 @@ const TriviaViewContainer = () => {
     )
 }
 
-export default TriviaViewContainer
+export default TriviaContainer

@@ -1,8 +1,8 @@
 import React from 'react';
-import { BUTTON_PRESS } from '../../Context/CommonConstants';
+import { BUTTON_PRESS } from '../../../Context/CommonConstants';
 import { BsFillArrowLeftCircleFill as BackArrow } from 'react-icons/bs';
 import { useNavigate } from "react-router-dom";
-
+import "./DifficultySelection.css";
 
 const DifficultySelection = ({ startGame }) => {
     const playSound = () => {
@@ -12,7 +12,7 @@ const DifficultySelection = ({ startGame }) => {
     const navigate = useNavigate();
 
     return (
-        <div className='trivia-container'>
+        <div className='difficulty-container'>
             <div>
                 <button onClick={() => { playSound(); navigate('/'); }} className='back-button'><BackArrow /></button>
             </div>

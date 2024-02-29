@@ -11,16 +11,16 @@
     text-align: center;
     font-size: 100px;
     color: #ef5965;
-    /* line-height: 50%; */
-    font-family: 'Trade Gothic Bold', sans-serif;
-    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
 }
 
 .trivia-score {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     font-size: 50px;
     color: #ffffff;
+}
+
+.trivia-title,
+.trivia-score {
     font-family: 'Trade Gothic Bold', sans-serif;
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
 }
@@ -109,51 +109,6 @@
     text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
 }
 
-/* ProgressBarStyles.css */
-
-.progress-bar-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 45px;
-}
-
-.progress-bar {
-    width: 700px;
-    height: 20px;
-    background-color: #ddd;
-    border-radius: 10px;
-}
-
-.progress {
-    height: 100%;
-    background-color: #4caf50;
-    border-radius: 10px;
-}
-
-/* Difficulty Selection Styles */
-.difficulty-choice-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2vh; 
-    margin-top: 10vh;
-}
-
-.difficulty-choice-container>button{
-    background-color: #ef5965;
-    color: white;
-    width: 50%; 
-    height: 15vw; 
-    font-size: 10vw; 
-    font-weight: 800;
-    font-family: 'Trade Gothic Bold', sans-serif;
-    border: 2px solid #A5405C;
-    border-radius: 5px;
-    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
-    margin: 2vh 0; 
-}
-
-
 @media screen and (max-width: 800px) {
     .trivia-title {
         font-size: 10vw;
@@ -183,10 +138,6 @@
         font-size: 3vw;
         height: 10vw;
         margin-top: 0.5vh;
-    }
-
-    .progress-bar {
-        width: 70vw;
     }
 }
 

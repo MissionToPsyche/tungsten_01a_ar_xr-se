@@ -1,4 +1,5 @@
 import React from 'react';
+import "./ProgressBar.css";
 
 const ProgressBar = ({ currentQuestionNumber }) => {
     const totalQuestions = 10; // Total number of questions

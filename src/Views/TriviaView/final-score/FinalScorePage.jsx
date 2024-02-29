@@ -1,5 +1,5 @@
 import React from 'react';
-import "./TriviaStyles.css";
+import "../TriviaStyles.css";
 
 const FinalScorePage = ({ score }) => {
     return (
