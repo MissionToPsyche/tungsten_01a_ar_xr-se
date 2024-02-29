@@ -111,8 +111,8 @@ const TriviaContainer = () => {
                         <button className='action-button' onClick={handleSubmit} disabled={!selectedAnswer}>
                             Submit
                         </button>
-                        <button className='action-button' onClick={selectRandomQuestion} disabled={!selectedAnswer}>
-                            Next
+                        <button className='action-button' onClick={selectRandomQuestion}>
+                            {selectedAnswer ? "Next" : "Skip"}
                         </button>
                     </div>
                     <ProgressBar currentQuestionNumber={questionNumber} />
@@ -122,4 +122,4 @@ const TriviaContainer = () => {
     )
 }
 
-export default TriviaContainer
+export default TriviaContainer;
