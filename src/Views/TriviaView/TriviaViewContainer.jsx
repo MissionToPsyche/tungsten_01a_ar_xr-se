@@ -6,10 +6,13 @@ import { AudioContext } from "../../Context/AudioContext";
 import { BUTTON_PRESS } from '../../Context/CommonConstants';
 import FinalScorePage from './FinalScorePage';
 import ProgressBar from './ProgressBar';
+import DifficultySelection from './DifficultySelection';
 import "./TriviaStyles.css";
 
 const TriviaViewContainer = () => {
 
+    const [difficulty, setDifficulty] = useState('');
+    const [gameStarted, setGameStarted] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState({});
     const [selectedAnswer, setSelectedAnswer] = useState('');
     const [score, setScore] = useState(0);
@@ -65,6 +68,16 @@ const TriviaViewContainer = () => {
             new Audio(BUTTON_PRESS).play();
         }
     };
+
+    const startGame = (selectedDifficulty) => {
+        setDifficulty(selectedDifficulty);
+        setGameStarted(true);
+    };
+
+    if (!gameStarted) {
+        return <DifficultySelection startGame={startGame} />;
+    }
+
 
     return (
         <div className='trivia-container'>

@@ -130,6 +130,29 @@
     border-radius: 10px;
 }
 
+/* Difficulty Selection Styles */
+.difficulty-choice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh; 
+    margin-top: 10vh;
+}
+
+.difficulty-choice-container>button{
+    background-color: #ef5965;
+    color: white;
+    width: 50%; 
+    height: 15vw; 
+    font-size: 10vw; 
+    font-weight: 800;
+    font-family: 'Trade Gothic Bold', sans-serif;
+    border: 2px solid #A5405C;
+    border-radius: 5px;
+    text-shadow: 2px 0 #433538, -2px 0 #433538, 0 2px #433538, 0 -2px #433538;
+    margin: 2vh 0; 
+}
+
 
 @media screen and (max-width: 800px) {
     .trivia-title {
