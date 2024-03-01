@@ -161,9 +161,11 @@ const TriviaContainer = () => {
                         <button className='action-button' onClick={handleSubmit} disabled={!selectedAnswer}>
                             Submit
                         </button>
-                        <button className='action-button' onClick={selectRandomQuestion}>
-                            {selectedAnswer ? "Next" : "Skip"}
-                        </button>
+                        {difficulty !== 'hard' && (
+                            <button className='action-button' onClick={selectRandomQuestion}>
+                                Skip
+                            </button>
+                        )}
                     </div>
                     <ProgressBar currentQuestionNumber={questionNumber} />
                     <Timer initialTime={timerDuration} onTimeout={handleTimeout} />
