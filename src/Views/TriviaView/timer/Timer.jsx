@@ -1,46 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import "../progress-bar/ProgressBar.css";
+import './Timer.css';
 
-const Timer = ({ currentQuestionNumber }) => {
-    const totalQuestions = 10; // Total number of questions
-    const totalTime = 30; // Total time for each question in seconds
-    const [timeLeft, setTimeLeft] = useState(totalTime);
-
-    // Calculate the progress percentage
-    const progress = (currentQuestionNumber / totalQuestions) * 100;
+const Timer = ({ initialTime, onTimeout }) => {
+    const [time, setTime] = useState(initialTime);
 
     useEffect(() => {
-        // Reset timer on question change
-        setTimeLeft(totalTime);
-    }, [currentQuestionNumber]);
+        setTime(initialTime); // Update time when initialTime changes
+    }, [initialTime]);
 
     useEffect(() => {
-        // Update timer every second
-        const timer = setInterval(() => {
-            setTimeLeft((prevTime) => {
+        const timerId = setInterval(() => {
+            setTime((prevTime) => {
                 if (prevTime === 0) {
-                    // Time's up, do something here (e.g., move to the next question)
-                    clearInterval(timer);
+                    clearInterval(timerId);
+                    if (onTimeout) {
+                        onTimeout();
+                    }
                     return 0;
                 }
                 return prevTime - 1;
             });
         }, 1000);
 
-        // Clear timer on component unmount or when question number changes
-        return () => clearInterval(timer);
-    }, [currentQuestionNumber]);
+        return () => clearInterval(timerId);
+    }, [onTimeout]);
 
     return (
-        <div className='progress-bar-container'>
-            <div className='timer-bar'>
-                <div className='time-left' style={{ width: `${(timeLeft / totalTime) * 100}%` }}></div>
-            </div>
-            <div className='progress-bar'>
-                <div className='progress' style={{ width: `${progress}%` }}></div>
+        <div className="timer-container">
+            <div className="timer">
+                {time}
             </div>
         </div>
     );
-}
+};
 
 export default Timer;

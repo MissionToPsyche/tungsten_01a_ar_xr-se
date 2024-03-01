@@ -8,8 +8,11 @@ import ProgressBar from './progress-bar/ProgressBar';
 import DifficultySelection from './difficulty-selection/DifficultySelection';
 import questions from '../../../public/trivia/TRIVIA_QUESTIONS.json';
 import "./TriviaStyles.css";
+import Timer from './timer/Timer';
 
 const TriviaContainer = () => {
+
+    const TIMER_DURATION = 30; // Define timer duration as a constant variable
 
     const [difficulty, setDifficulty] = useState('');
     const [gameStarted, setGameStarted] = useState(false);
@@ -21,7 +24,7 @@ const TriviaContainer = () => {
     const [questionNumber, setQuestionNumber] = useState(0);
     const [gameOver, setGameOver] = useState(false); // State variable to track game over
     const { soundEffectsEnabled } = useContext(AudioContext);
-    const [timer, setTimer] = useState(null);
+    const [timerDuration, setTimerDuration] = useState(TIMER_DURATION); // Timer duration state variable
 
     const navigate = useNavigate();
 
@@ -30,21 +33,25 @@ const TriviaContainer = () => {
     }, []);
 
     useEffect(() => {
-        if (difficulty === 'medium') {
-            // Start timer for medium difficulty
-            const timeout = setTimeout(() => {
-                selectRandomQuestion();
-                setQuestionNumber(questionNumber + 1);
-            }, 1000); // 30 seconds
-            setTimer(timeout);
+        let intervalId;
+        if (gameStarted && timerDuration > 0) {
+            intervalId = setInterval(() => {
+                setTimerDuration(prevDuration => prevDuration - 1);
+            }, 1000); // Run every second
+        } else if (timerDuration === 0) {
+            handleTimeout();
         }
+        return () => clearInterval(intervalId);
+    }, [gameStarted, timerDuration]);
 
-        return () => {
-            // Clear timer on component unmount or when difficulty changes
-            clearTimeout(timer);
-        };
-    }, [difficulty, questionNumber]); // Re-run effect when difficulty or questionNumber changes
-
+    const handleTimeout = () => {
+        if (selectedAnswer === '') {
+            setFeedback('Time is up! The correct answer is option ' + currentQuestion.answer.toUpperCase());
+            setCorrectOption(currentQuestion.answer);
+            setQuestionNumber(questionNumber + 1); // Move to the next question
+            selectRandomQuestion(); // Automatically move to the next question
+        }
+    };
 
     // Function to randomly select a question
     const selectRandomQuestion = () => {
@@ -54,6 +61,7 @@ const TriviaContainer = () => {
             setSelectedAnswer('');
             setCorrectOption('');
             setFeedback('');
+            setTimerDuration(TIMER_DURATION); // Reset timer duration
         } else {
             // Game ends after 10 questions
             setGameOver(true);
@@ -70,16 +78,18 @@ const TriviaContainer = () => {
         if (selectedAnswer === currentQuestion.answer) {
             setScore(score + 1);
             setFeedback('Correct!');
-            setCorrectOption(selectedAnswer); // Set the correct option
+            setCorrectOption(selectedAnswer);
         } else {
             if (score > 0) {
                 setScore(score - 1);
             }
             setFeedback(`Incorrect! The correct answer is option ${currentQuestion.answer.toUpperCase()}`);
-            setCorrectOption(currentQuestion.answer); // Set the correct option
+            setCorrectOption(currentQuestion.answer);
         }
         setQuestionNumber(questionNumber + 1); // Move to the next question
+        setTimerDuration(TIMER_DURATION); // Reset timer duration
     };
+
 
     const playSound = () => {
         if (soundEffectsEnabled) {
@@ -135,6 +145,7 @@ const TriviaContainer = () => {
                         </button>
                     </div>
                     <ProgressBar currentQuestionNumber={questionNumber} />
+                    <Timer initialTime={timerDuration} onTimeout={handleTimeout} />
                 </div>
             )}
         </div>
