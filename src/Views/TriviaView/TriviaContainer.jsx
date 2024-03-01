@@ -12,7 +12,7 @@ import Timer from './timer/Timer';
 
 const TriviaContainer = () => {
 
-    const TIMER_DURATION = 30; // Define timer duration as a constant variable
+    const TIMER_DURATION = 5; // Define timer duration as a constant variable
 
     const [difficulty, setDifficulty] = useState('');
     const [gameStarted, setGameStarted] = useState(false);
@@ -25,6 +25,7 @@ const TriviaContainer = () => {
     const [gameOver, setGameOver] = useState(false); // State variable to track game over
     const { soundEffectsEnabled } = useContext(AudioContext);
     const [timerDuration, setTimerDuration] = useState(TIMER_DURATION); // Timer duration state variable
+    const [streakCount, setStreakCount] = useState(0); // Optional streak count
 
     const navigate = useNavigate();
 
@@ -76,20 +77,40 @@ const TriviaContainer = () => {
     // Function to handle submission of selected answer
     const handleSubmit = () => {
         if (selectedAnswer === currentQuestion.answer) {
-            setScore(score + 1);
+            let bonusPoints = 0;
+            if (difficulty === 'medium' || difficulty === 'hard') {
+                bonusPoints = Math.ceil(timerDuration / 2); // Calculate bonus points based on remaining time
+                setScore(score + 30 + bonusPoints); // +30 base points plus bonus points
+            } else {
+                setScore(score + 1); // +1 point for correct answer in other modes
+            }
             setFeedback('Correct!');
             setCorrectOption(selectedAnswer);
+            setStreakCount(streakCount + 1); // Increment streak count
         } else {
-            if (score > 0) {
-                setScore(score - 1);
+            if (difficulty === 'medium' || difficulty === 'hard') {
+                setScore(Math.max(score - 30, 0)); // -30 points for incorrect answer, no negative score
+            } else {
+                if (score > 0) {
+                    setScore(score - 1); // -1 point for incorrect answer in other modes, no negative score
+                }
             }
             setFeedback(`Incorrect! The correct answer is option ${currentQuestion.answer.toUpperCase()}`);
             setCorrectOption(currentQuestion.answer);
+            setStreakCount(0); // Reset streak count
         }
         setQuestionNumber(questionNumber + 1); // Move to the next question
         setTimerDuration(TIMER_DURATION); // Reset timer duration
+        // Check for streak bonus
+        if ((difficulty === 'medium' || difficulty === 'hard') && streakCount === 5) {
+            setScore(score + 20); // +20 bonus points for streak
+            setStreakCount(0); // Reset streak count
+        }
+        // Introduce a delay before selecting the next question
+        setTimeout(() => {
+            selectRandomQuestion(); // Select the next question
+        }, 1000); // Adjust the delay time as needed (in milliseconds)
     };
-
 
     const playSound = () => {
         if (soundEffectsEnabled) {
