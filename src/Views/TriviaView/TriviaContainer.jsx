@@ -21,11 +21,30 @@ const TriviaContainer = () => {
     const [questionNumber, setQuestionNumber] = useState(0);
     const [gameOver, setGameOver] = useState(false); // State variable to track game over
     const { soundEffectsEnabled } = useContext(AudioContext);
+    const [timer, setTimer] = useState(null);
+
     const navigate = useNavigate();
 
     useEffect(() => {
         selectRandomQuestion();
     }, []);
+
+    useEffect(() => {
+        if (difficulty === 'medium') {
+            // Start timer for medium difficulty
+            const timeout = setTimeout(() => {
+                selectRandomQuestion();
+                setQuestionNumber(questionNumber + 1);
+            }, 1000); // 30 seconds
+            setTimer(timeout);
+        }
+
+        return () => {
+            // Clear timer on component unmount or when difficulty changes
+            clearTimeout(timer);
+        };
+    }, [difficulty, questionNumber]); // Re-run effect when difficulty or questionNumber changes
+
 
     // Function to randomly select a question
     const selectRandomQuestion = () => {
