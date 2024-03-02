@@ -1,15 +1,5 @@
 [
     {
-        "question": "What makes the asteroid Psyche unique among other asteroids?",
-        "options": [
-            "It is made entirely of ice",
-            "It is the smallest asteroid in our solar system",
-            "It appears to be the exposed nickel-iron core of an early planet",
-            "It has a colorful surface like a rainbow"
-        ],
-        "answer": "c"
-    },
-    {
         "question": "What material is the asteroid Psyche made of?",
         "options": [
             "Rock",
@@ -30,22 +20,22 @@
         "answer": "c"
     },
     {
+        "question": "What is the name of the NASA space mission to visit the asteroid Psyche?",
+        "options": {
+          "A": "Jupiter Mission",
+          "B": "Voyager Mission",
+          "C": "Psyche Mission",
+          "D": "Mars Mission"
+        },
+        "correct_answer": "c"
+      },
+      {
         "question": "What is the main propulsion method used by the Psyche spacecraft?",
         "options": [
             "Chemical propulsion",
             "Ion propulsion",
             "Solar-electric (low-thrust) propulsion",
             "Nuclear propulsion"
-        ],
-        "answer": "c"
-    },
-    {
-        "question": "What is one of the science objectives of the Psyche mission?",
-        "options": [
-            "Study the composition of comets",
-            "Explore the atmosphere of Jupiter",
-            "Determine whether Psyche was formed under conditions more oxidizing or more reducing than Earth's core",
-            "Investigate the moons of Saturn"
         ],
         "answer": "c"
     },
@@ -60,52 +50,132 @@
         "answer": "c"
     },
     {
-        "question": "What is the primary purpose of the Deep Space Optical Communication (DSOC) experiment?",
-        "options": [
-            "To study the asteroid's surface composition",
-            "To map the asteroid's topography",
-            "To test a new laser communication technology",
-            "To measure the asteroid's gravitational field"
-        ],
-        "answer": "c"
-    },
-    {
-        "question": "Which part of the electromagnetic spectrum does the DSOC technology use?",
-        "options": [
-            "X-rays",
-            "Visible light",
-            "Radio waves",
-            "Near-infrared wavelengths"
-        ],
-        "answer": "d"
-    },
-    {
-        "question": "What type of propulsion method does the Psyche spacecraft use after its Mars flyby?",
-        "options": [
-            "Chemical propulsion",
-            "Solar-electric (low-thrust) propulsion",
-            "Ion propulsion",
-            "Nuclear propulsion"
-        ],
-        "answer": "b"
-    },
-    {
-        "question": "Which scientific instrument is NOT part of the payload aboard the Psyche spacecraft?",
-        "options": [
-            "Multispectral Imager",
-            "X-band Gravity Science Investigation",
-            "Infrared Telescope",
-            "Gamma Ray and Neutron Spectrometer"
-        ],
-        "answer": "c"
-    },
-    {
         "question": "Who discovered the asteroid Psyche?",
         "options": [
             "Isaac Newton",
             "Galileo Galilei",
             "Annibale de Gasparis",
             "Carl Sagan"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "What instruments are included on the Psyche spacecraft?",
+        "options": [
+            "X-ray Telescope and Infrared Spectrometer",
+            "Radar Scanner and Ultraviolet Camera",
+            "Gamma-Ray and Neutron Spectrometer, Multispectral Imager, and Magnetometer",
+            "Lidar System and Particle Detector"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "The psyche spacecraft is roughly the same size as:",
+        "options": [
+            "A football field",
+            "A singles tennis court",
+            "A car",
+            "A bicycle"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "When did the Psyche spacecraft launch?",
+        "options": [
+            "October 13, 2023",
+            "December 5, 2019",
+            "August 21, 2000",
+            "The Spacecraft has not launched yet"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "The asteroid is located in the main asteroid belt between which two planets?",
+        "options": [
+            "Earth and Mars",
+            "Mercury and Venus",
+            "Mars and Jupiter",
+            "Jupiter and Saturn"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "How many solar arrays is the Psyche spacecraft comprised of?",
+        "options": [
+            "1",
+            "2",
+            "4",
+            "10"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "What is unique about the Psyche asteroid?",
+        "options": [
+            "It is rich in metal",
+            "It is the largest asteroid that has been discovered",
+            "It is composed mainly of ice",
+            "It is located near Earth"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "Where was the launch location for the Psyche Mission?",
+        "options": [
+            "Marshall Space Flight Center",
+            "Stennis Space Center",
+            "Lyndon B. Johnson Space Center",
+            "Kennedy Space Center"
+        ],
+        "answer": "d"
+    },
+    {
+        "question": "How far will the Psyche spacecraft travel?",
+        "options": [
+            "100 miles",
+            "100,000 miles",
+            "1 million miles",
+            "2.2 billion miles"
+        ],
+        "answer": "d"
+    },
+    {
+        "question": "The bus(body) is roughly the size of:",
+        "options": [
+            "A large airplane",
+            "A small van",
+            "A motorcycle",
+            "A skateboard"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "How much does the psyche mission cost?",
+        "options": [
+            "$1 million",
+            "$150 million",
+            "$850 million",
+            "1.4 billion"
+        ],
+        "answer": "c"
+    },
+    {
+        "question": "What will happen at the end of the Psyche mission?",
+        "options": [
+            "The spacecraft will stay in orbit around Psyche",
+            "The spacecraft will come back to Earth",
+            "The spacecraft will travel towards the sun",
+            "The spacecraft will travel to another asteroid"
+        ],
+        "answer": "a"
+    },
+    {
+        "question": "How many phases does the Psyche Mission consist of?",
+        "options": [
+            "One",
+            "Three",
+            "Six",
+            "Fifteen"
         ],
         "answer": "c"
     },
@@ -130,32 +200,22 @@
         "answer": "c"
     },
     {
-        "question": "What scenario is proposed for how Psyche was formed?",
+        "question": "When will the spacecraft arrive at the Asteroid?",
         "options": [
-            "It was once a gas giant that lost its atmosphere",
-            "It formed from the collision of two smaller asteroids",
-            "It is the remnant core material of a planetesimal",
-            "It was sculpted by the gravitational pull of nearby planets"
+            "Mid-2029",
+            "End of 2026",
+            "Mid-2035",
+            "It has already arrived at the Asteroid"
         ],
-        "answer": "c"
+        "answer": "a"
     },
     {
-        "question": "What is the estimated diameter of Psyche?",
+        "question": "Which instrument provides high-resolution images using filters to discriminate between Psyche’s metallic and silicate constituents?",
         "options": [
-            "100 miles (161 km)",
-            "120 miles (193 km)",
-            "140 miles (226 km)",
-            "160 miles (258 km)"
-        ],
-        "answer": "c"
-    },
-    {
-        "question": "What company built the Psyche spacecraft and solar panels?",
-        "options": [
-            "NASA's Jet Propulsion Laboratory",
-            "Maxar Technologies",
-            "SpaceX",
-            "Blue Origin"
+            "Gamma-Ray and Neutron Spectrometer",
+            "Multispectral Imager",
+            "Magnetometer",
+            "Radio Science"
         ],
         "answer": "b"
     },
@@ -170,83 +230,73 @@
         "answer": "d"
     },
     {
-        "question": "What is the primary propulsion method used by the Psyche spacecraft?",
+        "question": "What is the estimated diameter of Psyche?",
         "options": [
-            "Chemical propulsion",
-            "Ion propulsion",
-            "Solar electric (low-thrust) propulsion",
-            "Nuclear propulsion"
+            "100 miles (161 km)",
+            "120 miles (193 km)",
+            "140 miles (226 km)",
+            "160 miles (258 km)"
         ],
         "answer": "c"
     },
     {
-        "question": "Which technology is the Psyche mission testing for communication between the spacecraft and Earth?",
+        "question": "What is the purpose of the Psyche Gamma-Ray and Neutron Spectrometer?",
         "options": [
-            "Radio communication",
-            "Fiber optic communication",
-            "Deep Space Optical Communication (DSOC)",
-            "Satellite communication"
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
         ],
         "answer": "c"
     },
     {
-        "question": "What instruments are included on the Psyche spacecraft?",
+        "question": "What is the purpose of the X-band radio telecommunications?",
         "options": [
-            "X-ray Telescope and Infrared Spectrometer",
-            "Radar Scanner and Ultraviolet Camera",
-            "Gamma-Ray and Neutron Spectrometer, Multispectral Imager, and Magnetometer",
-            "Lidar System and Particle Detector"
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
         ],
-        "answer": "c"
+        "answer": "d"
     },
     {
-        "question": "Which instrument provides high-resolution images using filters to discriminate between Psyche’s metallic and silicate constituents?",
+        "question": "What is the purpose of the Psyche Magnetometer?",
         "options": [
-            "Gamma-Ray and Neutron Spectrometer",
-            "Multispectral Imager",
-            "Magnetometer",
-            "Radio Science"
-        ],
-        "answer": "b"
-    },
-    {
-        "question": "Where is the team based for the Multispectral Imager instrument?",
-        "options": [
-            "Arizona State University",
-            "Applied Physics Laboratory at Johns Hopkins University",
-            "Massachusetts Institute of Technology and Technical University of Denmark (DTU)",
-            "Jet Propulsion Laboratory"
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
         ],
         "answer": "a"
     },
     {
-        "question": "Which instrument will detect, measure, and map Psyche’s elemental composition?",
+        "question": "What is the purpose of the Psyche Multispectral Imager?",
+        "options": [
+            "They detect and measure the remanent magnetic field of the asteroid",
+            "They take images of Psyche to discriminate between metallic and silicate constituents",
+            "They detect, measure, and map Psyche's elemental composition",
+            "They measure Psyche's gravity field to high precision"
+        ],
+        "answer": "b"
+    },
+    {
+        "question": "Which scientific instrument is NOT part of the payload aboard the Psyche spacecraft?",
         "options": [
             "Multispectral Imager",
-            "Gamma-Ray and Neutron Spectrometer",
-            "Magnetometer",
-            "Radio Science"
+            "X-band Gravity Science Investigation",
+            "Infrared Telescope",
+            "Gamma Ray and Neutron Spectrometer"
         ],
-        "answer": "b"
+        "answer": "c"
     },
     {
-        "question": "Where is the team based for the Gamma-Ray and Neutron Spectrometer instrument?",
+        "question": "Which part of the electromagnetic spectrum does the DSOC technology use?",
         "options": [
-            "Arizona State University",
-            "Applied Physics Laboratory at Johns Hopkins University",
-            "Massachusetts Institute of Technology and Technical University of Denmark (DTU)",
-            "Jet Propulsion Laboratory"
+            "X-rays",
+            "Visible light",
+            "Radio waves",
+            "Near-infrared wavelengths"
         ],
-        "answer": "b"
-    },
-    {
-        "question": "What is the primary purpose of the Psyche Magnetometer?",
-        "options": [
-            "To measure Psyche’s gravity field",
-            "To detect and measure the remanent magnetic field of the asteroid",
-            "To provide high-resolution images of Psyche's surface",
-            "To communicate between the spacecraft and Earth"
-        ],
-        "answer": "b"
+        "answer": "d"
     }
 ]
