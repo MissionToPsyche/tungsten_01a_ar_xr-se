@@ -8,17 +8,20 @@ import SettingsViewContainer from "./Views/SettingsView/SettingsViewContainer";
 
 import "./App.css";
 import { SpacecraftProvider } from "./Context/SpacecraftContext";
+import { DifficultyProvider } from './Context/DifficultyContext';
 
 function App() {
   return (
     <AudioProvider>
       <SpacecraftProvider>
-      <Routes>
-          <Route path="/" element={<HomeViewContainer />} />
-          <Route path="/ar" element={<ARViewContainer />} />
-          <Route path="/help" element={<HelpViewContainer />} />
-          <Route path="/settings" element={<SettingsViewContainer />} />
-        </Routes>
+        <DifficultyProvider> 
+          <Routes>
+            <Route path="/" element={<HomeViewContainer />} />
+            <Route path="/ar" element={<ARViewContainer />} />
+            <Route path="/help" element={<HelpViewContainer />} />
+            <Route path="/settings" element={<SettingsViewContainer />} />
+          </Routes>
+        </DifficultyProvider>
       </SpacecraftProvider>
     </AudioProvider>
   );

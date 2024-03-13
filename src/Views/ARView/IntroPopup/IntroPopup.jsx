@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import "./IntroPopup.css";
 import { AudioContext } from '../../../Context/AudioContext'; 
 import { BUTTON_PRESS } from '../../../Context/CommonConstants';
+import { DifficultyContext } from '../../../Context/DifficultyContext'; 
+
 
 const IntroPopup = ({ onClose }) => {
   const { soundEffectsEnabled } = useContext(AudioContext);
+  const { setDifficulty } = useContext(DifficultyContext); // Access function to set difficulty
+
 
   const playSound = () => {
     if (soundEffectsEnabled) {
@@ -15,7 +19,9 @@ const IntroPopup = ({ onClose }) => {
   // Function to handle difficulty selection and close popup
   const handleSelectDifficulty = (difficulty) => {
     playSound();
-    console.log(difficulty); // Placeholder to handle difficulty selection
+    // Update difficulty level in context based on user selection
+    setDifficulty(difficulty);
+    console.log(difficulty); 
     onClose(); // Finally close the popup
   };
 
