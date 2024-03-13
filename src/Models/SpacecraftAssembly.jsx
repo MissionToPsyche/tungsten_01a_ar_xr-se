@@ -4,9 +4,10 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { SpacecraftComponents } from '../Context/CommonConstants';
 import { SpacecraftContext } from '../Context/SpacecraftContext';
 
+//Loads the models into the scene, applies the opacity effect, and positions objects correctly
 const SpacecraftAssembly = () => {
     const { activeComponents } = useContext(SpacecraftContext);
-
+    //GLTF loader is used to load blender models in to be used for gameplay
     const busGLTF = useLoader(GLTFLoader, SpacecraftComponents.BUS);
     const wingRGLTF = useLoader(GLTFLoader, SpacecraftComponents.RIGHT_WING);
     const wingLGLTF = useLoader(GLTFLoader, SpacecraftComponents.LEFT_WING);
@@ -14,6 +15,7 @@ const SpacecraftAssembly = () => {
     const neutronGLTF = useLoader(GLTFLoader, SpacecraftComponents.NEUTRON_SPECTROMETER);
     const gammaRayGLTF = useLoader(GLTFLoader, SpacecraftComponents.GAMMA_RAY);
 
+    //logic for having the model be slightly transparent when initially loaded
     const applyOpacityChange = (scene, isActive) => {
         const inactiveOpacity = 0.2; // 0 = invisiible, 1 = visible 
         scene.traverse((child) => {
@@ -27,6 +29,7 @@ const SpacecraftAssembly = () => {
     
 
      // Effect hook for each component
+     //Applies the logic for the opacitychange  
     useEffect(() => {
         if (busGLTF) applyOpacityChange(busGLTF.scene, activeComponents.BUS);
     }, [activeComponents.BUS, busGLTF]);
@@ -59,7 +62,7 @@ const SpacecraftAssembly = () => {
         <mesh position={position}>
             {/* RIGHT WING */}
             <primitive 
-                position={[1.37, -0.03, 0]} 
+                position={[1.37, -0.03, 0]} //Position where the object is loaded into the scene
                 object={wingRGLTF.scene} 
                 scale={[1, 1, 1]}
             />
