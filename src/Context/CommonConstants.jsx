@@ -1,3 +1,4 @@
+//Spacecraft Icon paths to be used for game tiles and instrument pop-ups 
 const SpacecraftIcons = {
     ANTENNA: 'public/icons/antenna.png',
     BUS: 'public/icons/bus_with_structure.png',
@@ -6,7 +7,7 @@ const SpacecraftIcons = {
     NEUTRON_SPECTROMETER: 'public/icons/neutron_spectrometer.png',
     RIGHT_WING: 'public/icons/right_wing.png',
   };
-  
+  //GLTF file paths that will be used for 3D model in click-and-reveal game
  const SpacecraftComponents = {
     ANTENNA: '/models/gltf-files/antenna.gltf',
     BUS: '/models/gltf-files/bus_and_structure.gltf',
@@ -15,7 +16,7 @@ const SpacecraftIcons = {
     NEUTRON_SPECTROMETER: '/models/gltf-files/Neutron_Spectrometer_Scaled.gltf',
     RIGHT_WING: '/models/gltf-files/right_wing.gltf',
   };
-
+//PNG file paths for instruction pictures used on help page
   const InstructionPictures = {
     TILE: 'public/pictures/HelpPage2.png',
     SHADE_COLOR: ' public/pictures/ShadetoColor2.png',
@@ -28,4 +29,3 @@ const SpacecraftIcons = {
   import buttonPress from '/audio/button_press.mp3';
 
   export const BUTTON_PRESS = buttonPress;
-
