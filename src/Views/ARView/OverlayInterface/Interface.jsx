@@ -16,11 +16,13 @@ import InfoPopup from '../InfoPopups/InfoPopup';
 import { AudioContext } from '../../../Context/AudioContext'; 
 import { BUTTON_PRESS } from '../../../Context/CommonConstants';
 import { SpacecraftContext } from '../../../Context/SpacecraftContext';
+import { DifficultyContext } from '../../../Context/DifficultyContext';
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
     const arViewRef = useARContext();
     const { activateComponent, activeComponents } = useContext(SpacecraftContext);
+    const { difficulty } = useContext(DifficultyContext);
     
     // Sound effects
     const { soundEffectsEnabled } = useContext(AudioContext);
@@ -123,6 +125,21 @@ const Interface = forwardRef((props, ref) => {
         window.location.href = 'https://psyche.asu.edu/mission/the-spacecraft/';
     };
 
+    // Helper function to generate instruction based on difficulty
+    const generateInstruction = (difficulty) => {
+        switch (difficulty) {
+            case 'Easy':
+                return 'Select the piece : Left Wing';
+            case 'Medium':
+                return 'Select the piece : Right Wing';
+            case 'Hard':
+                return 'Select the piece : Antenna';
+            default:
+                return '';
+        }
+    };
+
+
 
 
     return (
@@ -132,7 +149,9 @@ const Interface = forwardRef((props, ref) => {
                     <button className='return-home-button' onClick={handleBackButtonClick}><BackArrow /></button>
                     <button className='info-button' onClick={showInfoPopup}><InfoCircle /></button>
                 </div>
-
+                <div className="instruction">
+                    <p>{generateInstruction(difficulty)}</p>
+                </div>
                 {/* Conditionally render buttons if all components are NOT activated */}
                 {!allComponentsActivated() && (
                     <div className='button-container'>
