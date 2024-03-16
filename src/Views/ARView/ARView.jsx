@@ -53,7 +53,7 @@ const ARView = () => {
     const id = Date.now();
     setModels([...models, { position, id }]);
   };
-
+//A pop-up is displayed if the user tries to click the back button before exitiing the AR view
   const invokeFunctionInARView = () => {
     if (isPresenting) {
       window.alert("Please Exit AR before going back");
@@ -68,7 +68,7 @@ const ARView = () => {
       invokeFunctionInARView,
     };
   }, [arViewRef, isPresenting]);
-
+//returns model with lighting altered so that shadows appear on the model
   return (
     <>
       <OrbitControls />
