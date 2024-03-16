@@ -12,7 +12,7 @@ import Timer from './timer/Timer';
 
 const TriviaContainer = () => {
 
-    const TIMER_DURATION = 5; // Define timer duration as a constant variable
+    const TIMER_DURATION = 30; // Define timer duration as a constant variable
 
     const [difficulty, setDifficulty] = useState('');
     const [gameStarted, setGameStarted] = useState(false);
