@@ -7,6 +7,8 @@ import FinalScorePage from './final-score/FinalScorePage';
 import ProgressBar from './progress-bar/ProgressBar';
 import DifficultySelection from './difficulty-selection/DifficultySelection';
 import questions from '../../../public/trivia/TRIVIA_QUESTIONS.json';
+import EASY_QUESTIONS from '../../../public/trivia/EASY_TRIVIA_QUESTIONS.json';
+import ADVANCED_QUESTIONS from '../../../public/trivia/ADVANCED_TRIVIA_QUESTIONS.json';
 import "./TriviaStyles.css";
 import Timer from './timer/Timer';
 
@@ -55,19 +57,35 @@ const TriviaContainer = () => {
     };
 
     // Function to randomly select a question
-    const selectRandomQuestion = () => {
-        if (questionNumber < 10) {
-            const randomIndex = Math.floor(Math.random() * questions.length);
-            setCurrentQuestion(questions[randomIndex]);
-            setSelectedAnswer('');
-            setCorrectOption('');
-            setFeedback('');
-            setTimerDuration(TIMER_DURATION); // Reset timer duration
-        } else {
-            // Game ends after 10 questions
-            setGameOver(true);
-        }
-    };
+    // Function to randomly select a question based on difficulty
+const selectRandomQuestion = () => {
+    let selectedQuestions;
+    switch (difficulty) {
+        case 'easy':
+            selectedQuestions = EASY_QUESTIONS;
+            break;
+        case 'medium':
+        case 'hard':
+            selectedQuestions = ADVANCED_QUESTIONS;
+            break;
+        default:
+            selectedQuestions = questions; // Default to regular questions
+            break;
+    }
+
+    if (questionNumber < 10) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        setCurrentQuestion(selectedQuestions[randomIndex]);
+        setSelectedAnswer('');
+        setCorrectOption('');
+        setFeedback('');
+        setTimerDuration(TIMER_DURATION); // Reset timer duration
+    } else {
+        // Game ends after 10 questions
+        setGameOver(true);
+    }
+};
+
 
     // Function to handle answer selection
     const handleAnswerSelection = (answer) => {
