@@ -2,11 +2,13 @@ import React from 'react';
 import './SatellitePiecesPopup.css';
 import { SpacecraftIcons } from '../../../Context/CommonConstants';
 
+//Game Tile pop-up that states information on the antenna 
+//Includes a title, image of the instrument, description, and a button to close
 const AntennaPopup = ({ onClose }) => {
     return (
         <div className="popup-container">
             <div className="popup-content">
-                <div className="popup-title">
+                <div className="popup-title"> 
                     Antenna
                 </div>
       
