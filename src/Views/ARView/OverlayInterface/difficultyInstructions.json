@@ -1,0 +1,33 @@
+{
+    "Easy": {
+      "instructions": {
+        "LEFT_WING": "Select the component called the 'left wing'",
+        "RIGHT_WING": "Select the 'right wing' component next",
+        "GAMMA_RAY": "Select the 'gamma-ray' instrument",
+        "NEUTRON_SPECTROMETER": "Choose the 'neutron spectrometer' component",
+        "ANTENNA": "Select the 'antenna' component",
+        "BUS": "Select the 'bus' component"
+      }
+    },
+    "Medium": {
+      "instructions": {
+        "LEFT_WING": "Select the component called the 'left wing'",
+        "RIGHT_WING": "Select the 'right wing' component next",
+        "GAMMA_RAY": "Select the 'gamma-ray' instrument",
+        "NEUTRON_SPECTROMETER": "Choose the 'neutron spectrometer' component",
+        "ANTENNA": "Select the 'antenna' component",
+        "BUS": "Select the 'bus' component"
+      }
+    },
+    "Hard": {
+      "instructions": {
+        "LEFT_WING": "Select the component that contributes to flight on the left side",
+        "RIGHT_WING": "Select the component that contributes to flight on the right side",
+        "GAMMA_RAY": "Select the instrument that detects gamma rays",
+        "NEUTRON_SPECTROMETER": "Select the instrument that detects neutrons",
+        "ANTENNA": "Select the component that manages communication",
+        "BUS": "Select the component that coordinates and manages all functions of the spacecraft"
+      }
+    }
+}
+  
