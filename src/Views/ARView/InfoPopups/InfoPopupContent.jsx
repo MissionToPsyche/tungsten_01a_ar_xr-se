@@ -1,3 +1,4 @@
+//Text to be used for the info pop up during the game for users to reference on how to play the game
 export const popupText = [
   "Welcome to a game that takes you beyond reality! We need your help as we journey around the Psyche orbiter through the use of Augmented Reality (AR).",
   "Simply tap the “Enter AR” button located at the top of your screen to bring the orbiter to life.",
