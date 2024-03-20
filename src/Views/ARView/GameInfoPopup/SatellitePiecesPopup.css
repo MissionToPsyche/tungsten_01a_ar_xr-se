@@ -13,7 +13,7 @@
   }
   
   .popup-content {
-    background-image: url('/assets/space-background.jpg');
+    background-image: url('../../../Models/assets/space-background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

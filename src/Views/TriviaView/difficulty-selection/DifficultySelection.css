@@ -1,7 +1,7 @@
 .difficulty-container {
     display: flex;
     flex-direction: column;
-    background: url(assets/meteor2.png) bottom left no-repeat;
+    background: url(../../../Models/assets/meteor2.png) bottom left no-repeat;
     background-color: #433538;
     background-size: 90vw;
     height: 100vh;
