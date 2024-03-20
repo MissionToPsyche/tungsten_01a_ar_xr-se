@@ -1,7 +1,8 @@
 import React from 'react';
 import './SatellitePiecesPopup.css';
 import { SpacecraftIcons } from '../../../Context/CommonConstants';
-
+//Game Tile pop-up that states information on the neutron spectrometer
+//Includes a title, image of the instrument, description, and a button to close
 const NeutronSpectrometerPopup = ({ onClose }) => {
     return (
         <div className="popup-container">
