@@ -7,15 +7,15 @@
   left: "50%";
   right: 10;
   transform: "translate(-50%, -50%)";
-  margin-top: 0%;
+  margin-top: 0%; /* Margins to have pop-up fill the screen on any devices */
   margin-left: 0%;
   margin-right: 0%;
   margin-bottom: 0%;
   width: 100%; 
   height: 100%;
-  padding-right: 10;
+  padding-right: 10;/* Padding to have the pop-up centered on screen */
   padding-top: 15;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8); /* Faded color surrounding pop-up on larger screens */
   text-align: center;
   z-index: 999;
   pointer-events: none;
@@ -24,12 +24,12 @@
 .intro-background {
   padding: 10vh; 
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(0, 0, 0, 0.8); /* Pop-up background color */
   pointer-events: auto;
 }
 
 .intro-image {
-  background-color: #000000;
+  background-color: #000000;/* Color behind the orbiter image */
   object-fit: contain;
   text-align: center;
   margin: 2%;
@@ -39,11 +39,11 @@
 }
 
 .intro-content {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);/* Text background color */
 }
 
 .intro-content > h2 {
-  background-color: #000000;
+  background-color: #000000; /* Title background color */
   font-family: 'Trade Gothic Bold', sans-serif;
   font-size: 5vw; 
   margin: auto;
@@ -69,8 +69,8 @@
   margin: auto;
   width: 50%;
   padding: 2vw; 
-  background-color: #ffffff;
-  color: #ef5965;
+  background-color: #ffffff; /* Close button color */
+  color: #ef5965; /* Close Button Text color */
   border: none;
   cursor: pointer;
   text-align: center;
