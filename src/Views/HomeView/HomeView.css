@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    background: url(assets/meteor1.png) top right no-repeat;
+    background: url(meteor1.png) top right no-repeat;
     background-size: 95vw;
     background-color: #433538;
     flex-direction: column;
