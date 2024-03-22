@@ -17,6 +17,8 @@ import { AudioContext } from '../../../Context/AudioContext';
 import { BUTTON_PRESS } from '../../../Context/CommonConstants';
 import { SpacecraftContext } from '../../../Context/SpacecraftContext';
 import { DifficultyContext } from '../../../Context/DifficultyContext';
+import difficultyInstructions from './difficultyInstructions.json';
+
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
@@ -51,6 +53,16 @@ const Interface = forwardRef((props, ref) => {
         BUS: false
     });
 
+     // Instructions state
+    const [instructionsDisplayed, setInstructionsDisplayed] = useState({
+        LEFT_WING: false,
+        RIGHT_WING: false,
+        GAMMA_RAY: false,
+        NEUTRON_SPECTROMETER: false,
+        ANTENNA: false,
+        BUS: false
+    });
+
     // Modified Popup toggle functions
     const togglePopup = (componentName) => () => {
         playSound();
@@ -61,6 +73,13 @@ const Interface = forwardRef((props, ref) => {
         activateComponent(componentName, true);
         console.log("Active Components:", activeComponents);
         console.log('Toggled, button ' + componentName)
+
+        // Update instructions display status
+        setInstructionsDisplayed(prevState => ({
+            ...prevState,
+            [componentName]: true
+        }));
+    
 
         // Update corresponding popup state
         switch (componentName) {
@@ -126,19 +145,19 @@ const Interface = forwardRef((props, ref) => {
     };
 
     // Helper function to generate instruction based on difficulty
-    const generateInstruction = (difficulty) => {
-        switch (difficulty) {
-            case 'Easy':
-                return 'Select the piece : Left Wing';
-            case 'Medium':
-                return 'Select the piece : Right Wing';
-            case 'Hard':
-                return 'Select the piece : Antenna';
-            default:
-                return '';
+     // Generate instructions based on difficulty
+    const generateInstruction = () => {
+        if (difficulty && difficultyInstructions[difficulty]) {
+            const instructions = difficultyInstructions[difficulty].instructions;
+            // Find the next part that hasn't been displayed
+            for (let part in instructions) {
+                if (!instructionsDisplayed[part]) {
+                    return instructions[part];
+                }
+            }
         }
+        return '';
     };
-
 
 
 
