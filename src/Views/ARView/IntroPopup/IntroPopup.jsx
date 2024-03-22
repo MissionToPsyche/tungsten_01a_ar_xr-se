@@ -42,7 +42,6 @@ const IntroPopup = ({ onClose }) => {
             <p>Select a difficulty:</p>
             <div className="difficulty-selection">
               <button className="difficulty-button" onClick={() => handleSelectDifficulty('Easy')}>Easy</button>
-              <button className="difficulty-button" onClick={() => handleSelectDifficulty('Medium')}>Medium</button>
               <button className="difficulty-button" onClick={() => handleSelectDifficulty('Hard')}>Hard</button>
             </div>
         </div>
