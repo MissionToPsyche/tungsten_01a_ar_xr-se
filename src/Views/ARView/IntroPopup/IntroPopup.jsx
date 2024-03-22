@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import "./IntroPopup.css";
 import { AudioContext } from '../../../Context/AudioContext'; 
 import { BUTTON_PRESS } from '../../../Context/CommonConstants';
-
+//Sound effect for clicking is played when the close button is pressed
 const IntroPopup = ({ onClose }) => {
   const { soundEffectsEnabled } = useContext(AudioContext);
 
@@ -16,7 +16,7 @@ const IntroPopup = ({ onClose }) => {
     playSound();
     onClose();
   };
-
+//Pop-up explaining how to play the game. Has a picture of the orbiter, title, description, and close button.
   return (
     <div className="intro-container">
       <div className="intro-background">
