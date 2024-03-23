@@ -37,7 +37,7 @@ const HomeViewContainer = () => {
     return (
         <div className="container">
             <div className="header-section">
-                <h2>PSYCHE</h2>
+                <h2>PSYCHEE</h2>
                 <h3>Beyond Reality</h3>
             </div>
 
