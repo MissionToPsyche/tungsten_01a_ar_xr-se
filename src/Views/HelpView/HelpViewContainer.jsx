@@ -7,6 +7,10 @@ import { InstructionPictures } from "../../Context/CommonConstants";
 import { popupText } from "../ARView/InfoPopups/InfoPopupContent";
 import "./HelpView.css";
 
+/*
+  TODO: Place informative comment here.
+*/
+
 const HelpViewContainer = () => {
   const { soundEffectsEnabled } = useContext(AudioContext);
   const navigate = useNavigate();
