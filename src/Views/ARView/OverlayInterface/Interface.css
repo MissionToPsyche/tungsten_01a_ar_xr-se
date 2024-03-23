@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-.select-button.button-clicked {
+.select-button.button-clicked {/* Color of tile changes when user clicks on it */
     background-color: #5A2752;
     color: white;
 }
@@ -82,7 +82,7 @@
   height: auto;
   font-size: 8vw; 
   padding: 1% 2%; 
-  color: white;
+  color: white; /* Color of back button and info button in top corners */
   background: none;
   border: none;
 }
@@ -103,12 +103,12 @@
   overflow: hidden; 
 }
 
-.restart-button {
-  background-color: #5A2752; 
-  color: white; 
+.restart-button {/* Button to restart the orbiter game */
+  background-color: #5A2752; /* Color of restart button */
+  color: white; /* Color of restart button text */
 }
 
-.go-to-website-button {
+.go-to-website-button {/* Button to navigate to the website after the game ends */
   background-color: #5A2752; 
   color: white; 
 }
@@ -124,3 +124,4 @@
     width: 200px; /* Sets a larger fixed width for each button on larger screens */
   }
 }
+
