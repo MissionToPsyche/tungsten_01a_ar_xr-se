@@ -37,12 +37,13 @@ const HomeViewContainer = () => {
     return (
         <div className="container">
             <div className="header-section">
-                <h2>PSYCHE</h2>
+                <h2>PSYCHEE</h2>
                 <h3>Beyond Reality</h3>
             </div>
 
             <div className="button-section">
                 <button onClick={() => { playSound(); navigate('/ar'); }} type="button">PLAY</button>
+                <button onClick={() => { playSound(); navigate('/trivia'); }} type="button">TRIVIA</button>
                 <button onClick={() => { playSound(); navigate('/help'); }} type="button">HELP</button>
                 <button onClick={() => { playSound(); navigate('/settings'); }} type="button">SETTINGS</button>
             </div>
