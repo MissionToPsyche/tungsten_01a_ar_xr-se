@@ -8,7 +8,11 @@ import { popupText } from "../ARView/InfoPopups/InfoPopupContent";
 import "./HelpView.css";
 
 /*
-  TODO: Place informative comment here.
+  Help View Main Container
+
+  Displays textual and image instructions on how to use application.
+
+  Source images are located in /Context/CommonConstants/InstructionPictures.
 */
 
 const HelpViewContainer = () => {
