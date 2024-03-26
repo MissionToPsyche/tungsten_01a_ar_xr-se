@@ -7,6 +7,14 @@ import { InstructionPictures } from "../../Context/CommonConstants";
 import { popupText } from "../ARView/InfoPopups/InfoPopupContent";
 import "./HelpView.css";
 
+/*
+  Help View Main Container
+
+  Displays textual and image instructions on how to use application.
+
+  Source images are located in /Context/CommonConstants/InstructionPictures.
+*/
+
 const HelpViewContainer = () => {
   const { soundEffectsEnabled } = useContext(AudioContext);
   const navigate = useNavigate();
