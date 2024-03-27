@@ -16,11 +16,15 @@ import InfoPopup from '../InfoPopups/InfoPopup';
 import { AudioContext } from '../../../Context/AudioContext'; 
 import { BUTTON_PRESS } from '../../../Context/CommonConstants';
 import { SpacecraftContext } from '../../../Context/SpacecraftContext';
+import { DifficultyContext } from '../../../Context/DifficultyContext';
+import difficultyInstructions from './difficultyInstructions.json';
+
 
 const Interface = forwardRef((props, ref) => {
     const navigate = useNavigate();
     const arViewRef = useARContext();
     const { activateComponent, activeComponents } = useContext(SpacecraftContext);
+    const { difficulty } = useContext(DifficultyContext);
     
     // Sound effects
     const { soundEffectsEnabled } = useContext(AudioContext);
@@ -49,17 +53,39 @@ const Interface = forwardRef((props, ref) => {
         BUS: false
     });
 
-    // Modified Popup toggle functions
+     // Instructions state
+    const [instructionsDisplayed, setInstructionsDisplayed] = useState({
+        LEFT_WING: false,
+        RIGHT_WING: false,
+        GAMMA_RAY: false,
+        NEUTRON_SPECTROMETER: false,
+        ANTENNA: false,
+        BUS: false
+    });
+
     const togglePopup = (componentName) => () => {
         playSound();
+    
+        // Check if the selected popup matches with the instruction's component
+        const currentInstruction = generateInstruction();
+        if (currentInstruction.component !== componentName) {
+            console.log('Incorrect component selected');
+            alert('Incorrect component selected');
+            return;
+        }
+    
         setButtonClicked(prevState => ({
             ...prevState,
             [componentName]: true
         }));
         activateComponent(componentName, true);
-        console.log("Active Components:", activeComponents);
-        console.log('Toggled, button ' + componentName)
-
+    
+        // Update instructions display status
+        setInstructionsDisplayed(prevState => ({
+            ...prevState,
+            [componentName]: true
+        }));
+    
         // Update corresponding popup state
         switch (componentName) {
             case 'LEFT_WING':
@@ -84,6 +110,8 @@ const Interface = forwardRef((props, ref) => {
                 break;
         }
     };
+    
+    
 
     // Handle back button click
     const handleBackButtonClick = () => {
@@ -111,17 +139,32 @@ const Interface = forwardRef((props, ref) => {
 
     // Function to restart/play again
     const handleRestart = () => {
-        // TODO: Implement restart functionality here
         console.log('Restarting...');
+        playSound();
         // Reload the page to restart the game
         window.location.reload();
     };
 
     // Function to navigate to the Psyche website 
     const handleGoToWebsite = () => {
+        playSound();
         window.location.href = 'https://psyche.asu.edu/mission/the-spacecraft/';
     };
 
+    // Helper function to generate instruction based on difficulty
+    const generateInstruction = () => {
+        if (difficulty && difficultyInstructions[difficulty]) {
+            const instructions = difficultyInstructions[difficulty].instructions;
+            // Find the next part that hasn't been displayed
+            for (let instruction of instructions) {
+                if (!instructionsDisplayed[instruction.component]) {
+                    return instruction.instruction;
+                }
+            }
+        }
+        return '';
+    };
+    
 
 
     return (
@@ -131,7 +174,9 @@ const Interface = forwardRef((props, ref) => {
                     <button className='return-home-button' onClick={handleBackButtonClick}><BackArrow /></button>
                     <button className='info-button' onClick={showInfoPopup}><InfoCircle /></button>
                 </div>
-
+                <div className="instruction">
+                    <p>{generateInstruction(difficulty)}</p>
+                </div>
                 {/* Conditionally render buttons if all components are NOT activated */}
                 {!allComponentsActivated() && (
                     <div className='button-container'>
