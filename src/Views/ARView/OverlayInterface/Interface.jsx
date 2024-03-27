@@ -63,24 +63,29 @@ const Interface = forwardRef((props, ref) => {
         BUS: false
     });
 
-    // Modified Popup toggle functions
     const togglePopup = (componentName) => () => {
         playSound();
+    
+        // Check if the selected popup matches with the instruction's component
+        const currentInstruction = generateInstruction();
+        if (currentInstruction.component !== componentName) {
+            console.log('Incorrect component selected');
+            alert('Incorrect component selected');
+            return;
+        }
+    
         setButtonClicked(prevState => ({
             ...prevState,
             [componentName]: true
         }));
         activateComponent(componentName, true);
-        console.log("Active Components:", activeComponents);
-        console.log('Toggled, button ' + componentName)
-
+    
         // Update instructions display status
         setInstructionsDisplayed(prevState => ({
             ...prevState,
             [componentName]: true
         }));
     
-
         // Update corresponding popup state
         switch (componentName) {
             case 'LEFT_WING':
@@ -105,6 +110,8 @@ const Interface = forwardRef((props, ref) => {
                 break;
         }
     };
+    
+    
 
     // Handle back button click
     const handleBackButtonClick = () => {
@@ -145,20 +152,19 @@ const Interface = forwardRef((props, ref) => {
     };
 
     // Helper function to generate instruction based on difficulty
-     // Generate instructions based on difficulty
     const generateInstruction = () => {
         if (difficulty && difficultyInstructions[difficulty]) {
             const instructions = difficultyInstructions[difficulty].instructions;
             // Find the next part that hasn't been displayed
-            for (let part in instructions) {
-                if (!instructionsDisplayed[part]) {
-                    return instructions[part];
+            for (let instruction of instructions) {
+                if (!instructionsDisplayed[instruction.component]) {
+                    return instruction.instruction;
                 }
             }
         }
         return '';
     };
-
+    
 
 
     return (
