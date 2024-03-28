@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     justify-content: space-between;
-    background: url(assets/meteor2.png) bottom left no-repeat;
+    background: url(/assets/meteor2.png) bottom left no-repeat;
     background-color: #433538;
     background-size: 90vw;
     height: 100vh;
@@ -87,7 +87,7 @@
 
 /* .settings-container {
     display: flex;
-    background: url(assets/meteor2.png) bottom left no-repeat;
+    background: url(/assets/meteor2.png) bottom left no-repeat;
     background-color: #433538;
     flex-direction: column;
     min-height: 100vh; 

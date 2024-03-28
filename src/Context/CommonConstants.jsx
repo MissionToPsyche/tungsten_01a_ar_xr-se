@@ -1,10 +1,10 @@
 const SpacecraftIcons = {
-    ANTENNA: 'public/icons/antenna.png',
-    BUS: 'public/icons/bus_with_structure.png',
-    GAMMA_RAY: 'public/icons/gamma_ray.png',
-    LEFT_WING: 'public/icons/left_wing.png',
-    NEUTRON_SPECTROMETER: 'public/icons/neutron_spectrometer.png',
-    RIGHT_WING: 'public/icons/right_wing.png',
+    ANTENNA: '/Icons/antenna.png',
+    BUS: '/Icons/bus_with_structure.png',
+    GAMMA_RAY: '/Icons/gamma_ray.png',
+    LEFT_WING: '/Icons/left_wing.png',
+    NEUTRON_SPECTROMETER: '/Icons/neutron_spectrometer.png',
+    RIGHT_WING: '/Icons/right_wing.png',
   };
   
  const SpacecraftComponents = {
@@ -17,9 +17,9 @@ const SpacecraftIcons = {
   };
 
   const InstructionPictures = {
-    TILE: 'public/pictures/HelpPage2.png',
-    SHADE_COLOR: ' public/pictures/ShadetoColor2.png',
-    NEW_SHADE_COLOR: ' public/pictures/NewShadetoColor3.png'
+    TILE: '/pictures/HelpPage2.png',
+    SHADE_COLOR: ' /pictures/ShadetoColor2.png',
+    NEW_SHADE_COLOR: ' /pictures/NewShadetoColor3.png'
   }
 
   

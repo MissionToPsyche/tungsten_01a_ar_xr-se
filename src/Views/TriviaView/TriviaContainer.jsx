@@ -6,7 +6,7 @@ import { BUTTON_PRESS } from '../../Context/CommonConstants';
 import FinalScorePage from './final-score/FinalScorePage';
 import ProgressBar from './progress-bar/ProgressBar';
 import DifficultySelection from './difficulty-selection/DifficultySelection';
-import questions from '../../../public/trivia/TRIVIA_QUESTIONS.json';
+import questions from './trivia/TRIVIA_QUESTIONS.json';
 import "./TriviaStyles.css";
 import Timer from './timer/Timer';
 

@@ -4,8 +4,8 @@ export const AudioContext = createContext();
 
 export const AudioProvider = ({ children }) => {
     const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-    const [audio] = useState(new Audio('../public/audio/space_music.mp3'));
-    const [soundEffectsEnabled, setSoundEffectsEnabled] = useState(true); 
+    const [audio] = useState(new Audio('/audio/space_music.mp3'));
+    const [soundEffectsEnabled, setSoundEffectsEnabled] = useState(true);
 
     useEffect(() => {
         audio.loop = true;
